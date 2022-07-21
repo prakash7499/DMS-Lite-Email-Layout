@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Upload Files</title>
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="dist/css/style.css">
+  <link rel="stylesheet" href="dist/css/fluent.css">
+  <style type="text/css">
+ 
+</style>
+</head>
+<body class="hold-transition sidebar-mini sidebar-collapse">
+<div class="wrapper">
+  <!-- Navbar -->
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <form class="form-inline ml-3">
+      <div class="input-group input-group-sm search">
+        <input class="form-control form-control-navbar" style="min-width:450px" type="search" placeholder="Search" aria-label="Search">
+        <div class="input-group-append">
+          <button class="btn btn-navbar" type="submit">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+      </div>
+    </form>
+
+    <!-- Right navbar links -->
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item dropdown">
+            <a class="nav-link repo-update" data-toggle="dropdown" href="#" >
+                LFPROD <i class="fa fa-chevron-down"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+              <a href="#" class="dropdown-item">
+                 DemoRepo
+              </a>
+              <div class="dropdown-divider"></div>
+              <a href="#" class="dropdown-item">
+                  UatRepo
+               </a>
+            </div>
+          </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#">
+            <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image" style="max-width:30px">
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <a href="#" class="dropdown-item">
+             Logout
+          </a>
+          <div class="dropdown-divider"></div>
+         
+        </div>
+      </li>
+    </ul>
+  </nav>
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="#" class="brand-link">
+      <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <span class="brand-text font-weight-light">Dfx Suite</span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+     <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column">
+            <li class="nav-item">
+              <a href="index.html" class="nav-link">
+                <i class="nav-icon fas fa-tachometer-alt"></i>
+                <p>
+                  Dashboard
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="search-detail.html" class="nav-link">
+                <i class="nav-icon fa fa-search"></i>
+                <p>
+                  Search
+                </p>
+              </a>
+            </li>
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Upload Files</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Upload Files</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-5">
+
+            <!-- Profile Image -->
+            <div class="card card-primary card-outline">
+              <div class="card-header">
+                <h5 class="M0">Upload File[s] to DMS</h5>
+              </div>
+              <div class="card-body">
+                <div class="row">
+                  <form>
+                  <div class="col-12">
+                      <div class="upload-file">
+                          <div class="upload-wrapper" id=>
+                              <label>
+                                  <input type="file" name="files[]" id="files" multiple >
+                                  <p>Drop your files here. <br>or <a>Browse</a></p>
+                              </label>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-12">
+                      <div class="row">
+                          <div class="col-12">
+                              <h5 style="margin-top:20px">Uploaded Files</h5>
+                          </div>
+                      </div>
+                      <output id="image-gallery"></output>
+                  </div>
+                </form>
+              </div>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+          <div class="col-md-7">
+            <div class="card">
+              <div class="card-header">
+                <h5 class="M0">Select Template Mode</h5>
+              </div>
+              <div class="card-body">
+                <div class="form-group row pb-20">
+                  <select multiple class="form-control">
+                    <option>option 1</option>
+                    <option>option 2</option>
+                    <option>option 3</option>
+                    <option>option 4</option>
+                    <option>option 5</option>
+                  </select>
+                </div>
+                <div class="form-group row">
+                  <label for="inputName" class="col-sm-2 col-form-label">Template</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="inputName" placeholder="Name">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-12 text-right">
+                    <button type="submit" class="btn btn-success">Save</button>
+                  </div>
+                </div>
+              </div><!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  <footer class="main-footer">
+    <div class="float-right d-none d-sm-block">
+      <b>Version</b> 3.1.0-rc
+    </div>
+    <strong>Copyright &copy; 2014-2020 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+  </footer>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<script src="plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="dist/js/demo.js"></script>
+<script src="dist/js/upload.js"></script>
+<script>
+  var imgUpload = document.getElementById('files'), 
+  imgPreview = document.getElementById('img_preview'), 
+  imgUploadForm = document.getElementById('img-upload-form'), 
+  totalFiles, previewTitle, previewTitleText, img;
+imgUpload.addEventListener('change', previewImgs, false);
+imgUploadForm.addEventListener('submit', function (e) {
+  e.preventDefault();
+  alert('Images Uploaded! (not really, but it would if this was on your website)');
+}, false);
+
+function previewImgs(event) {
+  totalFiles = imgUpload.files.length;
+  
+  if(!!totalFiles) {
+    imgPreview.classList.remove('quote-imgs-thumbs--hidden');
+    previewTitle = document.createElement('p');
+    previewTitle.style.fontWeight = 'bold';
+    previewTitleText = document.createTextNode(totalFiles + ' Total Images Selected');
+    previewTitle.appendChild(previewTitleText);
+    imgPreview.appendChild(previewTitle);
+  }
+  
+  for(var i = 0; i < totalFiles; i++) {
+    img = document.createElement('img');
+    img.src = URL.createObjectURL(event.target.files[i]);
+    img.classList.add('img-preview-thumb');
+    imgPreview.appendChild(img);
+  }
+}
+</script>
+</body>
+</html>

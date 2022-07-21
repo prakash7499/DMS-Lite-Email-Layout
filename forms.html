@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Search Results</title>
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="plugins/select2/css/select2.min.css">
+  <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+  <link rel="stylesheet" href="plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+  <link rel="stylesheet" href="plugins/dropzone/dropzone.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="dist/css/adminlte.min.css">
+
+  
+  <link rel="stylesheet" href="dist/css/tree.css">
+  <link rel="stylesheet" href="dist/css/themify-icons.css">
+  <link rel="stylesheet" href="dist/css/style.css">
+  <style>
+    .file-upload {
+      min-height: 500px;
+      background: url(upload.png);
+      background-position: center center;
+      background-repeat: no-repeat;
+    }
+  </style>
+</head>
+
+<body class="hold-transition">
+  <div class="wrapper reactive-app">
+    <!-- Navbar -->
+    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+
+      <!-- Right navbar links -->
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link" data-toggle="dropdown" href="#">
+            <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image"
+              style="max-width:30px">
+          </a>
+          <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+            <a href="#" class="dropdown-item">
+              Logout
+            </a>
+            <div class="dropdown-divider"></div>
+
+          </div>
+        </li>
+      </ul>
+    </nav>
+    <!-- /.navbar -->
+
+    <!-- Main Sidebar Container -->
+    <aside class="main-sidebar ">
+      <div class="sidemenu-logo"> <a class="main-logo" href="index.html">
+          <img src="dist/img/icon.png" alt="" class="brand-image"> </a>
+      </div>
+      <!-- Sidebar -->
+      <div class="sidebar sidebar-body">
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+          <ul class="nav nav-pills nav-sidebar flex-column">
+            <li class="nav-item ">
+              <a class="nav-link" href="index.html">
+                <i class="ti-home sidemenu-icon"></i>
+                <span class="sidemenu-label">Dashboard</span>
+              </a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="explorer.html">
+                <i class="ti-folder sidemenu-icon"></i>
+                <span class="sidemenu-label">Explorer</span>
+              </a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link" href="search.html">
+                <i class="ti-search sidemenu-icon"></i>
+                <span class="sidemenu-label">Search DMS</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="upload.html">
+                <i class="ti-upload sidemenu-icon"></i>
+                <span class="sidemenu-label">Upload Files</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <i class="ti-user sidemenu-icon"></i>
+                <span class="sidemenu-label">User Profile</span>
+              </a>
+            </li>
+            <li class="nav-item with-sub">
+              <a class="nav-link" href="profile.html">
+                <i class="ti-settings sidemenu-icon"></i>
+                <span class="sidemenu-label">Admin Tools</span>
+              </a>
+              <ul class="nav-sub">
+                <li class="nav-sub-item"> <a class="nav-sub-link" href="#">Settings</a> </li>
+                <li class="nav-sub-item"> <a class="nav-sub-link" href="#">Users</a> </li>
+                <li class="nav-sub-item"> <a class="nav-sub-link" href="#">Login Logs</a> </li>
+                <li class="nav-sub-item"> <a class="nav-sub-link" href="#">Logs</a> </li>
+              </ul>
+            </li>
+          </ul>
+          
+        </nav>
+        <!-- /.sidebar-menu -->
+      </div>
+      <!-- /.sidebar -->
+    </aside>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <!-- Main content -->
+      <section class="content">
+        <div class="container-fluid P0">
+          <div class="row">
+            <div class="col-12">
+              <div class="card card-primary card-outline card-outline-tabs">
+                <div class="card-header p-0 border-bottom-0">
+                  
+                </div>
+                <div class="card-body P0">
+                  <div class="row">
+                    <div class="filter-container">
+                      <input
+                        type="text"
+                        name="filter"
+                        id="filter"
+                        class="filter"
+                        placeholder="Filter Forms..."
+                      />
+                    </div>
+                    <div id="posts-container"></div>
+                    <div class="loader" id="loader">
+                      <div class="circle"></div>
+                      <div class="circle"></div>
+                      <div class="circle"></div>
+                    </div>
+                  </div>
+                </div>
+                <!-- /.card -->
+              </div>
+
+            </div>
+          </div>
+          <!-- /.row -->
+        </div>
+        <!-- /.container-fluid -->
+      </section>
+      <!-- /.content -->
+    </div>
+    <div class="modal fade" id="modal-lg">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Column Visibility</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div id="shared-lists" class="row">
+              <div class="col">
+                <h5>Available Columns</h5>
+                <form class="mb-3">
+                  <div class="input-group">
+                    <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+                    <div class="input-group-append">
+                      <button class="btn btn-search" type="submit">
+                        <i class="fas fa-search"></i>
+                      </button>
+                    </div>
+                  </div>
+                </form>
+
+                <div id="available-columns" class="list-group">
+                  <div class="list-group-item">Item 1</div>
+                  <div class="list-group-item">Item 2</div>
+                  <div class="list-group-item">Item 3</div>
+                  <div class="list-group-item">Item 4</div>
+                  <div class="list-group-item">Item 5</div>
+                  <div class="list-group-item">Item 6</div>
+                </div>
+              </div>
+              <div class="col">
+                <h5>Available Columns</h5>
+                <form class="mb-3">
+                  <div class="input-group">
+                    <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+                    <div class="input-group-append">
+                      <button class="btn btn-search" type="submit">
+                        <i class="fas fa-search"></i>
+                      </button>
+                    </div>
+                  </div>
+                </form>
+
+                <div id="selected-columns" class="list-group">
+                  <div class="list-group-item tinted">Item 1</div>
+                  <div class="list-group-item tinted">Item 2</div>
+                  <div class="list-group-item tinted">Item 3</div>
+                  <div class="list-group-item tinted">Item 4</div>
+                  <div class="list-group-item tinted">Item 5</div>
+                  <div class="list-group-item tinted">Item 6</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer justify-content-between">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+        <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+    </div>
+    <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn">&times;</a>
+      <div class="card card-primary card-outline card-outline-tabs no-shadow">
+        <div class="card-header p-0 border-bottom-0">
+          <h4 class="side-nav-header">File Details</h4>
+          <a class="close_controlbar" onclick="closeNav()" data-widget="control-sidebar" data-slide="true" href="#"
+            role="button">
+            <i class="fas fa-times"></i>
+          </a>
+          <ul class="nav nav-tabs pt-4" id="custom-tabs" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" id="base_tab" data-toggle="pill" href="#rbase" role="tab" aria-controls="base"
+                aria-selected="true">Base</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="metadata-tab" data-toggle="pill" href="#rmetadata" role="tab"
+                aria-controls="metadata" aria-selected="false">Metadata</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="preview-tab" data-toggle="pill" href="#rpreview" role="tab"
+                aria-controls="preview" aria-selected="false">Preview</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="links-tab" data-toggle="pill" href="#rlinks" role="tab" aria-controls="links"
+                aria-selected="false">Links</a>
+            </li>
+          </ul>
+        </div>
+        <div class="card-body">
+          <div class="tab-content" id="result-tabContent">
+            <div class="tab-pane fade show active" id="rbase" role="tabpanel" aria-labelledby="base_tab">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Entry ID">
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Name">
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Extension">
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Created On">
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Created By">
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Last Modified On">
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Last Modified By">
+              </div>
+            </div>
+            <div class="tab-pane fade" id="rmetadata" role="tabpanel" aria-labelledby="metadata-tab">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Client ID">
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Client Name">
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Document Type">
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Document SUb Type">
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Dfx Security Code">
+              </div>
+            </div>
+            <div class="tab-pane fade" id="rpreview" role="tabpanel" aria-labelledby="preview-tab">
+              <div class="card-body text-center">
+                <img src="dist/img/default-150x150.png">
+              </div>
+            </div>
+            <div class="tab-pane fade" id="rlinks" role="tabpanel" aria-labelledby="links-tab">
+              <div class="form-group row">
+                <div class="col-md-8 select-btns">
+                  <div class="custom-control custom-radio" style="padding-left:5px">
+                    <input class="custom-control-input" type="radio" id="customRadio1" name="customRadio">
+                    <label for="customRadio1" class="custom-control-label">Document Relationship</label>
+                  </div>
+                  <div class="custom-control custom-radio">
+                    <input class="custom-control-input" type="radio" id="customRadio2" name="customRadio" checked>
+                    <label for="customRadio2" class="custom-control-label">Link Group</label>
+                  </div>
+                </div>
+                <div class="col-md-4 text-right">
+                  <button class="btn btn-default btn-sm" data-tooltip="Add New"><i class="fa fa-plus"></i></button>
+                  <button class="btn btn-default btn-sm" data-tooltip="Edit"><i class="fa fa-edit"></i></button>
+                  <button class="btn btn-danger btn-sm" data-tooltip="Delete"><i class="fa fa-trash"></i></button>
+                </div>
+              </div>
+              <table class="table table-bordered table-hover table-sm">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Relationship Type</th>
+                    <th>Reverse Relationship</th>
+                    <th>Path</th>
+                    <th>Custom Properties</th>
+                    <th>Comments</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>DS browser</td>
+                    <td>Nintendo </td>
+                    <td>Nintendo DS</td>
+                    <td>8.5</td>
+                    <td>C/A</td>
+                    <td>CA</td>
+                  </tr>
+                  <tr>
+                    <td>Konqureror</td>
+                    <td>Konqureror</td>
+                    <td>KDE 3.1</td>
+                    <td>3.1</td>
+                    <td>C</td>
+                    <td>CA</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <!-- <div class="sidefooter"><a class="btn btn-primary control-save">Save</a></div> -->
+          </div>
+        </div>
+      </div>
+      <!-- /.card -->
+    </div>
+  </div>
+  <!--End Sidebar-->
+  <footer class="main-footer text-center">
+    <strong>Copyright &copy; 2020.</strong> All rights reserved.
+  </footer>
+  </div>
+  <!-- ./wrapper -->
+
+  <!-- jQuery -->
+  <script src="plugins/jquery/jquery.min.js"></script>
+  <!-- Bootstrap 4 -->
+  <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="plugins/select2/js/select2.full.min.js"></script>
+  <script src="plugins/moment/moment.min.js"></script>
+  <script src="plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+  <script src="plugins/dropzone/min/dropzone.min.js"></script>
+  <!-- AdminLTE App -->
+  <script src="dist/js/adminlte.min.js"></script>
+  <!-- AdminLTE for demo purposes -->
+  <script src="dist/js/split.min.js"></script>
+  <script src="dist/js/Sortable.js"></script>
+  <script src="dist/js/contextMenu.min.js"></script>
+  <script src="https://www.w3.org/TR/wai-aria-practices/examples/treeview/treeview-1/js/tree.js"></script>
+  <script src="https://www.w3.org/TR/wai-aria-practices/examples/treeview/treeview-1/js/treeitem.js"></script>
+  <script src="https://www.w3.org/TR/wai-aria-practices/examples/treeview/treeview-1/js/treeitemClick.js"></script>
+  <script>
+    //Filter Starts
+    const postsContainer = document.getElementById("posts-container");
+      const loading = document.getElementById("loader");
+      const filter = document.getElementById("filter");
+
+      let limit = 5;
+      let page = 1;
+      let isLoading = false;
+
+      async function getPosts() {
+        const res = await fetch(
+          `https://jsonplaceholder.typicode.com/posts?_limit=${limit}&_page=${page}`
+        );
+        const data = await res.json();
+        return data;
+      }
+
+      function capitalize(text) {
+        return text.charAt(0).toUpperCase() + text.slice(1);
+      }
+
+      async function showPosts() {
+        const posts = await getPosts();
+        posts.forEach((post) => {
+          const postEl = document.createElement("div");
+          postEl.classList.add("post");
+          postEl.innerHTML = `
+            <div class="post-info">
+              <div class="post-content">
+                <div class="post-icon"><i class="ti-search"></i></div>
+                <h2 class="post-title">${capitalize(post.title)}</h2>
+                <p class="post-body">${capitalize(post.body)}</p>
+              <div>
+            </div>
+          `;
+          postsContainer.appendChild(postEl);
+        });
+      }
+
+      function showLoading() {
+        isLoading = true;
+        loader.classList.add("show");
+        setTimeout(() => {
+          loader.classList.remove("show");
+          setTimeout(() => {
+            page++;
+            showPosts();
+          }, 300);
+          isLoading = false;
+        }, 1000);
+      }
+
+      function filterPosts(e) {
+        console.log("running");
+        const term = e.target.value.toUpperCase();
+        const posts = document.querySelectorAll(".post");
+        posts.forEach((post) => {
+          const title = post.querySelector(".post-title").innerText.toUpperCase();
+          const body = post.querySelector(".post-body").innerText.toUpperCase();
+          if (title.indexOf(term) > -1 || body.indexOf(term) > -1) {
+            post.style.display = "inline-flex";
+          } else {
+            post.style.display = "none";
+          }
+        });
+      }
+
+      window.addEventListener("scroll", () => {
+        const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+        if (scrollTop + clientHeight >= scrollHeight - 5 && !isLoading) showLoading();
+      });
+
+      filter.addEventListener("input", filterPosts);
+
+      // Init
+      showPosts();
+
+      //Filter Ends
+    $(document).ready(function(){
+      
+      var submitIcon = $('.searchbox-icon');
+      var inputBox = $('.searchbox-input');
+      var searchBox = $('.searchbox');
+      var isOpen = false;
+      submitIcon.click(function(){
+        //$(".wintitle").toggle();
+          if(isOpen == false){
+              searchBox.addClass('searchbox-open');
+              inputBox.focus();
+              isOpen = true;
+          } else {
+              searchBox.removeClass('searchbox-open');
+              inputBox.focusout();
+              isOpen = false;
+          }
+      });  
+        submitIcon.mouseup(function(){
+              return false;
+          });
+      searchBox.mouseup(function(){
+              return false;
+          });
+      $(document).mouseup(function(){
+              if(isOpen == true){
+                  $('.searchbox-icon').css('display','block');
+                  submitIcon.click();
+              }
+          });
+       });
+      function buttonUp(){
+          var inputVal = $('.searchbox-input').val();
+          inputVal = $.trim(inputVal).length;
+          if( inputVal !== 0){
+              $('.searchbox-icon').css('display','none');
+          } else {
+              $('.searchbox-input').val('');
+              $('.searchbox-icon').css('display','block');
+          }
+      }
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "350px";
+      document.getElementById("mySidenav").classList.add("opendiv");
+      document.getElementById("mySidenav").classList.remove("closediv");
+      document.body.style.backgroundColor = "white";
+    }
+
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+      document.getElementById("mySidenav").classList.add("closediv");
+      document.getElementById("mySidenav").classList.remove("opendiv");
+      document.body.style.backgroundColor = "white";
+    }
+  </script>
+  <script type="text/javascript">
+    var data = [
+      [
+        {
+          text: "<i class='fa fa-eye site-cm-icon'></i>View",
+          action: function () {
+            console.log("1");
+          }
+        },
+        {
+          text: "<i class='fa fa-copy site-cm-icon'></i>Open"
+        },
+        {
+          text: "<i class='fa fa-paste site-cm-icon'></i>Open With",
+          action: function () {
+            console.log("2");
+          }
+        }
+      ],
+      [
+        {
+          text: "<i class='fa fa-bold site-cm-icon'></i>Checkout"
+        },
+      ]
+    ];
+
+
+    $("#searchresult1").contextMenu(data);
+  </script>
+  <script>
+    $(document).ready(function () {
+      $('#custom-tabs a[data-toggle="pill"]').on('shown.bs.tab', function (e) {
+        var target = $(e.target).attr("href") // activated tab
+        if (target == "#rlinks") {
+          document.getElementById("mySidenav").style.width = "60%";
+        } else {
+          document.getElementById("mySidenav").style.width = "350px";
+        }
+        //alert(target);
+      });
+      $('.close-doc').click(function () {
+        $('.preview-frame, .close-doc').hide()
+        $('#result5-tab').hide()
+        $('#result2-tab').tab('show');
+      });
+      //$( "#" ).load( "ajax/https://fontawesome.com/" );
+      $('.folder-tree li').click(function (evt) {
+        evt.stopPropagation();
+        $(this).toggleClass('expanded');
+      });
+      $('#three, #search1_meta').hide()
+      //$('.show_workspace, .show_search1_left').hide();
+
+      $('.select2').select2()
+      $('#explorer_table').click(function () {
+        $('.gutter').remove()
+        if ($('#one').css('display') == 'none') {
+          //$('#three').show()
+          Split(['#two'], {
+            sizes: [100],
+            minSize: 200,
+            gutterSize: 5,
+          })
+        } else {
+          // $('#three').show()
+          //   Split(['#one', '#two', '#three'], {
+          //     sizes: [25, 50, 25],
+          //     minSize: 200,
+          //     gutterSize: 10,
+          // })
+        }
+
+      })
+      //   $('#closeexplorer').click(function(){
+      //     $('.gutter').remove()
+      //     $('#three').hide()
+      //     $('#one').show()
+      //     $('.show_workspace').hide();
+      //     Split(['#one', '#two'], {
+      //       sizes: [25, 75],
+      //       minSize: 200,
+      //       gutterSize: 10,
+      //   })
+      // })
+      $('.show_workspace').click(function () {
+        $('.gutter').remove()
+        $('#one').show()
+        $('.show_workspace').hide();
+        Split(['#one', '#two'], {
+          sizes: [25, 75],
+          minSize: 200,
+          gutterSize: 5,
+        })
+      })
+      $('.close_workspace').click(function () {
+        $('.show_workspace').show();
+        $('.gutter').remove()
+        $('#one').hide()
+        Split(['#two'], {
+          sizes: [100],
+          minSize: 200,
+          gutterSize: 5,
+        })
+      })
+
+
+      //   $('#searchresult1_table').click(function(){
+      //     $('.gutter').remove()
+      //     if($('#search1_left').css('display') == 'none'){ 
+      //       $('#search1_meta').show()
+      //       Split(['#search1_right', '#search1_meta'], {
+      //         sizes: [75, 25],
+      //         minSize: 200,
+      //         gutterSize: 10,
+      //       })
+      // } else { 
+      //   $('#search1_meta').show()
+      //     Split(['#search1_left', '#search1_right'], {
+      //       sizes: [35, 65],
+      //       minSize: 200,
+      //       gutterSize: 10,
+      //   })
+      // }
+
+      //   })
+
+      $('#closesearch1').click(function () {
+        $('.gutter').remove()
+        $('#search1_meta, .show_search1_left').hide()
+        $('#search1_left').show()
+        Split(['#search1_left', '#search1_right'], {
+          sizes: [35, 65],
+          minSize: 200,
+          gutterSize: 5,
+        })
+      })
+      $('.close_search1_left').click(function () {
+        $('.gutter').remove()
+        $('#search1_left').hide()
+        $('#search1_left').addClass('closed')
+        $('.show_search1_left').show()
+        Split(['#search1_right'], {
+          sizes: [100],
+          minSize: 200,
+          gutterSize: 5,
+        })
+      })
+      $('.show_search1_left').click(function () {
+        $('.gutter').remove()
+        $('#search1_left').show()
+        $('.show_search1_left').hide();
+        Split(['#search1_left', '#search1_right'], {
+          sizes: [35, 65],
+          minSize: 200,
+          gutterSize: 5,
+        })
+      })
+      Split(['#one', '#two'], {
+        sizes: [25, 75],
+        minSize: 200,
+      })
+      Split(['#search1_left', '#search1_right'], {
+        sizes: [35, 65],
+        minSize: 200,
+      })
+      $('#datepicker').datetimepicker({
+        format: 'L'
+      });
+
+      $('#datetimepicker').datetimepicker()
+      available = document.getElementById('available-columns'),
+        selected = document.getElementById('selected-columns'),
+        new Sortable(available, {
+          group: 'shared',
+          animation: 150
+        });
+
+      new Sortable(selected, {
+        group: 'shared',
+        animation: 150
+      });
+
+      // // DropzoneJS Demo Code Start
+      // Dropzone.autoDiscover = false;
+
+      // // Get the template HTML and remove it from the doumenthe template HTML and remove it from the doument
+      // var previewNode = document.querySelector("#template");
+      // previewNode.id = "";
+      // var previewTemplate = previewNode.parentNode.innerHTML;
+      // previewNode.parentNode.removeChild(previewNode);
+
+      // var myDropzone = new Dropzone(document.body, { // Make the whole body a dropzone
+      //   url: "/target-url", // Set the url
+      //   thumbnailWidth: 80,
+      //   thumbnailHeight: 80,
+      //   parallelUploads: 20,
+      //   previewTemplate: previewTemplate,
+      //   autoQueue: false, // Make sure the files aren't queued until manually added
+      //   previewsContainer: "#previews", // Define the container to display the previews
+      //   clickable: ".fileinput-button" // Define the element that should be used as click trigger to select files.
+      // });
+
+      // myDropzone.on("addedfile", function(file) {
+      //   // Hookup the start button
+      //   file.previewElement.querySelector(".start").onclick = function() { myDropzone.enqueueFile(file); };
+      // });
+
+      // // Update the total progress bar
+      // myDropzone.on("totaluploadprogress", function(progress) {
+      //   document.querySelector("#total-progress .progress-bar").style.width = progress + "%";
+      // });
+
+      // myDropzone.on("sending", function(file) {
+      //   // Show the total progress bar when upload starts
+      //   document.querySelector("#total-progress").style.opacity = "1";
+      //   // And disable the start button
+      //   file.previewElement.querySelector(".start").setAttribute("disabled", "disabled");
+      // });
+
+      // // Hide the total progress bar when nothing's uploading anymore
+      // myDropzone.on("queuecomplete", function(progress) {
+      //   document.querySelector("#total-progress").style.opacity = "0";
+      // });
+
+      // // Setup the buttons for all transfers
+      // // The "add files" button doesn't need to be setup because the config
+      // // `clickable` has already been specified.
+      // document.querySelector("#actions .start").onclick = function() {
+      //   myDropzone.enqueueFiles(myDropzone.getFilesWithStatus(Dropzone.ADDED));
+      // };
+      // document.querySelector("#actions .cancel").onclick = function() {
+      //   myDropzone.removeAllFiles(true);
+      // };
+      // DropzoneJS Demo Code End
+
+    })
+  </script>
+</body>
+
+</html>

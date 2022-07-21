@@ -1,0 +1,1171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> Dashboard</title>
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Tempusdominus Bootstrap 4 -->
+  <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+  <!-- iCheck -->
+  <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <!-- JQVMap -->
+  <link rel="stylesheet" href="plugins/jqvmap/jqvmap.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="dist/css/adminlte.min.css">
+  <!-- overlayScrollbars -->
+  <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+  <!-- Daterange picker -->
+  <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
+  <!-- summernote -->
+  <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css">
+  <link rel="stylesheet" href="plugins/select2/css/select2.min.css">
+  
+  <link rel="stylesheet" href="dist/css/tree.css">
+  <link rel="stylesheet" href="dist/css/themify-icons.css">
+  <link rel="stylesheet" href="theme/side-bar.css">
+  <link rel="stylesheet" href="theme/dfx.css">
+  <link rel="stylesheet" href="build/CSS/stylesheet.css">
+  <style type="text/css">
+    sidenav{ display: none;   bottom: 0;
+    float: none;
+    position: fixed;
+    top: 0; left: 90px; z-index: 99; padding: 20px 10px; overflow-y: auto; width: 250px; background-color: #f8f8f8; box-shadow: 0 14px 28px rgba(0,0,0,.25),0 10px 10px rgba(0,0,0,.22)!important;
+}
+sidenav .btn-sidebar{background-color: #6264a7; color:#fff }
+sidenav h3{font-size: 1.25rem; padding-bottom: 10px; font-weight: 600; }
+sidenav .savedsearch ul{padding: 0; margin: 0;}
+sidenav .savedsearch ul li{list-style: none; display: block; }
+sidenav .savedsearch ul li a{display: block; padding: 10px; color:#000; transition: all 0.5s  ease;}
+sidenav .savedsearch ul li a:hover{color: #6264a7; background-color: #eee; font-weight: 600; border-radius: 5px;}
+  </style>
+  
+</head>
+<body class="hold-transition">
+<div class="wrapper">
+
+  <!-- Navbar -->
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+   <!-- Right navbar links -->
+    <ul class="navbar-nav ml-auto header-login">
+        <!-- <li class="nav-item dropdown">
+            <a class="nav-link repo-update" data-toggle="dropdown" href="#" >
+                LFPROD <i class="fa fa-chevron-down"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+              <a href="#" class="dropdown-item">
+                 DemoRepo
+              </a>
+              <div class="dropdown-divider"></div>
+              <a href="#" class="dropdown-item">
+                  UatRepo
+               </a>
+            </div>
+          </li> -->
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#">
+            <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image" style="max-width:30px">
+        </a>
+        <div class="dropdown-menu dropdown-menu-md dropdown-menu-right">
+          <a href="#" class="dropdown-item">
+             Logout
+          </a>         
+        </div>
+      </li>
+    </ul>
+  </nav>
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar ">
+    <div class="sidemenu-logo"> <a class="main-logo" href="index.html">
+        <img src="theme/sf-logo.png" alt="" class="brand-image"> </a>
+    </div>
+    <!-- Sidebar -->
+    <div class="sidebar sidebar-body">
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column">
+          <li class="nav-item ">
+            <a class="nav-link" onclick="showsidenav()">
+              <i class="ti-home sidemenu-icon"></i>
+              <span class="sidemenu-label">Dashboard</span>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="explorer.html">
+              <i class="ti-folder sidemenu-icon"></i>
+              <span class="sidemenu-label">Explorer</span>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="search.html">
+              <i class="ti-search sidemenu-icon"></i>
+              <span class="sidemenu-label">Search DMS</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="upload.html">
+              <i class="ti-upload sidemenu-icon"></i>
+              <span class="sidemenu-label">Upload Files</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="profile.html">
+              <i class="ti-user sidemenu-icon"></i>
+              <span class="sidemenu-label">User Profile</span>
+            </a>
+          </li>
+
+          <li class="nav-item active">
+            <a class="nav-link " href="index.html">
+              <i class="ti-email sidemenu-icon"></i>
+              <span class="sidemenu-label">Mail</span>
+            </a>
+          </li>
+
+          <li class="nav-item with-sub">
+            <a class="nav-link" href="#">
+              <i class="ti-settings sidemenu-icon"></i>
+              <span class="sidemenu-label">Admin Tools</span>
+            </a>
+            <ul class="nav-sub">
+              <li class="nav-sub-item"> <a class="nav-sub-link" href="#">Settings</a> </li>
+              <li class="nav-sub-item"> <a class="nav-sub-link" href="#">Users</a> </li>
+              <li class="nav-sub-item"> <a class="nav-sub-link" href="#">Login Logs</a> </li>
+              <li class="nav-sub-item"> <a class="nav-sub-link" href="#">Logs</a> </li>
+            </ul>
+          </li>
+		  <li class="nav-item ">
+            <a class="nav-link" href="explorer.html">
+              <i class="ti-folder sidemenu-icon"></i>
+              <span class="sidemenu-label">Explorer</span>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="search.html">
+              <i class="ti-search sidemenu-icon"></i>
+              <span class="sidemenu-label">Search DMS</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="upload.html">
+              <i class="ti-upload sidemenu-icon"></i>
+              <span class="sidemenu-label">Upload Files</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="profile.html">
+              <i class="ti-user sidemenu-icon"></i>
+              <span class="sidemenu-label">User Profile</span>
+            </a>
+          </li>
+        </ul>
+        
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>
+  <sidenav>
+    <h3>Saved Search</h3>
+    <div class="form-inline">
+      <div class="input-group" data-widget="sidebar-search">
+        <input class="form-control form-control-sidebar" id="querysearch" type="search" onkeyup="searchQuery()" placeholder="Search" aria-label="Search">
+        <div class="input-group-append">
+          <button class="btn btn-sidebar">
+            <i class="fas fa-search fa-fw"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="savedsearch">
+      <ul id="querylist">
+        <li><a href="#">Search 1</a></li>
+        <li><a href="#">Search 2</a></li>
+        <li><a href="#">Search 3</a></li>
+        <li><a href="#">Search 4</a></li>
+        <li><a href="#">Search 5</a></li>
+        <li><a href="#">Search 6</a></li>
+      </ul>
+    </div>
+  </sidenav>
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-6">
+            <!-- <h1 class="m-0">Dashboard</h1> -->
+          </div>
+          <div class="col-sm-12">
+            <!-- <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Dashboard v1</li>
+            </ol> -->
+            <div class="btn-group float-left nav-top">
+              <button type="button" class="btn btn-primary btn-sm" onclick="removeTab()" data-toggle="dropdown" data-offset="-52">
+                <i class="ion-android-checkbox-outline sidemenu-icon"></i>
+                <span class="sidemenu-label_btn">New Messages</span>
+              </button>
+
+              <!-- general nav tabs-->
+              <!-- <a class="nav-link">
+                <i class="ion-android-drafts sidemenu-icon"></i>
+                <span class="sidemenu-label" style="padding-left: 5px;">Mark All As Read</span>
+              </a>
+
+              <a class="nav-link">
+                <i class="ion-ios-undo sidemenu-icon"></i>
+                <span class="sidemenu-label" style="padding-left: 5px;">Undo</span>
+              </a>-->
+              
+
+              
+              <a class="nav-link">
+                <i class="ion-paper-airplane sidemenu-icon"></i>
+                <span class="sidemenu-label" style="padding-left: 5px;">Send</span>
+              </a>
+
+              <a class="nav-link">
+                <i class="ion-android-attach sidemenu-icon"></i>
+                <span class="sidemenu-label" style="padding-left: 5px;">Draft</span>
+                <i class="ion-ios-arrow-down sidemenu-icon" style="margin-left: 5px;"></i>
+              </a>
+
+              <a class="nav-link">
+                <i class="ion-ios-trash sidemenu-icon"></i>
+                <span class="sidemenu-label" style="padding-left: 5px;">Discard</span>
+              </a>
+
+              <a class="nav-link">
+                <i class="ion-more sidemenu-icon"></i>
+              </a>
+              
+            
+            </div>
+            <!-- <button data-tooltip="I’m the tooltip text.">I’m a button with a tooltip</button> -->
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="card card-primary card-outline card-outline-tabs">
+
+              <div class="card-header p-0 border-bottom-0">
+                
+              </div>
+              <div class="card-body P0">
+
+                <div class="tab-content" id="result-tabContent">
+                  <div class="tab-pane fade show active " id="explorer" role="tabpanel" aria-labelledby="explorer_tab">
+
+                    <div class="row">
+
+                      <div class="split col-sm-2" id="one">
+
+                        <div class="card card-body left-panel_mail_1">
+
+                          <!-- <h4 type="title" class="collapsible">Favorites</h4>
+                          <div class="contents">
+                            <ul>
+                              <li><i class="ion-filing"></i> Inbox</li>
+                              <li><i class="ion-android-send"></i> Sent Items</li>
+                              <li><i class="ion-edit"></i> Draft</li>
+                              <li><i class="ion-ios-trash"></i> Deleted Items</li>
+                              </ul>
+                          </div>
+
+                          <h4 type="title" class="collapsible">Folders</h4>
+                          <div class="contents">
+                            <ul>
+                              <li><i class="ion-filing"></i> Inbox</li>
+                              <li><i class="ion-android-send"></i> Sent Items</li>
+                              <li><i class="ion-edit"></i> Draft</li>
+                              <li><i class="ion-ios-trash"></i> Deleted Items</li>
+                              <li><i class="ion-ios-information"></i> Junk Emails</li>
+                              <li><i class="ion-ios-box"></i> Archive</li>
+                              <li><i class="ion-ios-paper"></i> Notes</li>
+                              <li><i class="ion-ios-folder"></i> Conversation History</li>
+                              <li><i class="ion-ios-folder"></i> Important</li>
+                              <li><i class="ion-ios-folder"></i> RSS Feeds</li>
+                              <li><i class="ion-ios-folder"></i> Starred</li>
+                              </ul>
+                          </div>
+                          <h4 type="title" class="collapsible">Group</h4>
+                          <div class="contents">
+                            <ul>
+                              <li><i ></i> New Group</li>
+                              <li><i ></i> Discover Group</li>
+                              <li><i ></i> Manage Groups</li>
+                              </ul>
+                          </div> -->
+
+                          <ul id="accordion" class="accordion_1">
+                            <li>
+                              <div class="link"></i><i class="fa fa-chevron-down"></i><span>Favorites</span></div>
+                              <ul class="submenu">
+                                <li class="list_inbox active_status" onclick="Hide_mail()"><a href="#"><i class="ion-email icon-txt"></i><span class="submenu_text">Inbox</span><span class="total_count">11</span></a></li>
+                                <li class="list_inbox"><a href="#"><i class="ion-paper-airplane icon-txt"></i><span class="submenu_text">Sent Items</span></a></li>
+                                <li class="list_inbox"><a href="#"><i class="ion-edit icon-txt"></i><span class="submenu_text">Draft</span><span class="total_count">3</span></a></li>
+                                <li class="list_inbox"><a href="#"><i class="ion-trash-a icon-txt"></i><span class="submenu_text">Deleted Items </span></a></li>
+                                  <div>
+                                    <li class="list_inbox"><a href="#"><span class="submenu_text_link">Add Favorites</span></a></li>
+                                  </div>
+                              </ul>
+                            </li>
+                            <li>
+                              <div class="link"><i class="fa fa-chevron-down"></i><span>Folders</span></div>
+                              <ul class="submenu">
+                                <li><a class="list_inbox" href="#"><span class="submenu_text">Inbox</span> </a></li>
+                                <li><a class="list_inbox" href="#"><span class="submenu_text">Sent Items</span> </a></li>
+                                <li><a class="list_inbox" href="#"><span class="submenu_text">Draft</span></a></li>
+                                <li><a class="list_inbox" href="#"><span class="submenu_text">Deleted Items</span> </a></li>
+                                <li><a class="list_inbox" href="#"><span class="submenu_text">Junk Emails</span> </a></li>
+                                <li><a class="list_inbox" href="#"><span class="submenu_text">Archive</span></a></li>
+                                <li><a class="list_inbox" href="#"><span class="submenu_text">Notes</span></a></li>
+                                <li><a class="list_inbox" href="#"><span class="submenu_text">Conversation History</span></a></li>
+                                <li><a class="list_inbox" href="#"><span class="submenu_text">Important</span></a></li>
+                                <li><a class="list_inbox" href="#"><span class="submenu_text">RSS Feeds</span></a></li>
+                                <li><a class="list_inbox" href="#"><span class="submenu_text">Starred</span></a></li>
+                                
+                              </ul>
+                            </li>
+                            <li>
+                              <div class="link"><i class="fa fa-chevron-down"></i><span>Group</span></div>
+                              <ul class="submenu">
+                                <li><a href="#"><span class="submenu_text">New Group</span></a></li>
+                                <li><a href="#"><span class="submenu_text">Discover Group</span></a></li>
+                                <li><a href="#"><span class="submenu_text">Manage Groups</span></a></li>
+                                <li><a href="#"><span class="submenu_text">Delete Groups</span></a></li>
+                              </ul>
+                            </li>
+                            <li>
+                              <div class="link"><i class="fa fa-chevron-down"></i><span>Documents</span></div>
+                              <ul class="submenu">
+                                <li><a href="#"><span class="submenu_text">Tax Documents</span></a></li>
+                                <li><a href="#"><span class="submenu_text">Passport</span></a></li>
+                                <li><a href="#"><span class="submenu_text">Invoice</span></a></li>
+                              </ul>
+                            </li>
+                          </ul>
+
+                  
+                        </div>
+                      </div>
+                      <div class="split col-sm-3" id="two">
+                        <div class="card  left-panel_mail">
+                          <ul class="nav nav-tabs">
+                            <li class="nav-item acthov_1">
+                              <div class="topbar_left">
+                                <a class="nav-link active">
+                                  <i class="ion-ios-checkmark-outline sidemenu-icon"></i>
+                                  <span class="sidemenu-label" style="padding-left: 5px; font-weight: 700; cursor: pointer;">Focused</span>
+                                </a>
+                            
+                              </div>
+                            </li>
+                            
+                            <li class="nav-item acthov_2">
+                              <a class="nav-link" style="font-style: normal; color: rgb(119, 118, 118);" href="#">Other</a>
+                            </li>
+                         
+                              <li class="nav-item dropdown" style="float: right;">
+                                <a class="nav-link dropdown-toggle"  data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"> Filter</a>
+                                <div class="dropdown-menu">
+                                  <a class="dropdown-item" href="#">All</a>
+                                  <a class="dropdown-item" href="#">Unread</a>
+                                  <a class="dropdown-item" href="#">To Me</a>
+                                  <a class="dropdown-item" href="#">Flagged</a>
+                                  <a class="dropdown-item" href="#">Mentions</a>
+                                  <a class="dropdown-item" href="#">Attachments</a>
+                                  <div class="dropdown-divider"> 
+                                  </div>
+                                  <a class="dropdown-item" href="#">Sort
+                                  <i class="ion-ios-arrow-right sidemenu-icon" style="float: right;"></i> 
+                                  </a>
+                                  
+                                </div>
+                              </li> 
+                          </ul>
+
+                          <div class="accordion" id="accordionExample">
+                            <div class="card card-1">
+                              <div class="card-header" style="cursor: pointer; text-align: left" id="headingOne">
+                                
+                                <button class="btn toggle_btn" style="width: 100%;text-align: left;" type="button"  data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                 <span>New Messages</span> 
+                                </button>
+                               </div>
+                               <div id="collapseOne" class="collapse show" onclick="Show_mail()" aria-labelledby="headingTwo">
+                                <div class="card-body-msg">
+                                  <div class="message_list">
+                                    <div class="message_space">
+                                      <div class="message_icon">
+                                          <div class="select_icon">
+                                            <i class="ion-ios-checkmark-outline sidemenu-icon"></i>
+                                          </div>
+                                  </div>
+                                  <div class="content_area">
+                                    <div class="content_text_1">
+                                      <div class="text_1">
+                                        <span title="">Prakash Datafabricx (Jira)</span>
+                                      </div>
+                                    </div>
+                
+                                    <div class="content_text_2"> 
+                                      <div class="text_2">
+                                        <span title="">[Jira] Prakash Datafabricx assigned DDP2 </span>
+                                      </div>
+                                      <span class="text_time" title="12:23 PM"> Fri 12:23 PM</span>
+                                    </div>
+                
+                                    <div class="content_text_3"> 
+                                      <div class="text_3">
+                                        <div class="text_wrap">
+                                          <span title="">Mydeen Datafabricx assigned this issue to you DFX </span>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    
+                                  </div>
+                                  <div class="remove_space">
+                                    <div>
+                                      
+                                        <span>
+                                          <i class="ion-ios-trash sidemenu-icon"></i>
+                                        </span>
+                                     
+                                    </div>
+                                  </div>
+                                  </div>
+                                </div>
+                                  </div>
+                              </div>
+
+                              <div id="collapseOne" class="collapse show" onclick="Show_mail()" aria-labelledby="headingOne">
+                                <div class="card-body-msg">
+                                  <div class="message_list">
+                                    <div class="message_space">
+                                      <div class="message_icon">
+                                          <div class="select_icon">
+                                            <i class="ion-ios-checkmark-outline sidemenu-icon"></i>
+                                          </div>
+                                  </div>
+                                  <div class="content_area">
+                                    <div class="content_text_1">
+                                      <div class="text_1">
+                                        <span title="">Prakash Datafabricx (Jira)</span>
+                                      </div>
+                                    </div>
+                
+                                    <div class="content_text_2"> 
+                                      <div class="text_2">
+                                        <span title="">[Jira] Prakash Datafabricx assigned DDP2 </span>
+                                      </div>
+                                      <span class="text_time" title="12:23 PM"> Fri 12:23 PM</span>
+                                    </div>
+                
+                                    <div class="content_text_3"> 
+                                      <div class="text_3">
+                                        <div class="text_wrap">
+                                          <span title="">Mydeen Datafabricx assigned this issue to you DFX </span>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    
+                                  </div>
+                                  <div class=" remove_space">
+                                    <div>
+                                      
+                                        <span>
+                                          <i class="ion-ios-trash sidemenu-icon"></i>
+                                        </span>
+                                     
+                                    </div>
+                                  </div>
+                                  </div>
+                                </div>
+                                  </div>
+                              </div>
+                          </div>
+
+                          <div class="card card-1">
+                            <div class="card-header" id="headingTwo">
+                              
+                              <button class="btn toggle_btn" style="width: 100%;text-align: left;" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                               <span>Yesterday</span> 
+                              </button>
+                             </div>
+                             <div id="collapseTwo" class="collapse show" onclick="Show_mail()" aria-labelledby="headingTwo" >
+                              <div class="card-body-msg">
+                                <div class="message_list">
+                                  <div class="message_space">
+                                    <div class="message_icon">
+                                        <div class="select_icon">
+                                          <i class="ion-ios-checkmark-outline sidemenu-icon"></i>
+                                        </div>
+                                </div>
+                                <div class="content_area">
+                                  <div class="content_text_1">
+                                    <div class="text_1">
+                                      <span title="">Prakash Datafabricx (Jira)</span>
+                                    </div>
+                                  </div>
+              
+                                  <div class="content_text_2"> 
+                                    <div class="text_2">
+                                      <span title="">[Jira] Prakash Datafabricx assigned DDP2 </span>
+                                    </div>
+                                    <span class="text_time" title="12:23 PM"> Fri 12:23 PM</span>
+                                  </div>
+              
+                                  <div class="content_text_3"> 
+                                    <div class="text_3">
+                                      <div class="text_wrap">
+                                        <span title="">Mydeen Datafabricx assigned this issue to you DFX </span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  
+                                </div>
+                                <div class="remove_space">
+                                  <div class="dlt_icon">
+                                    
+                                      <span>
+                                        <i class="ion-ios-trash sidemenu-icon"></i>
+                                      </span>
+                                   
+                                  </div>
+                                </div>
+                                </div>
+                              </div>
+                                </div>
+                                
+                            </div>
+                          </div>
+                          </div>
+
+                          
+                          
+                        </div>
+                      
+                 
+                      </div> 
+
+      <div class="split col-sm-7" id="three">
+
+        <!-- New Mail Layout  -->
+                      
+                <div class="card card-body card-compose left-panel_mail_1">
+                <div class="card-body">
+                <div class="outer_layer">
+
+                  <div class="outer_space" >
+                    <div class="text-center">
+                      <img class="image_msg" style="height: 128px; width: 128px;"
+                     src="build/images/email purple.png"
+                     alt="No Message Selected ">
+                     <h3 class="profile-username text-center">Select an item to read</h3>
+                     <p class="text-muted text-center">Nothing is selected</p>
+                  </div>  
+                  </div>
+                  <div class="mail_msg_space" >
+
+                    <div class="mail_msg_space_1 open_mail_hide" id="tab_open_mail">
+                      <div class="mail_msg_space_2">
+                        <div>
+                          <div class="card">
+                                <div class="btn_1">
+    
+                              <div data-is-focusable="true" tabindex="0" class="btn_To" role="button" aria-roledescription="button, opens Add recipients dialog">To</div>
+                              <input type="text" id="lname" name="lname">
+                            </div>
+    
+                            <div class="btn_1">
+    
+                              <div data-is-focusable="true" tabindex="0" class="btn_To" role="button" aria-roledescription="button, opens Add recipients dialog">Cc</div>
+                              <input type="text" id="lname" name="lname">
+                              
+                            </div>
+                            <div class="mail_sub border-bottom">
+                              
+
+                              <input type="text" id="lname" name="lname" placeholder="Add a subject">
+                            </div>
+                            <div class="mail_textarea">
+                              <textarea id="w3review" name="w3review" rows="10" cols="100">
+                              </textarea> 
+                            </div>
+
+                            <div class="msg_footer">
+                              <button type="button" class="btn btn-primary btn-sm" style="margin-left: 10px;" data-toggle="dropdown" data-offset="-52">
+                                <span class="">Send </span>
+                                <span title="#">|</span>
+                                <i class="ion-ios-arrow-down sidemenu-icon"></i>
+                              </button>
+
+                              <button type="button" class="btn repo-update btn-sm" data-toggle="dropdown" data-offset="-52">
+                                <span class="">Discard</span>
+
+                              </button>
+
+                              <i class="ion-android-attach sidemenu-icon" style="margin-left: 10px;"></i>
+                              <i class="ion-images sidemenu-icon" style="margin-left: 10px;"></i>
+                              <i class="ion-android-happy sidemenu-icon" style="margin-left: 10px;"></i>
+                              <i class="ion-more sidemenu-icon" style="margin-left: 10px;"></i>
+                            </div>
+                              
+                            </div>
+                          
+
+                        </div>
+
+                      </div>
+
+                    </div>
+              
+  <!-- mail message Display View --> 
+
+                <div class="card-body mail_msg_hide" id="tab_mail_msg">
+                <div class="outer_layer">
+                  <div class="head-text">
+                    <h5>[GitHub] Your invitation to indudatafabricx has been canceled</h5>
+                  </div>
+                  <div class="mail_msg_space">
+                    <div class="card">
+                      <div class="message_space">
+                        <div class="message_icon">
+                          <div class="select_icon_msg">
+                            <i class="ion-ios-checkmark-outline sidemenu-icon"></i>
+                          </div>
+                  </div>
+                  <div class="content_area">
+                    <div class="content_text">
+                      <div class="text_mail">
+                        <div class="sender_msg">
+                           
+                        <div class="title_msg" >
+                          <div class="sender_Left">
+                            <span class="sender_title" title="#">Prakash Datafabricx (Jira)</span><br>
+                            <div class="mail_To_details">
+                              <span title="#">To: Prakash; Arun Kumar</span><br>
+                              <span title="#">Cc: Abdul; Mydeen; Hari; Ranjith</span><br>
+                            </div>
+                          </div> 
+                          <div class="sender_right">
+                            <button type="button" class="btn repo-update btn-sm" data-toggle="dropdown" data-offset="-52">
+                              <i class="ion-reply sidemenu-icon"></i>
+                              <span class="sidemenu-label">Replay</span>
+                            </button>
+
+                            <button type="button" class="btn repo-update btn-sm" data-toggle="dropdown" data-offset="-52">
+                              <i class="ion-reply-all sidemenu-icon"></i>
+                              <span class="sidemenu-label">Replay All</span>
+
+                            </button>
+
+                            <button type="button" class="btn repo-update btn-sm" data-toggle="dropdown" data-offset="-52">
+                              <i class="ion-forward sidemenu-icon"></i>
+                              <span class="sidemenu-label">Forword</span>
+
+                            </button>
+
+                            <button type="button" class="btn repo-update btn-sm" data-toggle="dropdown" data-offset="-52">
+                              <i class="ion-more sidemenu-icon"></i>
+                            </button>
+
+                            <div class="msg_time">
+                              <span title="#">Wed 3/23/2022 1:30 PM</span><br>
+                            </div>
+                          </div>
+                        </div>
+                        
+                        
+                       
+                      </div>
+
+                      <hr>
+                        <div class="main_msg">
+                          <span title="#">Your invitation to the indudatafabricx organization on GitHub has been canceled. Links to the invitation in previous emails will no longer work.</span><br>
+                        </div>
+                        <div class="sub_msg">
+                          <span title="#">If this is unexpected, reach out to the owners of indudatafabricx.</span><br>
+                        </div>
+                        <div>
+                          <span title="#">Thanks,</span><br>
+                        </div>
+                        <div>
+                          <span title="#">The GitHub Team</span><br>
+                        </div>
+
+                        <hr>
+
+                        <div class="msg_footer">
+                          <span title="#" style="color: #0078d4;">Replay</span>
+                          <span title="#">|</span>
+                          <span title="#" style="color: #0078d4;">Forword</span>
+                        </div>
+                       
+                        
+                      </div>
+                    </div>
+
+                      </div>
+                    </div>
+                  </div>   
+              <!-- /.card-body -->
+            </div>
+            </div> 
+            <!-- /.card -->
+          </div>   
+                </div>   
+              </div>  
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+        
+      
+
+        
+        <!-- Small boxes (Stat box) -->
+        
+        <!-- <div class="row dashboard-infobox">
+          <div class="col-12 col-sm-4">
+            <div class="info-box">
+              <div class="info-box-title">
+                <span class="title">Total Documents</span>
+                <i class="fa fa-search"></i>
+              </div>
+              <div class="info-box-content">
+                <span class="info-box-number">
+                  1200
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-4">
+            <div class="info-box">
+              <div class="info-box-title">
+                <span class="title">MIME Type</span>
+                <i class="fa fa-search"></i>
+              </div>
+              <div class="info-box-content">
+                <span class="info-box-number">
+                  5
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-4">
+            <div class="info-box">
+              <div class="info-box-title">
+                <span class="title">Total Meta</span>
+                <i class="fa fa-search"></i>
+              </div>
+              <div class="info-box-content">
+                <span class="info-box-number">
+                  14
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-4 ">
+            <div class="info-box">
+              <div class="info-box-title">
+                <span class="title">Jersey Data</span>
+                <i class="fa fa-search"></i>
+              </div>
+              <div class="info-box-content">
+                <span class="info-box-number">
+                  1000
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-4">
+            <div class="info-box">
+              <div class="info-box-title">
+                <span class="title">Mydeen Collection</span>
+                <i class="fa fa-search"></i>
+              </div>
+              <div class="info-box-content">
+                <span class="info-box-number">
+                  3/10
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-4">
+            <div class="info-box">
+              <div class="info-box-title">
+                <span class="title">Kumar Collection</span>
+                <i class="fa fa-search"></i>
+              </div>
+              <div class="info-box-content">
+                <span class="info-box-number">
+                  3/10
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-4 ">
+            <div class="info-box">
+              <div class="info-box-title">
+                <span class="title">Documents</span>
+                <i class="fa fa-search"></i>
+              </div>
+              <div class="info-box-content">
+                <span class="info-box-number">
+                  1000
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-4">
+            <div class="info-box">
+              <div class="info-box-title">
+                <span class="title">Documents</span>
+                <i class="fa fa-search"></i>
+              </div>
+              <div class="info-box-content">
+                <span class="info-box-number">
+                  3/10
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-4">
+            <div class="info-box">
+              <div class="info-box-title">
+                <span class="title">Documents</span>
+                <i class="fa fa-search"></i>
+              </div>
+              <div class="info-box-content">
+                <span class="info-box-number">
+                  3/10
+                </span>
+              </div>
+            </div>
+          </div>
+        </div> -->
+        <!-- /.row -->
+       
+       
+        <!-- /.row (main row) -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <div class="modal fade" id="modal-lg">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Add New Widget</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group row">
+            <label for="inputName" class="col-sm-4 col-form-label">Widget Name</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" id="inputName" placeholder="Name">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputName" class="col-sm-4 col-form-label">Search Criteria</label>
+            <div class="col-sm-8">
+              <select class="select2" multiple="multiple" data-placeholder="Select a Criteria"
+                style="width: 100%;">
+                <option>Name</option>
+                <option>Pages</option>
+                <option>Tag</option>
+                <option>Text</option>
+                <option>User</option>
+                <option>Version</option>
+                <option>Within Folder</option>
+              </select>
+              <!-- <select class="form-control">
+                <option>LFPROD</option>
+                <option>LFPROD 2</option>
+                <option>LFPROD 3</option>
+              </select> -->
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer justify-content-between">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Create</button>
+        </div>
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+  <div class="footerstrip">
+    <ul>
+      <li>
+        <a href="#">Forms</a>
+      </li>
+      <li>
+        <a href="#">Analytics</a>
+      </li>
+      <li>
+        <a href="#">My Tasks</a>
+      </li>
+    </ul>
+  </div>
+  <!-- /.content-wrapper -->
+  <footer class="main-footer">
+    <strong>Copyright &copy; 2014-2021 <a href="#">Datafabricx.com</a>.</strong>
+    All rights reserved.
+  </footer>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<script src="plugins/jquery/jquery.min.js"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="plugins/jquery-ui/jquery-ui.min.js"></script>
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<script>
+   $.widget.bridge('uibutton', $.ui.button)
+  
+</script>
+<!-- Bootstrap 4 -->
+<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="plugins/select2/js/select2.full.min.js"></script>
+<!-- ChartJS -->
+<script src="plugins/chart.js/Chart.min.js"></script>
+<!-- Sparkline -->
+<script src="plugins/sparklines/sparkline.js"></script>
+<!-- JQVMap -->
+<script src="plugins/jqvmap/jquery.vmap.min.js"></script>
+<script src="plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+<!-- jQuery Knob Chart -->
+<script src="plugins/jquery-knob/jquery.knob.min.js"></script>
+<!-- daterangepicker -->
+<script src="plugins/moment/moment.min.js"></script>
+<script src="plugins/daterangepicker/daterangepicker.js"></script>
+<!-- Tempusdominus Bootstrap 4 -->
+<script src="plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+<!-- Summernote -->
+<script src="plugins/summernote/summernote-bs4.min.js"></script>
+<!-- overlayScrollbars -->
+<script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<!-- AdminLTE App -->
+<script src="dist/js/adminlte.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="dist/js/demo.js"></script>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="dist/js/pages/dashboard.js"></script>
+<!-- <script>
+  function myFunction_newmail() {
+  var x = document.getElementById("tab_open_mail");
+  var y = document.getElementById("tab_no_mail");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+</script> -->
+
+<script>
+  var SubMenu = document.getElementsByClassName("submenu");
+  var ListMenu = document.getElementsByClassName("list_inbox");
+  for(var i=0; i < ListMenu.length; i++){
+    ListMenu[i].addEventListener("click",function() {
+      var current = document.getElementsByClassName("active_status");
+      if(current.length>0){
+        current[0].className = current[0].className.replace(" active_status", "");
+        
+      }
+      this.className +=" active_status";
+    });
+  }
+</script>
+
+<script>
+  function removeTab(){
+    $(".outer_space").addClass("no_mail_hide");
+    $("#tab_mail_msg").hide();
+    $("#tab_open_mail").show();
+		// $("#tab_no_mail").removeClass('active')
+		// $("#tab_open_mail").addClass('active')
+	}
+</script>
+
+<script>
+  function Show_mail(){
+    $(".outer_space").addClass("no_mail_hide");
+    $("#tab_mail_msg").show();
+    $("#tab_open_mail").hide();
+		// $("#tab_no_mail").removeClass('active')
+		// $("#tab_open_mail").addClass('active')
+	}
+</script>
+
+<script>
+  function Hide_mail(){
+    $(".outer_space").removeClass("no_mail_hide");
+    $("#tab_mail_msg").hide();
+    $("#tab_open_mail").hide();
+		// $("#tab_no_mail").removeClass('active')
+		// $("#tab_open_mail").addClass('active')
+	}
+</script>
+
+<!-- <script>
+  function No_mail(){
+    $("#tab_no_mail").show();
+    $("#tab_mail_msg").hide();
+    $("#tab_open_mail").hide();
+		// $("#tab_no_mail").removeClass('active')
+		// $("#tab_open_mail").addClass('active')
+	}
+</script> -->
+<script>
+   $(document).ready(function () {
+ 
+ $('.select2').select2()
+  });
+</script>
+<script>
+  function searchQuery(){
+    var input, filter, ul, li, a, i, txtValue;
+    input = document.getElementById("querysearch");
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("querylist");
+    li = ul.getElementsByTagName("li");
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
+  }
+  function showsidenav(){
+    $('sidenav').toggle()
+  }
+</script>
+
+<script>
+  var coll = document.getElementsByClassName("collapsible");
+  var i;
+  
+  for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function() {
+      this.classList.toggle("active1");
+      var content = this.nextElementSibling;
+      if (content.style.display === "block") {
+        content.style.display = "none";
+      } else {
+        content.style.display = "block";
+      }
+    });
+  }
+  </script>
+
+<script>
+  var coll = document.getElementsByClassName("collapsible_1");
+  var i;
+  
+  for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function() {
+      this.classList.toggle("active1");
+      var content = this.nextElementSibling;
+      if (content.style.display === "block") {
+        content.style.display = "none";
+      } else {
+        content.style.display = "block";
+      }
+    });
+  }
+  </script>
+
+<script>
+  /* When the user clicks on the button, 
+  toggle between hiding and showing the dropdown content */
+  function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+  }
+  
+  // Close the dropdown if the user clicks outside of it
+  window.onclick = function(event) {
+    if (!event.target.matches('.dropbtn')) {
+      var dropdowns = document.getElementsByClassName("dropdown-content");
+      var i;
+      for (i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains('show')) {
+          openDropdown.classList.remove('show');
+        }
+      }
+    }
+  }
+  </script>
+
+  <!-- accordian script -->
+
+  <script>
+    $(function() {
+	var Accordion = function(el, multiple) {
+		this.el = el || {};
+		this.multiple = multiple || false;
+
+		// Variables privadas
+		var links = this.el.find('.link');
+		// Evento
+		links.on('click', {el: this.el, multiple: this.multiple}, this.dropdown)
+	}
+
+	Accordion.prototype.dropdown = function(e) {
+		var $el = e.data.el;
+			$this = $(this),
+			$next = $this.next();
+
+		$next.slideToggle();
+		$this.parent().toggleClass('open');
+
+		if (!e.data.multiple) {
+			$el.find('.submenu').not($next).slideUp().parent().removeClass('open');
+		};
+	}	
+
+	var accordion = new Accordion($('#accordion'), false);
+});
+
+  </script>
+</body>
+</html>

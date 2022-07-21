@@ -1,0 +1,2133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Search Results</title>
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="plugins/select2/css/select2.min.css">
+  <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+  <link rel="stylesheet" href="plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+  <link rel="stylesheet" href="plugins/dropzone/dropzone.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="dist/css/adminlte.min.css">
+
+  
+  <link rel="stylesheet" href="dist/css/tree.css">
+  <link rel="stylesheet" href="dist/css/themify-icons.css">
+  <link rel="stylesheet" href="theme/side-bar.css">
+  <link rel="stylesheet" href="theme/stonehage.css">
+  <style>
+    .file-upload {
+      min-height: 500px;
+      background: url(upload.png);
+      background-position: center center;
+      background-repeat: no-repeat;
+    }
+  </style>
+</head>
+
+<body class="hold-transition">
+  <div class="wrapper reactive-app">
+    <!-- Navbar -->
+    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+
+      <!-- Right navbar links -->
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link" data-toggle="dropdown" href="#">
+            <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image"
+              style="max-width:30px">
+          </a>
+          <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+            <a href="#" class="dropdown-item">
+              Logout
+            </a>
+            <div class="dropdown-divider"></div>
+
+          </div>
+        </li>
+      </ul>
+    </nav>
+    <!-- /.navbar -->
+
+    <!-- Main Sidebar Container -->
+    <aside class="main-sidebar ">
+      <div class="sidemenu-logo"> <a class="main-logo" href="index.html">
+          <img src="theme/sf-logo.png" alt="" class="brand-image"> </a>
+      </div>
+      <!-- Sidebar -->
+      <div class="sidebar sidebar-body">
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+          <ul class="nav nav-pills nav-sidebar flex-column">
+            <li class="nav-item ">
+              <a class="nav-link" href="index.html">
+                <i class="ti-home sidemenu-icon"></i>
+                <span class="sidemenu-label">Dashboard</span>
+              </a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="explorer.html">
+                <i class="ti-folder sidemenu-icon"></i>
+                <span class="sidemenu-label">Explorer</span>
+              </a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link" href="search.html">
+                <i class="ti-search sidemenu-icon"></i>
+                <span class="sidemenu-label">Search DMS</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="upload.html">
+                <i class="ti-upload sidemenu-icon"></i>
+                <span class="sidemenu-label">Upload Files</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <i class="ti-user sidemenu-icon"></i>
+                <span class="sidemenu-label">User Profile</span>
+              </a>
+            </li>
+            <li class="nav-item with-sub">
+              <a class="nav-link" href="profile.html">
+                <i class="ti-settings sidemenu-icon"></i>
+                <span class="sidemenu-label">Admin Tools</span>
+              </a>
+              <ul class="nav-sub">
+                <li class="nav-sub-item"> <a class="nav-sub-link" href="#">Settings</a> </li>
+                <li class="nav-sub-item"> <a class="nav-sub-link" href="#">Users</a> </li>
+                <li class="nav-sub-item"> <a class="nav-sub-link" href="#">Login Logs</a> </li>
+                <li class="nav-sub-item"> <a class="nav-sub-link" href="#">Logs</a> </li>
+              </ul>
+            </li>
+          </ul>
+          
+        </nav>
+        <!-- /.sidebar-menu -->
+      </div>
+      <!-- /.sidebar -->
+    </aside>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <!-- Main content -->
+      <section class="content">
+        <div class="container-fluid P0">
+          <div class="row">
+            <div class="col-12">
+              <div class="card card-primary card-outline card-outline-tabs">
+                <div class="card-header p-0 border-bottom-0">
+                  
+                </div>
+                <div class="card-body P0">
+                  <div class="tab-content" id="result-tabContent">
+
+                    <div class="tab-pane fade show active" id="explorer" role="tabpanel" aria-labelledby="explorer_tab">
+
+                      
+                      <div class="row">
+                        <!-- <a href="#" class="show_workspace"><i class="fa fa-search"></i></a> -->
+                        <div class="split" id="one">
+                          <div class="card card-body left-panel">
+                            <!-- <div class="search">
+                              <div class="input-group input-right-icon mb-4">
+                                <input type="text" class="form-control search-control br-circle bbw-0"
+                                  data-list=".sidebar-comment-list" placeholder="Search Files and Folders">
+                                <i class="input-icon fa fa-search"></i>
+                              </div>
+                            </div> -->
+                            <div class="dmsexplorer folder-tree-wrapper">
+                              <ul class="folder-tree">
+                                <li class="title"> DMS Workspace
+                                  <div class="arrow"><i class="ti-angle-right"></i></div>
+
+                                  <ul>
+                                    <li><i class="fa fa-folder"></i> New Folder (0)</li>
+                                    <li><i class="fa fa-folder"></i> New Folder (1)
+                                      <div class="arrow"><i class="ti-angle-right"></i></div>
+                                      <ul>
+
+                                        <li><i class="fa fa-folder"></i> New Folder (2)</li>
+                                        <li><i class="fa fa-folder"></i> folder
+                                          <div class="arrow"><i class="ti-angle-right"></i></div>
+                                          <ul>
+
+                                            <li><i class="fa fa-folder"></i> New Folder (2)</li>
+                                            <li><i class="fa fa-folder"></i> folder</li>
+
+                                          </ul>
+                                        </li>
+
+                                      </ul>
+
+                                    </li>
+                                  </ul>
+
+                                </li>
+                                <div class="searchboxouter">
+                                  <form class="searchbox">
+                                    <input type="search" placeholder="Search Files and Folders from Windows Workspace" name="search" class="searchbox-input" onkeyup="buttonUp();" required>
+                                    <input type="submit" class="searchbox-submit" value="GO">
+                                    <span class="searchbox-icon"><i class="ti-search"></i></span>
+                                  </form>
+                                </div>
+                                <li class="title"> <span class="wintitle">Windows Workspace</span>
+                                  <div class="arrow"><i class="ti-angle-right"></i></div>
+
+                                  <ul>
+                                    <li><i class="fa fa-folder"></i> New Folder (0)</li>
+                                    <li><i class="fa fa-folder"></i> New Folder (1)
+                                      <div class="arrow"><i class="ti-angle-right"></i></div>
+                                      <ul>
+                                        <li><i class="fa fa-folder"></i> New Folder (2)</li>
+                                        <li><i class="fa fa-folder"></i> folder
+                                          <div class="arrow"><i class="ti-angle-right"></i></div>
+                                          <ul>
+                                            <li><i class="fa fa-folder"></i> New Folder (2)</li>
+                                            <li><i class="fa fa-folder"></i> folder</li>
+                                          </ul>
+                                        </li>
+                                      </ul>
+                                    </li>
+                                  </ul>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+
+                        </div>
+                        <div class="split" id="two">
+                          <div class="card card-body pt-0">
+                            <div class="accordion outlook-filter" id="accordionExample">
+                              <ul class="nav header-nav float-right">
+                                <li class="nav-item">
+                                  <a class="nav-link" ><i class="ti-layout-column2"></i>Customize Columns</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a class="nav-link" ><i class="ti-filter"></i>Filter</a>
+                                </li>
+                              </ul>
+                              <div class="clearfix"></div>
+                              <div class="card">
+                                <div class="card-header" id="headingOne">
+                                  <h2 class="mb-0">
+                                    <button class="btn btn-link" type="button" data-toggle="collapse"
+                                      data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                      <i class="fa fa-angle-right"></i> Today
+                                    </button>
+                                  </h2>
+                                </div>
+
+                                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                                  data-parent="#accordionExample">
+                                  <div class="card-body">
+                                    <table id="explorer_table" onclick="openNav()"
+                                      class="table table-bordered table-hover">
+                                      <thead>
+                                        <tr>
+                                          <th>Rendering</th>
+                                          <th>Browser</th>
+                                          <th>Platform(s)</th>
+                                          <th>Engine version</th>
+                                          <th>CSS grade</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody>
+                                        <tr>
+                                          <td><span class="image"><i class="fas fa-lock checkout"></i></span>Presto</td>
+                                          <td>Nintendo DS browser</td>
+                                          <td>Nintendo DS</td>
+                                          <td>8.5</td>
+                                          <td>C/A<sup>1</sup></td>
+                                        </tr>
+                                        <tr>
+                                          <td><span class="image"><i class="fas fa-lock-open checkin"></i></span>KHTML
+                                          </td>
+                                          <td>Konqureror 3.1</td>
+                                          <td>KDE 3.1</td>
+                                          <td>3.1</td>
+                                          <td>C</td>
+                                        </tr>
+                                        <tr>
+                                          <td><span class="txt"><i class="fas fa-lock checkout"></i></span>KHTML</td>
+                                          <td>Konqureror 3.3</td>
+                                          <td>KDE 3.3</td>
+                                          <td>3.3</td>
+                                          <td>A</td>
+                                        </tr>
+                                        <tr>
+                                          <td><span class="image"><i class="fas fa-lock checkout"></i></span>KHTML</td>
+                                          <td>Konqureror 3.5</td>
+                                          <td>KDE 3.5</td>
+                                          <td>3.5</td>
+                                          <td>A</td>
+                                        </tr>
+                                        <tr>
+                                          <td><span class="pdf"><i class="fas fa-lock checkout"></i></span>Tasman</td>
+                                          <td>Internet Explorer 4.5</td>
+                                          <td>Mac OS 8-9</td>
+                                          <td>-</td>
+                                          <td>X</td>
+                                        </tr>
+                                        <tr>
+                                          <td><span class="ppt"><i class="fas fa-lock checkout"></i></span>Tasman</td>
+                                          <td>Internet Explorer 5.1</td>
+                                          <td>Mac OS 7.6-9</td>
+                                          <td>1</td>
+                                          <td>C</td>
+                                        </tr>
+                                        <tr>
+                                          <td><span class="xlsx"><i class="fas fa-lock checkout"></i></span>Tasman</td>
+                                          <td>Internet Explorer 5.2</td>
+                                          <td>Mac OS 8-X</td>
+                                          <td>1</td>
+                                          <td>C</td>
+                                        </tr>
+                                        <tr>
+                                          <td><span class="word"><i class="fas fa-lock checkout"></i></span>Misc</td>
+                                          <td>NetFront 3.1</td>
+                                          <td>Embedded devices</td>
+                                          <td>-</td>
+                                          <td>C</td>
+                                        </tr>
+                                        <tr>
+                                          <td><span class="file"><i class="fas fa-lock checkout"></i></span>File</td>
+                                          <td>NetFront 3.4</td>
+                                          <td>Embedded devices</td>
+                                          <td>-</td>
+                                          <td>A</td>
+                                        </tr>
+                                        <tr>
+                                          <td><span class="file"><i class="fas fa-lock checkout"></i></span>other</td>
+                                          <td>Dillo 0.8</td>
+                                          <td>Embedded devices</td>
+                                          <td>-</td>
+                                          <td>X</td>
+                                        </tr>
+                                        <tr>
+                                          <td>Misc</td>
+                                          <td>Links</td>
+                                          <td>Text only</td>
+                                          <td>-</td>
+                                          <td>X</td>
+                                        </tr>
+                                        <tr>
+                                          <td>Misc</td>
+                                          <td>Lynx</td>
+                                          <td>Text only</td>
+                                          <td>-</td>
+                                          <td>X</td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="card">
+                                <div class="card-header" id="headingTwo">
+                                  <h2 class="mb-0">
+                                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                      data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                      <i class="fa fa-angle-right"></i> This Week
+                                    </button>
+                                  </h2>
+                                </div>
+                                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+                                  data-parent="#accordionExample">
+                                  <div class="card-body">
+                                    <table id="explorer_table" onclick="openNav()"
+                                      class="table table-bordered table-hover">
+                                      <thead>
+                                        <tr>
+                                          <th>Rendering</th>
+                                          <th>Browser</th>
+                                          <th>Platform(s)</th>
+                                          <th>Engine version</th>
+                                          <th>CSS grade</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody>
+                                        <tr>
+                                          <td><span class="png"><i class="fas fa-lock checkout"></i></span>Presto</td>
+                                          <td>Nintendo DS browser</td>
+                                          <td>Nintendo DS</td>
+                                          <td>8.5</td>
+                                          <td>C/A<sup>1</sup></td>
+                                        </tr>
+                                        <tr>
+                                          <td><span class="gif"><i class="fas fa-lock-open checkin"></i></span>KHTML
+                                          </td>
+                                          <td>Konqureror 3.1</td>
+                                          <td>KDE 3.1</td>
+                                          <td>3.1</td>
+                                          <td>C</td>
+                                        </tr>
+                                        <tr>
+                                          <td><span class="jpeg"><i class="fas fa-lock checkout"></i></span>KHTML</td>
+                                          <td>Konqureror 3.3</td>
+                                          <td>KDE 3.3</td>
+                                          <td>3.3</td>
+                                          <td>A</td>
+                                        </tr>
+                                        <tr>
+                                          <td><span class="jpg"><i class="fas fa-lock checkout"></i></span>KHTML</td>
+                                          <td>Konqureror 3.5</td>
+                                          <td>KDE 3.5</td>
+                                          <td>3.5</td>
+                                          <td>A</td>
+                                        </tr>
+                                        <tr>
+                                          <td><span class="pdf"><i class="fas fa-lock checkout"></i></span>Tasman</td>
+                                          <td>Internet Explorer 4.5</td>
+                                          <td>Mac OS 8-9</td>
+                                          <td>-</td>
+                                          <td>X</td>
+                                        </tr>
+                                        <tr>
+                                          <td><span class="ppt"><i class="fas fa-lock checkout"></i></span>Tasman</td>
+                                          <td>Internet Explorer 5.1</td>
+                                          <td>Mac OS 7.6-9</td>
+                                          <td>1</td>
+                                          <td>C</td>
+                                        </tr>
+                                        <tr>
+                                          <td><span class="xlsx"><i class="fas fa-lock checkout"></i></span>Tasman</td>
+                                          <td>Internet Explorer 5.2</td>
+                                          <td>Mac OS 8-X</td>
+                                          <td>1</td>
+                                          <td>C</td>
+                                        </tr>
+                                        <tr>
+                                          <td><span class="word"><i class="fas fa-lock checkout"></i></span>Misc</td>
+                                          <td>NetFront 3.1</td>
+                                          <td>Embedded devices</td>
+                                          <td>-</td>
+                                          <td>C</td>
+                                        </tr>
+                                        <tr>
+                                          <td><span class="file"><i class="fas fa-lock checkout"></i></span>File</td>
+                                          <td>NetFront 3.4</td>
+                                          <td>Embedded devices</td>
+                                          <td>-</td>
+                                          <td>A</td>
+                                        </tr>
+                                        <tr>
+                                          <td>Misc</td>
+                                          <td>Dillo 0.8</td>
+                                          <td>Embedded devices</td>
+                                          <td>-</td>
+                                          <td>X</td>
+                                        </tr>
+                                        <tr>
+                                          <td>Misc</td>
+                                          <td>Links</td>
+                                          <td>Text only</td>
+                                          <td>-</td>
+                                          <td>X</td>
+                                        </tr>
+                                        <tr>
+                                          <td>Misc</td>
+                                          <td>Lynx</td>
+                                          <td>Text only</td>
+                                          <td>-</td>
+                                          <td>X</td>
+                                        </tr>
+                                        <tr>
+                                          <td>Misc</td>
+                                          <td>IE Mobile</td>
+                                          <td>Windows Mobile 6</td>
+                                          <td>-</td>
+                                          <td>C</td>
+                                        </tr>
+                                        <tr>
+                                          <td>Misc</td>
+                                          <td>PSP browser</td>
+                                          <td>PSP</td>
+                                          <td>-</td>
+                                          <td>C</td>
+                                        </tr>
+                                        <tr>
+                                          <td>Other browsers</td>
+                                          <td>All others</td>
+                                          <td>-</td>
+                                          <td>-</td>
+                                          <td>U</td>
+                                        </tr>
+                                      </tbody>
+                                      <tfoot>
+                                        <tr>
+                                          <th>Rendering engine</th>
+                                          <th>Browser</th>
+                                          <th>Platform(s)</th>
+                                          <th>Engine version</th>
+                                          <th>CSS grade</th>
+                                        </tr>
+                                      </tfoot>
+                                    </table>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="card">
+                                <div class="card-header" id="headingThree">
+                                  <h2 class="mb-0">
+                                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                      data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                      <i class="fa fa-angle-right"></i> This Month
+                                    </button>
+                                  </h2>
+                                </div>
+                                <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
+                                  data-parent="#accordionExample">
+                                  <div class="card-body">
+                                    <table id="explorer_table" onclick="openNav()"
+                                      class="table table-bordered table-hover">
+                                      <thead>
+                                        <tr>
+                                          <th>Rendering</th>
+                                          <th>Browser</th>
+                                          <th>Platform(s)</th>
+                                          <th>Engine version</th>
+                                          <th>CSS grade</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody>
+                                        <tr>
+                                          <td><span class="png"><i class="fas fa-lock checkout"></i></span>Presto</td>
+                                          <td>Nintendo DS browser</td>
+                                          <td>Nintendo DS</td>
+                                          <td>8.5</td>
+                                          <td>C/A<sup>1</sup></td>
+                                        </tr>
+                                        <tr>
+                                          <td><span class="gif"><i class="fas fa-lock-open checkin"></i></span>KHTML
+                                          </td>
+                                          <td>Konqureror 3.1</td>
+                                          <td>KDE 3.1</td>
+                                          <td>3.1</td>
+                                          <td>C</td>
+                                        </tr>
+                                        <tr>
+                                          <td><span class="jpeg"><i class="fas fa-lock checkout"></i></span>KHTML</td>
+                                          <td>Konqureror 3.3</td>
+                                          <td>KDE 3.3</td>
+                                          <td>3.3</td>
+                                          <td>A</td>
+                                        </tr>
+                                        <tr>
+                                          <td><span class="jpg"><i class="fas fa-lock checkout"></i></span>KHTML</td>
+                                          <td>Konqureror 3.5</td>
+                                          <td>KDE 3.5</td>
+                                          <td>3.5</td>
+                                          <td>A</td>
+                                        </tr>
+                                        <tr>
+                                          <td><span class="pdf"><i class="fas fa-lock checkout"></i></span>Tasman</td>
+                                          <td>Internet Explorer 4.5</td>
+                                          <td>Mac OS 8-9</td>
+                                          <td>-</td>
+                                          <td>X</td>
+                                        </tr>
+                                        <tr>
+                                          <td><span class="ppt"><i class="fas fa-lock checkout"></i></span>Tasman</td>
+                                          <td>Internet Explorer 5.1</td>
+                                          <td>Mac OS 7.6-9</td>
+                                          <td>1</td>
+                                          <td>C</td>
+                                        </tr>
+                                        <tr>
+                                          <td><span class="xlsx"><i class="fas fa-lock checkout"></i></span>Tasman</td>
+                                          <td>Internet Explorer 5.2</td>
+                                          <td>Mac OS 8-X</td>
+                                          <td>1</td>
+                                          <td>C</td>
+                                        </tr>
+                                        <tr>
+                                          <td><span class="word"><i class="fas fa-lock checkout"></i></span>Misc</td>
+                                          <td>NetFront 3.1</td>
+                                          <td>Embedded devices</td>
+                                          <td>-</td>
+                                          <td>C</td>
+                                        </tr>
+                                        <tr>
+                                          <td><span class="file"><i class="fas fa-lock checkout"></i></span>File</td>
+                                          <td>NetFront 3.4</td>
+                                          <td>Embedded devices</td>
+                                          <td>-</td>
+                                          <td>A</td>
+                                        </tr>
+                                        <tr>
+                                          <td>Misc</td>
+                                          <td>Dillo 0.8</td>
+                                          <td>Embedded devices</td>
+                                          <td>-</td>
+                                          <td>X</td>
+                                        </tr>
+                                        <tr>
+                                          <td>Misc</td>
+                                          <td>Links</td>
+                                          <td>Text only</td>
+                                          <td>-</td>
+                                          <td>X</td>
+                                        </tr>
+                                        <tr>
+                                          <td>Misc</td>
+                                          <td>Lynx</td>
+                                          <td>Text only</td>
+                                          <td>-</td>
+                                          <td>X</td>
+                                        </tr>
+                                        <tr>
+                                          <td>Misc</td>
+                                          <td>IE Mobile</td>
+                                          <td>Windows Mobile 6</td>
+                                          <td>-</td>
+                                          <td>C</td>
+                                        </tr>
+                                        <tr>
+                                          <td>Misc</td>
+                                          <td>PSP browser</td>
+                                          <td>PSP</td>
+                                          <td>-</td>
+                                          <td>C</td>
+                                        </tr>
+                                        <tr>
+                                          <td>Other browsers</td>
+                                          <td>All others</td>
+                                          <td>-</td>
+                                          <td>-</td>
+                                          <td>U</td>
+                                        </tr>
+                                      </tbody>
+                                      <tfoot>
+                                        <tr>
+                                          <th>Rendering engine</th>
+                                          <th>Browser</th>
+                                          <th>Platform(s)</th>
+                                          <th>Engine version</th>
+                                          <th>CSS grade</th>
+                                        </tr>
+                                      </tfoot>
+                                    </table>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- <div class="split" id="three">
+              <div class="card card-primary card-outline card-outline-tabs">
+                <div class="card-header p-0 border-bottom-0">
+                    <a class="btn btn-primary control-save">Save</a>
+                    <a class="close_controlbar" id="closeexplorer" data-widget="control-sidebar" data-slide="true" href="#" role="button">
+                        <i class="fas fa-times"></i>
+                      </a>
+                  <ul class="nav nav-tabs pt-4" id="custom-tabs" role="tablist">
+                    <li class="nav-item">
+                      <a class="nav-link active" id="base_tab" data-toggle="pill" href="#base" role="tab" aria-controls="base" aria-selected="true">Base</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" id="metadata-tab" data-toggle="pill" href="#metadata" role="tab" aria-controls="metadata" aria-selected="false">Metadata</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" id="preview-tab" data-toggle="pill" href="#preview" role="tab" aria-controls="preview" aria-selected="false">Preview</a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="card-body">
+                  <div class="tab-content" id="result-tabContent">
+                   <div class="tab-pane fade show active" id="base" role="tabpanel" aria-labelledby="base_tab">
+                      <div class="form-group">
+                          <input type="text" class="form-control" placeholder="Entry ID">
+                      </div>
+                      <div class="form-group">
+                          <input type="text" class="form-control" placeholder="Name">
+                      </div>
+                      <div class="form-group">
+                          <input type="text" class="form-control" placeholder="Extension">
+                      </div>
+                      <div class="form-group">
+                          <input type="text" class="form-control" placeholder="Created On">
+                      </div>
+                      <div class="form-group">
+                          <input type="text" class="form-control" placeholder="Created By">
+                      </div>
+                      <div class="form-group">
+                          <input type="text" class="form-control" placeholder="Last Modified On">
+                      </div>
+                      <div class="form-group">
+                          <input type="text" class="form-control" placeholder="Last Modified By">
+                      </div>
+                   </div>
+                   <div class="tab-pane fade" id="metadata" role="tabpanel" aria-labelledby="metadata-tab">
+                      <div class="form-group">
+                          <input type="text" class="form-control" placeholder="Client ID">
+                      </div>
+                      <div class="form-group">
+                          <input type="text" class="form-control" placeholder="Client Name">
+                      </div>
+                      <div class="form-group">
+                          <input type="text" class="form-control" placeholder="Document Type">
+                      </div>
+                      <div class="form-group">
+                          <input type="text" class="form-control" placeholder="Document SUb Type">
+                      </div>
+                      <div class="form-group">
+                          <input type="text" class="form-control" placeholder="Dfx Security Code">
+                      </div>
+                   </div>
+                   <div class="tab-pane fade" id="preview" role="tabpanel" aria-labelledby="preview-tab">
+                      <div class="card-body text-center">
+                          <img src="dist/img/default-150x150.png">
+                        </div>
+                   </div>
+                  </div>
+                </div>
+              </div> -->
+                      </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="result2" role="tabpanel" aria-labelledby="result2-tab">
+
+                      <div class="row">
+                        <!-- <a href="#" class="show_search1_left"><i class="fa fa-chevron-right"></i></a> -->
+                        <div class="split" id="search1_left">
+                          <div class="card card-body">
+                            <div class="card advance_search">
+                              <div class="card-header">
+                                <h3 class="card-title" style="float:none">Advance Filters <a href="#"
+                                    class="close_search1_left"><i class="fa fa-times"></i></a></h3>
+                                <div class="clearfix"></div>
+                                <hr />
+                                <div class="form-group">
+                                  <label>Saved Queries</label>
+                                  <select class="form-control select2" style="width: 100%;">
+                                    <option selected="selected">Alabama</option>
+                                    <option>Alaska</option>
+                                    <option>California</option>
+                                    <option>Delaware</option>
+                                    <option>Tennessee</option>
+                                    <option>Texas</option>
+                                    <option>Washington</option>
+                                  </select>
+                                </div>
+                                <hr />
+                                <div class="form-group">
+                                  <label>Search Criteria</label>
+                                  <select class="select2" multiple="multiple" data-placeholder="Select a Criteria"
+                                    style="width: 100%;">
+                                    <option>Name</option>
+                                    <option>Pages</option>
+                                    <option>Tag</option>
+                                    <option>Text</option>
+                                    <option>User</option>
+                                    <option>Version</option>
+                                    <option>Within Folder</option>
+                                  </select>
+                                </div>
+                              </div>
+                              <div class="card-body filters">
+                                <div class="row">
+                                  <div class="card filter">
+                                    <div class="card-header">
+                                      <h3 class="card-title">Name</h3>
+                                      <div class="card-tools">
+                                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                          <i class="fas fa-minus"></i>
+                                        </button>
+                                        <button type="button" class="btn btn-tool" data-card-widget="remove">
+                                          <i class="fas fa-times"></i>
+                                        </button>
+                                      </div>
+                                    </div>
+                                    <!-- /.card-header -->
+                                    <div class="card-body P10">
+                                      <div class="form-group row px-2">
+                                        <div class="col-sm-6">
+                                          <input class="form-control mb-2" type="text" placeholder="Entry Name">
+                                        </div>
+                                        <div class="col-sm-6">
+                                          <div class="custom-control custom-checkbox col-6">
+                                            <input class="custom-control-input" type="checkbox" id="customCheckboxn1"
+                                              value="Document">
+                                            <label for="customCheckboxn1" class="custom-control-label">Document</label>
+                                          </div>
+                                          <div class="custom-control custom-checkbox col-6">
+                                            <input class="custom-control-input" type="checkbox" id="customCheckboxn2"
+                                              value="Folder">
+                                            <label for="customCheckboxn2" class="custom-control-label">Folder</label>
+                                          </div>
+                                          <div class="custom-control custom-checkbox col-6">
+                                            <input class="custom-control-input" type="checkbox" id="customCheckboxn3"
+                                              value="Shortcut">
+                                            <label for="customCheckboxn3" class="custom-control-label">Shortcut</label>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="card filter">
+                                    <div class="card-header">
+                                      <h3 class="card-title">Text</h3>
+                                      <div class="card-tools">
+                                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                          <i class="fas fa-minus"></i>
+                                        </button>
+                                        <button type="button" class="btn btn-tool" data-card-widget="remove">
+                                          <i class="fas fa-times"></i>
+                                        </button>
+                                      </div>
+                                    </div>
+                                    <!-- /.card-header -->
+                                    <div class="card-body P10">
+                                      <div class="form-group row px-2">
+                                        <div class="col-sm-6">
+                                          <input class="form-control mb-2" type="text" placeholder="Enter Text">
+                                        </div>
+                                        <div class="col-sm-6">
+                                          <div class="custom-control custom-checkbox col-6">
+                                            <input class="custom-control-input" type="checkbox" id="customCheckboxn1"
+                                              value="Document">
+                                            <label for="customCheckboxn1" class="custom-control-label">Document</label>
+                                          </div>
+                                          <div class="custom-control custom-checkbox col-6">
+                                            <input class="custom-control-input" type="checkbox" id="customCheckboxn2"
+                                              value="Folder">
+                                            <label for="customCheckboxn2" class="custom-control-label">Folder</label>
+                                          </div>
+                                          <div class="custom-control custom-checkbox col-6">
+                                            <input class="custom-control-input" type="checkbox" id="customCheckboxn3"
+                                              value="Shortcut">
+                                            <label for="customCheckboxn3" class="custom-control-label">Shortcut</label>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="card filter">
+                                    <div class="card-header">
+                                      <h3 class="card-title">Business Process</h3>
+                                      <div class="card-tools">
+                                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                          <i class="fas fa-minus"></i>
+                                        </button>
+                                        <button type="button" class="btn btn-tool" data-card-widget="remove">
+                                          <i class="fas fa-times"></i>
+                                        </button>
+                                      </div>
+                                    </div>
+                                    <!-- /.card-header -->
+                                    <div class="card-body P10">
+                                      <div class="form-group row px-2">
+                                        <div class="col-sm-6">
+                                          <input class="form-control mb-2" type="text" placeholder="Process Name">
+                                        </div>
+                                        <div class="col-sm-6">
+                                          <div class="custom-control custom-checkbox">
+                                            <input class="custom-control-input" type="checkbox" id="customCheckboxn1"
+                                              value="Document">
+                                            <label for="customCheckboxn1" class="custom-control-label">Document</label>
+                                          </div>
+                                          <div class="custom-control custom-checkbox">
+                                            <input class="custom-control-input" type="checkbox" id="customCheckboxn2"
+                                              value="Folder">
+                                            <label for="customCheckboxn2" class="custom-control-label">Folder</label>
+                                          </div>
+                                          <div class="custom-control custom-checkbox">
+                                            <input class="custom-control-input" type="checkbox" id="customCheckboxn3"
+                                              value="Shortcut">
+                                            <label for="customCheckboxn3" class="custom-control-label">Shortcut</label>
+                                          </div>
+                                        </div>
+
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="card filter">
+                                    <div class="card-header">
+                                      <h3 class="card-title">Generated Query</h3>
+                                      <div class="card-tools">
+                                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                          <i class="fas fa-minus"></i>
+                                        </button>
+                                        <button type="button" class="btn btn-tool" data-card-widget="remove">
+                                          <i class="fas fa-times"></i>
+                                        </button>
+                                      </div>
+                                    </div>
+                                    <!-- /.card-header -->
+                                    <div class="card-body">
+                                      <div class="form-group row px-2">
+                                        <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="">
+                                  <a href="#" class="btn text-danger">Remove this Search</a>
+                                </div>
+                                <hr />
+                                <div class="text-center">
+
+                                  <a href="#" class="btn btn-primary">Search</a><br /><br />
+                                  <a href="#" class="text-dark">Save this Search</a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="split" id="search1_right">
+                          <div class="card card-body">
+                            <div class="row mb-2">
+                              <div class="col-sm-12">
+                                <ol class="breadcrumb">
+                                  <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                  <li class="breadcrumb-item active">Search Results</li>
+                                </ol>
+                                <div class="column-btn">
+                                  <button type="button" class="btn btn-default" data-toggle="modal"
+                                    data-target="#modal-lg">
+                                    Column Visibility
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row mb-2">
+                              <div class="col-sm-12">
+                                <ol class="search_filter">
+                                  <li class="filter-item"><a href="#">Parameter 1 <i class="fa fa-times"></i></a></li>
+                                  <li class="filter-item"><a href="#">Parameter 2 <i class="fa fa-times"></i></a></li>
+                                  <li class="filter-item"><a href="#">Parameter 3 <i class="fa fa-times"></i></a></li>
+                                </ol>
+                              </div>
+                            </div>
+                            <table id="searchresult1_table" onclick="openNav()"
+                              class="table table-bordered table-hover">
+                              <thead>
+                                <tr>
+                                  <th>Rendering engine</th>
+                                  <th>Browser</th>
+                                  <th>Platform(s)</th>
+                                  <th>Engine version</th>
+                                  <th>CSS grade</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td>Presto</td>
+                                  <td>Nintendo DS browser</td>
+                                  <td>Nintendo DS</td>
+                                  <td>8.5</td>
+                                  <td>C/A<sup>1</sup></td>
+                                </tr>
+                                <tr>
+                                  <td>KHTML</td>
+                                  <td>Konqureror 3.1</td>
+                                  <td>KDE 3.1</td>
+                                  <td>3.1</td>
+                                  <td>C</td>
+                                </tr>
+                                <tr>
+                                  <td>KHTML</td>
+                                  <td>Konqureror 3.3</td>
+                                  <td>KDE 3.3</td>
+                                  <td>3.3</td>
+                                  <td>A</td>
+                                </tr>
+                                <tr>
+                                  <td>KHTML</td>
+                                  <td>Konqureror 3.5</td>
+                                  <td>KDE 3.5</td>
+                                  <td>3.5</td>
+                                  <td>A</td>
+                                </tr>
+                                <tr>
+                                  <td>Tasman</td>
+                                  <td>Internet Explorer 4.5</td>
+                                  <td>Mac OS 8-9</td>
+                                  <td>-</td>
+                                  <td>X</td>
+                                </tr>
+                                <tr>
+                                  <td>Tasman</td>
+                                  <td>Internet Explorer 5.1</td>
+                                  <td>Mac OS 7.6-9</td>
+                                  <td>1</td>
+                                  <td>C</td>
+                                </tr>
+                                <tr>
+                                  <td>Tasman</td>
+                                  <td>Internet Explorer 5.2</td>
+                                  <td>Mac OS 8-X</td>
+                                  <td>1</td>
+                                  <td>C</td>
+                                </tr>
+                                <tr>
+                                  <td>Misc</td>
+                                  <td>NetFront 3.1</td>
+                                  <td>Embedded devices</td>
+                                  <td>-</td>
+                                  <td>C</td>
+                                </tr>
+                                <tr>
+                                  <td>Misc</td>
+                                  <td>NetFront 3.4</td>
+                                  <td>Embedded devices</td>
+                                  <td>-</td>
+                                  <td>A</td>
+                                </tr>
+                                <tr>
+                                  <td>Misc</td>
+                                  <td>Dillo 0.8</td>
+                                  <td>Embedded devices</td>
+                                  <td>-</td>
+                                  <td>X</td>
+                                </tr>
+                                <tr>
+                                  <td>Misc</td>
+                                  <td>Links</td>
+                                  <td>Text only</td>
+                                  <td>-</td>
+                                  <td>X</td>
+                                </tr>
+                                <tr>
+                                  <td>Misc</td>
+                                  <td>Lynx</td>
+                                  <td>Text only</td>
+                                  <td>-</td>
+                                  <td>X</td>
+                                </tr>
+                                <tr>
+                                  <td>Misc</td>
+                                  <td>IE Mobile</td>
+                                  <td>Windows Mobile 6</td>
+                                  <td>-</td>
+                                  <td>C</td>
+                                </tr>
+                                <tr>
+                                  <td>Misc</td>
+                                  <td>PSP browser</td>
+                                  <td>PSP</td>
+                                  <td>-</td>
+                                  <td>C</td>
+                                </tr>
+                                <tr>
+                                  <td>Other browsers</td>
+                                  <td>All others</td>
+                                  <td>-</td>
+                                  <td>-</td>
+                                  <td>U</td>
+                                </tr>
+                              </tbody>
+                              <tfoot>
+                                <tr>
+                                  <th>Rendering engine</th>
+                                  <th>Browser</th>
+                                  <th>Platform(s)</th>
+                                  <th>Engine version</th>
+                                  <th>CSS grade</th>
+                                </tr>
+                              </tfoot>
+                            </table>
+                          </div>
+                        </div>
+                        <div class="split" id="search1_meta">
+                          <div class="card card-primary card-outline card-outline-tabs">
+
+                            <div class="card-header p-0 border-bottom-0">
+                              <a class="btn btn-primary control-save">Save</a>
+                              <a class="close_controlbar" id="closesearch1" data-widget="control-sidebar"
+                                data-slide="true" href="#" role="button">
+                                <i class="fas fa-times"></i>
+                              </a>
+                              <ul class="nav nav-tabs pt-4" id="custom-tabs2" role="tablist">
+                                <li class="nav-item">
+                                  <a class="nav-link active" id="base_tab" data-toggle="pill" href="#base" role="tab"
+                                    aria-controls="base" aria-selected="true">Base</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a class="nav-link" id="metadata-tab" data-toggle="pill" href="#metadata" role="tab"
+                                    aria-controls="metadata" aria-selected="false">Metadata</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a class="nav-link" id="preview-tab" data-toggle="pill" href="#preview" role="tab"
+                                    aria-controls="preview" aria-selected="false">Preview</a>
+                                </li>
+                              </ul>
+                            </div>
+                            <div class="card-body">
+                              <div class="tab-content" id="result-tabContent">
+                                <div class="tab-pane fade show active" id="base" role="tabpanel"
+                                  aria-labelledby="base_tab">
+                                  <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Entry ID">
+                                  </div>
+                                  <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Name">
+                                  </div>
+                                  <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Extension">
+                                  </div>
+                                  <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Created On">
+                                  </div>
+                                  <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Created By">
+                                  </div>
+                                  <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Last Modified On">
+                                  </div>
+                                  <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Last Modified By">
+                                  </div>
+                                  <div class="input-group date" id="datepicker" data-target-input="nearest">
+                                    <input type="text" class="form-control datetimepicker-input"
+                                      data-target="#datepicker" />
+                                    <div class="input-group-append" data-target="#datepicker"
+                                      data-toggle="datetimepicker">
+                                      <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                    </div>
+                                  </div>
+                                  <br />
+                                  <div class="input-group date" id="datetimepicker" data-target-input="nearest">
+                                    <input type="text" class="form-control datetimepicker-input"
+                                      data-target="#datetimepicker" />
+                                    <div class="input-group-append" data-target="#datetimepicker"
+                                      data-toggle="datetimepicker">
+                                      <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                    </div>
+                                  </div>
+
+                                </div>
+                                <div class="tab-pane fade" id="metadata" role="tabpanel" aria-labelledby="metadata-tab">
+                                  <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Client ID">
+                                  </div>
+                                  <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Client Name">
+                                  </div>
+                                  <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Document Type">
+                                  </div>
+                                  <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Document SUb Type">
+                                  </div>
+                                  <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Dfx Security Code">
+                                  </div>
+                                </div>
+                                <div class="tab-pane fade" id="preview" role="tabpanel" aria-labelledby="preview-tab">
+                                  <div class="card-body text-center">
+                                    <img src="dist/img/default-150x150.png">
+                                  </div>
+                                </div>
+
+                              </div>
+                            </div>
+                            <!-- /.card -->
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="tab-pane fade" id="result3" role="tabpanel" aria-labelledby="result3-tab">
+                      <table id="searchresult1" class="table table-bordered table-striped">
+                        <thead>
+                          <tr>
+                            <th>Rendering engine</th>
+                            <th>Browser</th>
+                            <th>Platform(s)</th>
+                            <th>Engine version</th>
+                            <th>CSS grade</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>Trident</td>
+                            <td>Internet
+                              Explorer 4.0
+                            </td>
+                            <td>Win 95+</td>
+                            <td> 4</td>
+                            <td>X</td>
+                          </tr>
+                          <tr>
+                            <td>Trident</td>
+                            <td>Internet
+                              Explorer 5.0
+                            </td>
+                            <td>Win 95+</td>
+                            <td>5</td>
+                            <td>C</td>
+                          </tr>
+                          <tr>
+                            <td>Trident</td>
+                            <td>Internet
+                              Explorer 5.5
+                            </td>
+                            <td>Win 95+</td>
+                            <td>5.5</td>
+                            <td>A</td>
+                          </tr>
+                          <tr>
+                            <td>Trident</td>
+                            <td>Internet
+                              Explorer 6
+                            </td>
+                            <td>Win 98+</td>
+                            <td>6</td>
+                            <td>A</td>
+                          </tr>
+                          <tr>
+                            <td>Trident</td>
+                            <td>Internet Explorer 7</td>
+                            <td>Win XP SP2+</td>
+                            <td>7</td>
+                            <td>A</td>
+                          </tr>
+                          <tr>
+                            <td>Trident</td>
+                            <td>AOL browser (AOL desktop)</td>
+                            <td>Win XP</td>
+                            <td>6</td>
+                            <td>A</td>
+                          </tr>
+                          <tr>
+                            <td>Gecko</td>
+                            <td>Firefox 1.0</td>
+                            <td>Win 98+ / OSX.2+</td>
+                            <td>1.7</td>
+                            <td>A</td>
+                          </tr>
+                          <tr>
+                            <td>Gecko</td>
+                            <td>Firefox 1.5</td>
+                            <td>Win 98+ / OSX.2+</td>
+                            <td>1.8</td>
+                            <td>A</td>
+                          </tr>
+                          <tr>
+                            <td>Gecko</td>
+                            <td>Firefox 2.0</td>
+                            <td>Win 98+ / OSX.2+</td>
+                            <td>1.8</td>
+                            <td>A</td>
+                          </tr>
+                          <tr>
+                            <td>Gecko</td>
+                            <td>Firefox 3.0</td>
+                            <td>Win 2k+ / OSX.3+</td>
+                            <td>1.9</td>
+                            <td>A</td>
+                          </tr>
+                          <tr>
+                            <td>Gecko</td>
+                            <td>Camino 1.0</td>
+                            <td>OSX.2+</td>
+                            <td>1.8</td>
+                            <td>A</td>
+                          </tr>
+                          <tr>
+                            <td>Gecko</td>
+                            <td>Camino 1.5</td>
+                            <td>OSX.3+</td>
+                            <td>1.8</td>
+                            <td>A</td>
+                          </tr>
+
+                          <tr>
+                            <td>Gecko</td>
+                            <td>Mozilla 1.6</td>
+                            <td>Win 95+ / OSX.1+</td>
+                            <td>1.6</td>
+                            <td>A</td>
+                          </tr>
+                          <tr>
+                            <td>Gecko</td>
+                            <td>Mozilla 1.7</td>
+                            <td>Win 98+ / OSX.1+</td>
+                            <td>1.7</td>
+                            <td>A</td>
+                          </tr>
+                          <tr>
+                            <td>Gecko</td>
+                            <td>Mozilla 1.8</td>
+                            <td>Win 98+ / OSX.1+</td>
+                            <td>1.8</td>
+                            <td>A</td>
+                          </tr>
+                          <tr>
+                            <td>Gecko</td>
+                            <td>Seamonkey 1.1</td>
+                            <td>Win 98+ / OSX.2+</td>
+                            <td>1.8</td>
+                            <td>A</td>
+                          </tr>
+                          <tr>
+                            <td>Gecko</td>
+                            <td>Epiphany 2.20</td>
+                            <td>Gnome</td>
+                            <td>1.8</td>
+                            <td>A</td>
+                          </tr>
+                          <tr>
+                            <td>Webkit</td>
+                            <td>Safari 1.2</td>
+                            <td>OSX.3</td>
+                            <td>125.5</td>
+                            <td>A</td>
+                          </tr>
+                          <tr>
+                            <td>Webkit</td>
+                            <td>Safari 1.3</td>
+                            <td>OSX.3</td>
+                            <td>312.8</td>
+                            <td>A</td>
+                          </tr>
+                          <tr>
+                            <td>Webkit</td>
+                            <td>Safari 2.0</td>
+                            <td>OSX.4+</td>
+                            <td>419.3</td>
+                            <td>A</td>
+                          </tr>
+                          <tr>
+                            <td>Webkit</td>
+                            <td>Safari 3.0</td>
+                            <td>OSX.4+</td>
+                            <td>522.1</td>
+                            <td>A</td>
+                          </tr>
+                          <tr>
+                            <td>Webkit</td>
+                            <td>OmniWeb 5.5</td>
+                            <td>OSX.4+</td>
+                            <td>420</td>
+                            <td>A</td>
+                          </tr>
+                          <tr>
+                            <td>Webkit</td>
+                            <td>iPod Touch / iPhone</td>
+                            <td>iPod</td>
+                            <td>420.1</td>
+                            <td>A</td>
+                          </tr>
+                          <tr>
+                            <td>Webkit</td>
+                            <td>S60</td>
+                            <td>S60</td>
+                            <td>413</td>
+                            <td>A</td>
+                          </tr>
+                          <tr>
+                            <td>Presto</td>
+                            <td>Opera 7.0</td>
+                            <td>Win 95+ / OSX.1+</td>
+                            <td>-</td>
+                            <td>A</td>
+                          </tr>
+                          <tr>
+                            <td>Presto</td>
+                            <td>Opera 7.5</td>
+                            <td>Win 95+ / OSX.2+</td>
+                            <td>-</td>
+                            <td>A</td>
+                          </tr>
+                          <tr>
+                            <td>Presto</td>
+                            <td>Opera 8.0</td>
+                            <td>Win 95+ / OSX.2+</td>
+                            <td>-</td>
+                            <td>A</td>
+                          </tr>
+                          <tr>
+                            <td>Presto</td>
+                            <td>Opera 8.5</td>
+                            <td>Win 95+ / OSX.2+</td>
+                            <td>-</td>
+                            <td>A</td>
+                          </tr>
+                          <tr>
+                            <td>Presto</td>
+                            <td>Opera 9.0</td>
+                            <td>Win 95+ / OSX.3+</td>
+                            <td>-</td>
+                            <td>A</td>
+                          </tr>
+                          <tr>
+                            <td>Presto</td>
+                            <td>Opera 9.2</td>
+                            <td>Win 88+ / OSX.3+</td>
+                            <td>-</td>
+                            <td>A</td>
+                          </tr>
+                          <tr>
+                            <td>Presto</td>
+                            <td>Opera 9.5</td>
+                            <td>Win 88+ / OSX.3+</td>
+                            <td>-</td>
+                            <td>A</td>
+                          </tr>
+                          <tr>
+                            <td>Presto</td>
+                            <td>Opera for Wii</td>
+                            <td>Wii</td>
+                            <td>-</td>
+                            <td>A</td>
+                          </tr>
+                          <tr>
+                            <td>Presto</td>
+                            <td>Nokia N800</td>
+                            <td>N800</td>
+                            <td>-</td>
+                            <td>A</td>
+                          </tr>
+                          <tr>
+                            <td>Presto</td>
+                            <td>Nintendo DS browser</td>
+                            <td>Nintendo DS</td>
+                            <td>8.5</td>
+                            <td>C/A<sup>1</sup></td>
+                          </tr>
+                          <tr>
+                            <td>KHTML</td>
+                            <td>Konqureror 3.1</td>
+                            <td>KDE 3.1</td>
+                            <td>3.1</td>
+                            <td>C</td>
+                          </tr>
+                          <tr>
+                            <td>KHTML</td>
+                            <td>Konqureror 3.3</td>
+                            <td>KDE 3.3</td>
+                            <td>3.3</td>
+                            <td>A</td>
+                          </tr>
+                          <tr>
+                            <td>KHTML</td>
+                            <td>Konqureror 3.5</td>
+                            <td>KDE 3.5</td>
+                            <td>3.5</td>
+                            <td>A</td>
+                          </tr>
+                          <tr>
+                            <td>Tasman</td>
+                            <td>Internet Explorer 4.5</td>
+                            <td>Mac OS 8-9</td>
+                            <td>-</td>
+                            <td>X</td>
+                          </tr>
+                          <tr>
+                            <td>Tasman</td>
+                            <td>Internet Explorer 5.1</td>
+                            <td>Mac OS 7.6-9</td>
+                            <td>1</td>
+                            <td>C</td>
+                          </tr>
+                          <tr>
+                            <td>Tasman</td>
+                            <td>Internet Explorer 5.2</td>
+                            <td>Mac OS 8-X</td>
+                            <td>1</td>
+                            <td>C</td>
+                          </tr>
+                          <tr>
+                            <td>Misc</td>
+                            <td>NetFront 3.1</td>
+                            <td>Embedded devices</td>
+                            <td>-</td>
+                            <td>C</td>
+                          </tr>
+                          <tr>
+                            <td>Misc</td>
+                            <td>NetFront 3.4</td>
+                            <td>Embedded devices</td>
+                            <td>-</td>
+                            <td>A</td>
+                          </tr>
+                          <tr>
+                            <td>Misc</td>
+                            <td>Dillo 0.8</td>
+                            <td>Embedded devices</td>
+                            <td>-</td>
+                            <td>X</td>
+                          </tr>
+                          <tr>
+                            <td>Misc</td>
+                            <td>Links</td>
+                            <td>Text only</td>
+                            <td>-</td>
+                            <td>X</td>
+                          </tr>
+                          <tr>
+                            <td>Misc</td>
+                            <td>Lynx</td>
+                            <td>Text only</td>
+                            <td>-</td>
+                            <td>X</td>
+                          </tr>
+                          <tr>
+                            <td>Misc</td>
+                            <td>IE Mobile</td>
+                            <td>Windows Mobile 6</td>
+                            <td>-</td>
+                            <td>C</td>
+                          </tr>
+                          <tr>
+                            <td>Misc</td>
+                            <td>PSP browser</td>
+                            <td>PSP</td>
+                            <td>-</td>
+                            <td>C</td>
+                          </tr>
+                          <tr>
+                            <td>Other browsers</td>
+                            <td>All others</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>U</td>
+                          </tr>
+                        </tbody>
+                        <tfoot>
+                          <tr>
+                            <th>Rendering engine</th>
+                            <th>Browser</th>
+                            <th>Platform(s)</th>
+                            <th>Engine version</th>
+                            <th>CSS grade</th>
+                          </tr>
+                        </tfoot>
+                      </table>
+                    </div>
+                    <div class="tab-pane fade" id="result4" role="tabpanel" aria-labelledby="result4-tab">
+                      <div class="row container">
+                        <div class="card-body file-upload">
+                          <div id="actions" class="row">
+                            <div class="col-lg-6">
+                              <div class="btn-group w-100">
+                                <span class="btn btn-primary col fileinput-button">
+                                  <i class="fas fa-plus"></i>
+                                  <span>Add files</span>
+                                </span>
+                                <button type="submit" class="btn btn-primary col start">
+                                  <i class="fas fa-upload"></i>
+                                  <span>Start upload</span>
+                                </button>
+                                <!-- <button type="reset" class="btn btn-warning col cancel">
+                                      <i class="fas fa-times-circle"></i>
+                                      <span>Cancel upload</span>
+                                    </button> -->
+                              </div>
+                            </div>
+                            <div class="col-lg-6 d-flex align-items-center">
+                              <div class="fileupload-process w-100">
+                                <div id="total-progress" class="progress progress-striped active" role="progressbar"
+                                  aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                                  <div class="progress-bar progress-bar-success" style="width:0%;"
+                                    data-dz-uploadprogress></div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="table table-striped files" id="previews">
+                            <div id="template" class="row mt-2">
+                              <div class="col-auto">
+                                <span class="preview"><img src="data:," alt="" data-dz-thumbnail /></span>
+                              </div>
+                              <div class="col d-flex align-items-center">
+                                <p class="mb-0">
+                                  <span class="lead" data-dz-name></span>
+                                  (<span data-dz-size></span>)
+                                </p>
+                                <strong class="error text-danger" data-dz-errormessage></strong>
+                              </div>
+                              <div class="col-4 d-flex align-items-center">
+                                <div class="progress progress-striped active w-100" role="progressbar" aria-valuemin="0"
+                                  aria-valuemax="100" aria-valuenow="0">
+                                  <div class="progress-bar progress-bar-success" style="width:0%;"
+                                    data-dz-uploadprogress></div>
+                                </div>
+                              </div>
+                              <div class="col-auto d-flex align-items-center">
+                                <div class="btn-group start">
+                                  <!-- <button class="btn btn-primary ">
+                                        <i class="fas fa-upload"></i>
+                                        <span>Start</span>
+                                      </button> -->
+                                  <!--<button data-dz-remove class="btn btn-warning cancel">
+                                        <i class="fas fa-times-circle"></i>
+                                        <span>Cancel</span>
+                                      </button> -->
+                                  <button data-dz-remove class="btn btn-danger delete">
+                                    <i class="fas fa-trash"></i>
+                                    <span>Delete</span>
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- <div class="col-md-5">
+                              <form action="/file-upload" class="dropzone">
+                                <div class="fallback">
+                                  <input name="file" type="file" multiple />
+                                </div>
+                              </form>
+                            </div>
+                            <div class="col-md-7">
+                              Use existing sslected files
+                            </div> -->
+                      </div>
+                    </div>
+
+                    <div class="tab-pane fade preview-frame" id="result5" role="tabpanel" aria-labelledby="result5-tab">
+                      <div class="frame-outer">
+                        <!-- <iframe class="responsive-iframe" src="index.html"></iframe> -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- /.card -->
+              </div>
+
+            </div>
+          </div>
+          <!-- /.row -->
+        </div>
+        <!-- /.container-fluid -->
+      </section>
+      <!-- /.content -->
+    </div>
+    <div class="modal fade" id="modal-lg">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Column Visibility</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div id="shared-lists" class="row">
+              <div class="col">
+                <h5>Available Columns</h5>
+                <form class="mb-3">
+                  <div class="input-group">
+                    <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+                    <div class="input-group-append">
+                      <button class="btn btn-search" type="submit">
+                        <i class="fas fa-search"></i>
+                      </button>
+                    </div>
+                  </div>
+                </form>
+
+                <div id="available-columns" class="list-group">
+                  <div class="list-group-item">Item 1</div>
+                  <div class="list-group-item">Item 2</div>
+                  <div class="list-group-item">Item 3</div>
+                  <div class="list-group-item">Item 4</div>
+                  <div class="list-group-item">Item 5</div>
+                  <div class="list-group-item">Item 6</div>
+                </div>
+              </div>
+              <div class="col">
+                <h5>Available Columns</h5>
+                <form class="mb-3">
+                  <div class="input-group">
+                    <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+                    <div class="input-group-append">
+                      <button class="btn btn-search" type="submit">
+                        <i class="fas fa-search"></i>
+                      </button>
+                    </div>
+                  </div>
+                </form>
+
+                <div id="selected-columns" class="list-group">
+                  <div class="list-group-item tinted">Item 1</div>
+                  <div class="list-group-item tinted">Item 2</div>
+                  <div class="list-group-item tinted">Item 3</div>
+                  <div class="list-group-item tinted">Item 4</div>
+                  <div class="list-group-item tinted">Item 5</div>
+                  <div class="list-group-item tinted">Item 6</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer justify-content-between">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+        <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+    </div>
+    <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn">&times;</a>
+      <div class="card card-primary card-outline card-outline-tabs no-shadow">
+        <div class="card-header p-0 border-bottom-0">
+          <h4 class="side-nav-header">File Details</h4>
+          <a class="close_controlbar" onclick="closeNav()" data-widget="control-sidebar" data-slide="true" href="#"
+            role="button">
+            <i class="fas fa-times"></i>
+          </a>
+          <ul class="nav nav-tabs pt-4" id="custom-tabs" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" id="base_tab" data-toggle="pill" href="#rbase" role="tab" aria-controls="base"
+                aria-selected="true">Base</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="metadata-tab" data-toggle="pill" href="#rmetadata" role="tab"
+                aria-controls="metadata" aria-selected="false">Metadata</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="preview-tab" data-toggle="pill" href="#rpreview" role="tab"
+                aria-controls="preview" aria-selected="false">Preview</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="links-tab" data-toggle="pill" href="#rlinks" role="tab" aria-controls="links"
+                aria-selected="false">Links</a>
+            </li>
+          </ul>
+        </div>
+        <div class="card-body">
+          <div class="tab-content" id="result-tabContent">
+            <div class="tab-pane fade show active" id="rbase" role="tabpanel" aria-labelledby="base_tab">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Entry ID">
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Name">
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Extension">
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Created On">
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Created By">
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Last Modified On">
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Last Modified By">
+              </div>
+            </div>
+            <div class="tab-pane fade" id="rmetadata" role="tabpanel" aria-labelledby="metadata-tab">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Client ID">
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Client Name">
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Document Type">
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Document SUb Type">
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Dfx Security Code">
+              </div>
+            </div>
+            <div class="tab-pane fade" id="rpreview" role="tabpanel" aria-labelledby="preview-tab">
+              <div class="card-body text-center">
+                <img src="dist/img/default-150x150.png">
+              </div>
+            </div>
+            <div class="tab-pane fade" id="rlinks" role="tabpanel" aria-labelledby="links-tab">
+              <div class="form-group row">
+                <div class="col-md-8 select-btns">
+                  <div class="custom-control custom-radio" style="padding-left:5px">
+                    <input class="custom-control-input" type="radio" id="customRadio1" name="customRadio">
+                    <label for="customRadio1" class="custom-control-label">Document Relationship</label>
+                  </div>
+                  <div class="custom-control custom-radio">
+                    <input class="custom-control-input" type="radio" id="customRadio2" name="customRadio" checked>
+                    <label for="customRadio2" class="custom-control-label">Link Group</label>
+                  </div>
+                </div>
+                <div class="col-md-4 text-right">
+                  <button class="btn btn-default btn-sm" data-tooltip="Add New"><i class="fa fa-plus"></i></button>
+                  <button class="btn btn-default btn-sm" data-tooltip="Edit"><i class="fa fa-edit"></i></button>
+                  <button class="btn btn-danger btn-sm" data-tooltip="Delete"><i class="fa fa-trash"></i></button>
+                </div>
+              </div>
+              <table class="table table-bordered table-hover table-sm">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Relationship Type</th>
+                    <th>Reverse Relationship</th>
+                    <th>Path</th>
+                    <th>Custom Properties</th>
+                    <th>Comments</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>DS browser</td>
+                    <td>Nintendo </td>
+                    <td>Nintendo DS</td>
+                    <td>8.5</td>
+                    <td>C/A</td>
+                    <td>CA</td>
+                  </tr>
+                  <tr>
+                    <td>Konqureror</td>
+                    <td>Konqureror</td>
+                    <td>KDE 3.1</td>
+                    <td>3.1</td>
+                    <td>C</td>
+                    <td>CA</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <!-- <div class="sidefooter"><a class="btn btn-primary control-save">Save</a></div> -->
+          </div>
+        </div>
+      </div>
+      <!-- /.card -->
+    </div>
+  </div>
+  <!--End Sidebar-->
+  <footer class="main-footer text-center">
+    <strong>Copyright &copy; 2020.</strong> All rights reserved.
+  </footer>
+  </div>
+  <!-- ./wrapper -->
+
+  <!-- jQuery -->
+  <script src="plugins/jquery/jquery.min.js"></script>
+  <!-- Bootstrap 4 -->
+  <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="plugins/select2/js/select2.full.min.js"></script>
+  <script src="plugins/moment/moment.min.js"></script>
+  <script src="plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+  <script src="plugins/dropzone/min/dropzone.min.js"></script>
+  <!-- AdminLTE App -->
+  <script src="dist/js/adminlte.min.js"></script>
+  <!-- AdminLTE for demo purposes -->
+  <script src="dist/js/split.min.js"></script>
+  <script src="dist/js/Sortable.js"></script>
+  <script src="dist/js/contextMenu.min.js"></script>
+  <script src="https://www.w3.org/TR/wai-aria-practices/examples/treeview/treeview-1/js/tree.js"></script>
+  <script src="https://www.w3.org/TR/wai-aria-practices/examples/treeview/treeview-1/js/treeitem.js"></script>
+  <script src="https://www.w3.org/TR/wai-aria-practices/examples/treeview/treeview-1/js/treeitemClick.js"></script>
+  <script>
+    $(document).ready(function(){
+      var submitIcon = $('.searchbox-icon');
+      var inputBox = $('.searchbox-input');
+      var searchBox = $('.searchbox');
+      var isOpen = false;
+      submitIcon.click(function(){
+        //$(".wintitle").toggle();
+          if(isOpen == false){
+              searchBox.addClass('searchbox-open');
+              inputBox.focus();
+              isOpen = true;
+          } else {
+              searchBox.removeClass('searchbox-open');
+              inputBox.focusout();
+              isOpen = false;
+          }
+      });  
+        submitIcon.mouseup(function(){
+              return false;
+          });
+      searchBox.mouseup(function(){
+              return false;
+          });
+      $(document).mouseup(function(){
+              if(isOpen == true){
+                  $('.searchbox-icon').css('display','block');
+                  submitIcon.click();
+              }
+          });
+       });
+      function buttonUp(){
+          var inputVal = $('.searchbox-input').val();
+          inputVal = $.trim(inputVal).length;
+          if( inputVal !== 0){
+              $('.searchbox-icon').css('display','none');
+          } else {
+              $('.searchbox-input').val('');
+              $('.searchbox-icon').css('display','block');
+          }
+      }
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "350px";
+      document.getElementById("mySidenav").classList.add("opendiv");
+      document.getElementById("mySidenav").classList.remove("closediv");
+      document.body.style.backgroundColor = "white";
+    }
+
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+      document.getElementById("mySidenav").classList.add("closediv");
+      document.getElementById("mySidenav").classList.remove("opendiv");
+      document.body.style.backgroundColor = "white";
+    }
+  </script>
+  <script type="text/javascript">
+    var data = [
+      [
+        {
+          text: "<i class='fa fa-eye site-cm-icon'></i>View",
+          action: function () {
+            console.log("1");
+          }
+        },
+        {
+          text: "<i class='fa fa-copy site-cm-icon'></i>Open"
+        },
+        {
+          text: "<i class='fa fa-paste site-cm-icon'></i>Open With",
+          action: function () {
+            console.log("2");
+          }
+        }
+      ],
+      [
+        {
+          text: "<i class='fa fa-bold site-cm-icon'></i>Checkout"
+        },
+      ]
+    ];
+
+
+    $("#searchresult1").contextMenu(data);
+  </script>
+  <script>
+    $(document).ready(function () {
+      $('#custom-tabs a[data-toggle="pill"]').on('shown.bs.tab', function (e) {
+        var target = $(e.target).attr("href") // activated tab
+        if (target == "#rlinks") {
+          document.getElementById("mySidenav").style.width = "60%";
+        } else {
+          document.getElementById("mySidenav").style.width = "350px";
+        }
+        //alert(target);
+      });
+      $('.close-doc').click(function () {
+        $('.preview-frame, .close-doc').hide()
+        $('#result5-tab').hide()
+        $('#result2-tab').tab('show');
+      });
+      //$( "#" ).load( "ajax/https://fontawesome.com/" );
+      $('.folder-tree li').click(function (evt) {
+        evt.stopPropagation();
+        $(this).toggleClass('expanded');
+      });
+      $('#three, #search1_meta').hide()
+      //$('.show_workspace, .show_search1_left').hide();
+
+      $('.select2').select2()
+      $('#explorer_table').click(function () {
+        $('.gutter').remove()
+        if ($('#one').css('display') == 'none') {
+          //$('#three').show()
+          Split(['#two'], {
+            sizes: [100],
+            minSize: 200,
+            gutterSize: 5,
+          })
+        } else {
+          // $('#three').show()
+          //   Split(['#one', '#two', '#three'], {
+          //     sizes: [25, 50, 25],
+          //     minSize: 200,
+          //     gutterSize: 10,
+          // })
+        }
+
+      })
+      //   $('#closeexplorer').click(function(){
+      //     $('.gutter').remove()
+      //     $('#three').hide()
+      //     $('#one').show()
+      //     $('.show_workspace').hide();
+      //     Split(['#one', '#two'], {
+      //       sizes: [25, 75],
+      //       minSize: 200,
+      //       gutterSize: 10,
+      //   })
+      // })
+      $('.show_workspace').click(function () {
+        $('.gutter').remove()
+        $('#one').show()
+        $('.show_workspace').hide();
+        Split(['#one', '#two'], {
+          sizes: [25, 75],
+          minSize: 200,
+          gutterSize: 5,
+        })
+      })
+      $('.close_workspace').click(function () {
+        $('.show_workspace').show();
+        $('.gutter').remove()
+        $('#one').hide()
+        Split(['#two'], {
+          sizes: [100],
+          minSize: 200,
+          gutterSize: 5,
+        })
+      })
+
+
+      //   $('#searchresult1_table').click(function(){
+      //     $('.gutter').remove()
+      //     if($('#search1_left').css('display') == 'none'){ 
+      //       $('#search1_meta').show()
+      //       Split(['#search1_right', '#search1_meta'], {
+      //         sizes: [75, 25],
+      //         minSize: 200,
+      //         gutterSize: 10,
+      //       })
+      // } else { 
+      //   $('#search1_meta').show()
+      //     Split(['#search1_left', '#search1_right'], {
+      //       sizes: [35, 65],
+      //       minSize: 200,
+      //       gutterSize: 10,
+      //   })
+      // }
+
+      //   })
+
+      $('#closesearch1').click(function () {
+        $('.gutter').remove()
+        $('#search1_meta, .show_search1_left').hide()
+        $('#search1_left').show()
+        Split(['#search1_left', '#search1_right'], {
+          sizes: [35, 65],
+          minSize: 200,
+          gutterSize: 5,
+        })
+      })
+      $('.close_search1_left').click(function () {
+        $('.gutter').remove()
+        $('#search1_left').hide()
+        $('#search1_left').addClass('closed')
+        $('.show_search1_left').show()
+        Split(['#search1_right'], {
+          sizes: [100],
+          minSize: 200,
+          gutterSize: 5,
+        })
+      })
+      $('.show_search1_left').click(function () {
+        $('.gutter').remove()
+        $('#search1_left').show()
+        $('.show_search1_left').hide();
+        Split(['#search1_left', '#search1_right'], {
+          sizes: [35, 65],
+          minSize: 200,
+          gutterSize: 5,
+        })
+      })
+      Split(['#one', '#two'], {
+        sizes: [25, 75],
+        minSize: 200,
+      })
+      Split(['#search1_left', '#search1_right'], {
+        sizes: [35, 65],
+        minSize: 200,
+      })
+      $('#datepicker').datetimepicker({
+        format: 'L'
+      });
+
+      $('#datetimepicker').datetimepicker()
+      available = document.getElementById('available-columns'),
+        selected = document.getElementById('selected-columns'),
+        new Sortable(available, {
+          group: 'shared',
+          animation: 150
+        });
+
+      new Sortable(selected, {
+        group: 'shared',
+        animation: 150
+      });
+
+      // // DropzoneJS Demo Code Start
+      // Dropzone.autoDiscover = false;
+
+      // // Get the template HTML and remove it from the doumenthe template HTML and remove it from the doument
+      // var previewNode = document.querySelector("#template");
+      // previewNode.id = "";
+      // var previewTemplate = previewNode.parentNode.innerHTML;
+      // previewNode.parentNode.removeChild(previewNode);
+
+      // var myDropzone = new Dropzone(document.body, { // Make the whole body a dropzone
+      //   url: "/target-url", // Set the url
+      //   thumbnailWidth: 80,
+      //   thumbnailHeight: 80,
+      //   parallelUploads: 20,
+      //   previewTemplate: previewTemplate,
+      //   autoQueue: false, // Make sure the files aren't queued until manually added
+      //   previewsContainer: "#previews", // Define the container to display the previews
+      //   clickable: ".fileinput-button" // Define the element that should be used as click trigger to select files.
+      // });
+
+      // myDropzone.on("addedfile", function(file) {
+      //   // Hookup the start button
+      //   file.previewElement.querySelector(".start").onclick = function() { myDropzone.enqueueFile(file); };
+      // });
+
+      // // Update the total progress bar
+      // myDropzone.on("totaluploadprogress", function(progress) {
+      //   document.querySelector("#total-progress .progress-bar").style.width = progress + "%";
+      // });
+
+      // myDropzone.on("sending", function(file) {
+      //   // Show the total progress bar when upload starts
+      //   document.querySelector("#total-progress").style.opacity = "1";
+      //   // And disable the start button
+      //   file.previewElement.querySelector(".start").setAttribute("disabled", "disabled");
+      // });
+
+      // // Hide the total progress bar when nothing's uploading anymore
+      // myDropzone.on("queuecomplete", function(progress) {
+      //   document.querySelector("#total-progress").style.opacity = "0";
+      // });
+
+      // // Setup the buttons for all transfers
+      // // The "add files" button doesn't need to be setup because the config
+      // // `clickable` has already been specified.
+      // document.querySelector("#actions .start").onclick = function() {
+      //   myDropzone.enqueueFiles(myDropzone.getFilesWithStatus(Dropzone.ADDED));
+      // };
+      // document.querySelector("#actions .cancel").onclick = function() {
+      //   myDropzone.removeAllFiles(true);
+      // };
+      // DropzoneJS Demo Code End
+
+    })
+  </script>
+</body>
+
+</html>

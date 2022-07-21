@@ -1,0 +1,67 @@
+ul[role="tree"] {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 1rem;
+}
+
+[role="treeitem"].doc::before {
+  content: url(../img/file.png);
+}
+
+[role="treeitem"][aria-expanded="false"] > ul {
+  display: none;
+}
+
+[role="treeitem"][aria-expanded="true"] > ul {
+  display: block;
+}
+
+[role="treeitem"][aria-expanded="false"] > span::before {
+  content: url(../img/closed.png);
+}
+
+[role="treeitem"][aria-expanded="true"] > span::before {
+  content: url(../img/open.png);
+}
+span.dms::before{
+    content:url(../img/dms.png) !important;
+
+}
+span.windows::before{
+    content:url(../img/windows.png) !important
+}
+span.dms, span.windows{
+    font-weight: 600;
+}
+[role="treeitem"],
+[role="treeitem"] span {
+  margin: 0;
+  padding: 0.125em;
+  display: block;
+  position: relative;
+  z-index: 1;
+}
+
+/* disable default keyboard focus styling for treeitems
+   Keyboard focus is styled with the following CSS */
+[role="treeitem"]:focus {
+  outline: 0;
+}
+
+[role="treeitem"].focus,
+[role="treeitem"] span.focus {
+  background-color: #eee;
+}
+
+[role="treeitem"].hover,
+[role="treeitem"] span:hover {
+  background-color: #ddd;
+}
+.folder-refresh{
+    position:absolute;
+    right:10px;
+    top:0;
+    padding:5px;
+    z-index: 9;
+}

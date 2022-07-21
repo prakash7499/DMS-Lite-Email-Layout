@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Folder Explorer</title>
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="dist/css/style.css">
+  <link rel="stylesheet" href="dist/css/fluent.css">
+  <style type="text/css">
+ .card-folders .card-body > .breadcrumb {
+  margin-left: -1.25em;
+  margin-right: -1.25em;
+  margin-top: -1.25em;
+  border-radius: 0;
+  background-color: #e9ecef !important;
+  padding: .75rem 1rem !important;
+  display: block !important;
+}
+.card-folders .card-body > .breadcrumb .breadcrumb-item{display:inline-flex !important}
+.folder-container {
+  text-align: center;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  margin-bottom: 1.5rem;
+  width: 100px;
+  padding: 0;
+  align-self: start;
+  background: none;
+  border: none;
+  outline-color: transparent !important;
+  cursor: pointer;
+}
+.folder-icon {
+  font-size: 3em;
+  line-height: 1.25em;
+}
+.folder-icon-color {
+  color: #FFC107;
+  text-shadow: 1px 1px 0px #e0a800;
+}
+.folder-name {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+}
+
+.flex-column .folder-container {
+  display: flex;
+  width: auto;
+  min-width: 100px;
+  text-align: left;
+  margin: 0;
+  margin-bottom: 1rem;
+}
+.flex-column .folder-icon, .flex-column .folder-name {
+  display: inline-flex;
+}
+.flex-column .folder-icon {
+  font-size: 1.4em;
+  margin-right: 1rem;
+}
+.file-icon-color {
+  color: #999;
+}
+</style>
+</head>
+<body class="hold-transition sidebar-mini sidebar-collapse">
+<div class="wrapper">
+  <!-- Navbar -->
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <form class="form-inline ml-3">
+      <div class="input-group input-group-sm search">
+        <input class="form-control form-control-navbar" style="min-width:450px" type="search" placeholder="Search" aria-label="Search">
+        <div class="input-group-append">
+          <button class="btn btn-navbar" type="submit">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+      </div>
+    </form>
+
+    <!-- Right navbar links -->
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item dropdown">
+            <a class="nav-link repo-update" data-toggle="dropdown" href="#" >
+                LFPROD <i class="fa fa-chevron-down"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+              <a href="#" class="dropdown-item">
+                 DemoRepo
+              </a>
+              <div class="dropdown-divider"></div>
+              <a href="#" class="dropdown-item">
+                  UatRepo
+               </a>
+            </div>
+          </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#">
+            <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image" style="max-width:30px">
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <a href="#" class="dropdown-item">
+             Logout
+          </a>
+          <div class="dropdown-divider"></div>
+         
+        </div>
+      </li>
+    </ul>
+  </nav>
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="#" class="brand-link">
+      <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <span class="brand-text font-weight-light">Dfx Suite</span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+     <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column">
+            <li class="nav-item">
+              <a href="index.html" class="nav-link">
+                <i class="nav-icon fas fa-tachometer-alt"></i>
+                <p>
+                  Dashboard
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="search-detail.html" class="nav-link">
+                <i class="nav-icon fa fa-search"></i>
+                <p>
+                  Search
+                </p>
+              </a>
+            </li>
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Folder Explorer</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Folder Explorer</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+
+            <!-- Profile Image -->
+            <div class="card card-primary card-outline">
+              <div class="card-header">
+                <h5 class="M0">Folder Explorer</h5>
+              </div>
+              <div class="card-body">
+                <div class="container-fluid">
+                  <div class="card card-folders">
+                    <div class="card-header">
+                      <div class="row align-items-center">
+                          <div class="col mr-auto">
+                            <h4 class="card-title m-0">User Folders</h4>
+                          </div>
+                          <div class="search col col-auto " style="width:200px">
+                            <div class="input-group input-right-icon">
+                              <input type="text" class="form-control search-control br-circle bbw-0" data-list=".sidebar-comment-list" placeholder="Search">
+                              <i class="input-icon fa fa-search"></i>
+                            </div>
+                          </div>
+                          <div class="col col-auto pr-2">
+                            
+                            <div class="btn-group">
+                              <button class="btn btn-sm btn-outline-secondary" id="btn-list"><i class="fa fa-th-list fa-lg"></i></button>
+                              <button class="btn btn-sm btn-outline-secondary outline-none active" id="btn-grid"><i class="fa fa-th-large fa-lg"></i></button>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                    <!-- Folders Container -->
+                    <div class="card-body" id="foldersGroup">
+                      <ol class="breadcrumb">
+                        <li class="breadcrumb-item active"><i class="far fa-folder"></i>&nbsp; Folders</li>
+                      </ol>
+                      <div id="main-folders" class="d-flex align-items-stretch flex-wrap">
+                          <div class="d-inline-flex">
+                            <button class="folder-container">
+                              <div class="folder-icon">
+                                <i class="fa fa-folder folder-icon-color"></i>
+                              </div>
+                              <div class="folder-name">Folder-name</div>
+                            </button>
+                          </div>
+                          <div class="d-inline-flex">
+                            <button class="folder-container">
+                              <div class="folder-icon">
+                                <i class="fa fa-folder folder-icon-color"></i>
+                              </div>
+                              <div class="folder-name">Folder-name</div>
+                            </button>
+                          </div>
+                          <div class="d-inline-flex">
+                            <button class="folder-container">
+                              <div class="folder-icon">
+                                <i class="fa fa-folder folder-icon-color"></i>
+                              </div>
+                              <div class="folder-name">Folder-name</div>
+                            </button>
+                          </div>
+                          <div class="d-inline-flex">
+                            <button class="folder-container">
+                              <div class="folder-icon">
+                                <i class="fa fa-folder folder-icon-color"></i>
+                              </div>
+                              <div class="folder-name">Folder-name-large</div>
+                            </button>
+                          </div>
+                          <div class="d-inline-flex">
+                            <button class="folder-container">
+                              <div class="folder-icon">
+                                <i class="fa fa-folder folder-icon-color"></i>
+                              </div>
+                              <div class="folder-name">Folder-name-extra-large<buttonv>
+                                </buttonv></div>
+                            </button></div>
+                          <div class="d-inline-flex">
+                            <button class="folder-container">
+                              <div class="folder-icon">
+                                <i class="fa fa-folder folder-icon-color"></i>
+                              </div>
+                              <div class="folder-name">Folder-name</div>
+                            </button>
+                          </div>
+                          <div class="d-inline-flex">
+                            <button class="folder-container">
+                              <div class="folder-icon">
+                                <i class="fa fa-folder folder-icon-color"></i>
+                              </div>
+                              <div class="folder-name">Folder-name</div>
+                            </button>
+                          </div>
+                          <div class="d-inline-flex">
+                            <button class="folder-container">
+                              <div class="folder-icon">
+                                <i class="fa fa-folder folder-icon-color"></i>
+                              </div>
+                              <div class="folder-name">Folder-name-hyper-extra-large-1235445684121384513</div>
+                            </button>
+                          </div>
+                          <div class="d-inline-flex">
+                            <button class="folder-container">
+                              <div class="folder-icon">
+                                <i class="fa fa-folder folder-icon-color"></i>
+                              </div>
+                              <div class="folder-name">Folder-name</div>
+                            </button>
+                          </div>
+                          <div class="d-inline-flex">
+                            <button class="folder-container">
+                              <div class="folder-icon">
+                                <i class="fa fa-folder folder-icon-color"></i>
+                              </div>
+                              <div class="folder-name">Folder-name</div>
+                            </button>
+                          </div>
+                        </div>
+                    </div>
+                    <!-- End Folders Container -->
+                    <!-- Files Container -->
+                    <div class="card-body d-none" id="filesGroup">
+                      <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#" id="backToFolders"><i class="far fa-folder"></i>&nbsp; Folders</a></li>
+                        <li class="breadcrumb-item active">Folder_name_active</li>
+                      </ol>
+                      <div id="main-files" class="d-flex align-items-stretch flex-wrap">
+                          <div class="d-inline-flex">
+                            <button class="folder-container">
+                              <div class="folder-icon">
+                                <i class="fa fa-file file-icon-color"></i>
+                              </div>
+                              <div class="folder-name">File-name</div>
+                            </button>
+                          </div>
+                          <div class="d-inline-flex">
+                            <button class="folder-container">
+                              <div class="folder-icon">
+                                <i class="fa fa-file file-icon-color"></i>
+                              </div>
+                              <div class="folder-name">File-name-hyper-extra-large-1235445684121384513</div>
+                            </button>
+                          </div>
+                          <div class="d-inline-flex">
+                            <button class="folder-container">
+                              <div class="folder-icon">
+                                <i class="fa fa-file file-icon-color"></i>
+                              </div>
+                              <div class="folder-name">File-name</div>
+                            </button>
+                          </div>
+                        </div>
+                    </div>
+                    <!-- End Files Container -->
+                  </div>
+                  
+                </div> 
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+          <!-- <div class="col-md-7">
+            <div class="card">
+              <div class="card-header">
+                <h5 class="M0">Select Template Mode</h5>
+              </div>
+              <div class="card-body">
+                <div class="form-group row pb-20">
+                  <select multiple class="form-control">
+                    <option>option 1</option>
+                    <option>option 2</option>
+                    <option>option 3</option>
+                    <option>option 4</option>
+                    <option>option 5</option>
+                  </select>
+                </div>
+                <div class="form-group row">
+                  <label for="inputName" class="col-sm-2 col-form-label">Template</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="inputName" placeholder="Name">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-12 text-right">
+                    <button type="submit" class="btn btn-success">Save</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> -->
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  <footer class="main-footer">
+    <div class="float-right d-none d-sm-block">
+      <b>Version</b> 3.1.0-rc
+    </div>
+    <strong>Copyright &copy; 2014-2020 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+  </footer>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<script src="plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="dist/js/demo.js"></script>
+<script src="dist/js/upload.js"></script>
+<script>
+ 
+$( document ).ready(function() {
+  // Grid or list selection
+  $('#btn-list').on('click', function() {
+    $('#main-folders').addClass('flex-column');
+    $('#btn-grid').removeClass('active')
+    $(this).addClass('active')
+  });
+  $('#btn-grid').on('click', function() {
+    $('#main-folders').removeClass('flex-column');
+    $('#btn-list').removeClass('active')
+    $(this).addClass('active')
+  });
+  $('#btn-list').on('click', function() {
+    $('#main-files').addClass('flex-column');
+    $('#btn-grid').removeClass('active')
+    $(this).addClass('active')
+  });
+  $('#btn-grid').on('click', function() {
+    $('#main-files').removeClass('flex-column');
+    $('#btn-list').removeClass('active')
+    $(this).addClass('active')
+  });
+  
+  // Open folder and see files
+  $('button.folder-container').on('click', function() {
+    $('#filesGroup').removeClass('d-none');
+    $('#foldersGroup').addClass('d-none')
+  });
+  $('a#backToFolders').on('click', function() {
+    $('#foldersGroup').removeClass('d-none');
+    $('#filesGroup').addClass('d-none')
+  });
+});
+</script>
+</body>
+</html>

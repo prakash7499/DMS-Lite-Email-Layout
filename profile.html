@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Profile</title>
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+
+  <!-- JQuery CDN -->
+  <!-- <script src="/dist/jquery.validate.js"></script> -->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <!-- <script src="/dist/js/jquery.js"></script>
+  <script src="/dist/jquery.validate.js"></script> -->
+
+  <!-- Theme style -->
+  <link rel="stylesheet" href="dist/css/adminlte.min.css">
+
+  <link rel="stylesheet" href="dist/css/tree.css">
+  <link rel="stylesheet" href="dist/css/themify-icons.css">
+  <link rel="stylesheet" href="dist/css/style.css">
+
+  <!-- <script>
+      $().ready(function() {
+      $("#commentform").validate();
+      });
+  </script> -->
+  <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.4/jquery.validate.min.js"></script>
+  <script src="/dist/js/mobile_api_validation_1.js"></script> -->
+
+  <style>
+      label.error.fail-alert {
+        color: red;
+        line-height: 1;
+        font-size: 12px;
+        /* padding: 6px 0px 6px 6px; */
+        margin-top: 10px;
+      }
+      input.valid.success-alert {
+      border: 2px solid #4CAF50;
+      color: green;
+      }
+  </style>
+
+ 
+</head>
+
+<body class="hold-transition">
+  <div class="wrapper">
+    <!-- Navbar -->
+    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+
+      <!-- Right navbar links -->
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link repo-update" data-toggle="dropdown" href="#">
+            LFPROD <i class="fa fa-chevron-down"></i>
+          </a>
+          <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+            <a href="#" class="dropdown-item">
+              DemoRepo
+            </a>
+            <div class="dropdown-divider"></div>
+            <a href="#" class="dropdown-item">
+              UatRepo
+            </a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link" data-toggle="dropdown" href="#">
+            <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image"
+              style="max-width:30px">
+          </a>
+          <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+            <a href="#" class="dropdown-item">
+              Logout
+            </a>
+            <div class="dropdown-divider"></div>
+
+          </div>
+        </li>
+      </ul>
+    </nav>
+    <!-- /.navbar -->
+
+    <aside class="main-sidebar ">
+      <div class="sidemenu-logo"> <a class="main-logo" href="index.html">
+          <img src="dist/img/icon.png" alt="" class="brand-image"> </a>
+      </div>
+      <!-- Sidebar -->
+      <div class="sidebar sidebar-body">
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+          <ul class="nav nav-pills nav-sidebar flex-column">
+            <li class="nav-item ">
+              <a class="nav-link" href="index.html">
+                <i class="ti-home sidemenu-icon"></i>
+                <span class="sidemenu-label">Dashboard</span>
+              </a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link" href="explorer.html">
+                <i class="ti-folder sidemenu-icon"></i>
+                <span class="sidemenu-label">Explorer</span>
+              </a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link" href="search.html">
+                <i class="ti-search sidemenu-icon"></i>
+                <span class="sidemenu-label">Search DMS</span>
+              </a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link" href="upload.html">
+                <i class="ti-upload sidemenu-icon"></i>
+                <span class="sidemenu-label">Upload Files</span>
+              </a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="profile.html">
+                <i class="ti-user sidemenu-icon"></i>
+                <span class="sidemenu-label">User Profile</span>
+              </a>
+            </li>
+            <li class="nav-item with-sub">
+              <a class="nav-link" href="#">
+                <i class="ti-settings sidemenu-icon"></i>
+                <span class="sidemenu-label">Admin Tools</span>
+              </a>
+              <ul class="nav-sub">
+                <li class="nav-sub-item"> <a class="nav-sub-link" href="#">Settings</a> </li>
+                <li class="nav-sub-item"> <a class="nav-sub-link" href="#">Users</a> </li>
+                <li class="nav-sub-item"> <a class="nav-sub-link" href="#">Login Logs</a> </li>
+                <li class="nav-sub-item"> <a class="nav-sub-link" href="#">Logs</a> </li>
+              </ul>
+            </li>
+          </ul>
+
+        </nav>
+        <!-- /.sidebar-menu -->
+      </div>
+      <!-- /.sidebar -->
+    </aside>
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <!-- Main content -->
+      <section class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-3">
+
+              <!-- Profile Image -->
+              <div class="card card-primary ">
+                <div class="card-body box-profile">
+                  <div class="text-center">
+                    <img class="profile-user-img img-fluid img-circle" src="dist/img/user4-128x128.jpg"
+                      alt="User profile picture">
+                  </div>
+
+                  <h3 class="profile-username text-center">Nina Mcintire</h3>
+
+                  <p class="text-muted text-center">Software Engineer</p>
+                </div>
+                <!-- /.card-body -->
+              </div>
+              <!-- /.card -->
+            </div>
+            <!-- /.col -->
+            <div class="col-md-9">
+              <div class="card">
+                <div class="card-header p-2">
+                  <ul class="nav nav-pills header-nav">
+                    <li class="nav-item"><a class="nav-link active" href="#basic" data-toggle="tab"><i
+                          class="ti-user"></i>Basic Details</a></li>
+                    <li class="nav-item"><a class="nav-link " href="#activity" data-toggle="tab"><i
+                          class="ti-server"></i>Configured Paths</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab"><i
+                          class="ti-plus"></i>Add New Path</a></li>
+                  </ul>
+                </div><!-- /.card-header -->
+                <div class="card-body">
+                  <div class="tab-content">
+                    <div class="tab-pane" id="activity">
+                      <!-- Post -->
+                      <div class="post clearfix">
+                        <ul class="pathlist">
+                          <li>
+                            <h5>Windows Explorer Path</h5>
+                            <label class="col-form-label">My Computer</label>
+                          </li>
+                          <li>
+                            <h5>DMS Explorer Path</h5>
+                            <label class="col-form-label">//C:/filepath</label>
+                          </li>
+                          <li>
+                            <h5>File Explorer Path</h5>
+                            <label class="col-form-label">//C:/filepath</label>
+                          </li>
+                        </ul>
+
+
+
+                      </div>
+                      <!-- /.post -->
+                    </div>
+                    <div class="tab-pane" id="settings">
+                      <form class="form-horizontal">
+                        <div class="form-group row">
+                          <label for="inputName" class="col-sm-2 col-form-label">Name</label>
+                          <div class="col-sm-10">
+                            <input type="text" class="form-control" id="inputName" placeholder="Name">
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <label for="inputEmail" class="col-sm-2 col-form-label">File Path</label>
+                          <div class="col-sm-10">
+                            <input type="text" class="form-control" id="filepath" placeholder="File Path">
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <div class="offset-sm-2 col-sm-10">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                    <!-- /.tab-pane -->
+                    <div class="tab-pane active" id="basic">
+                      <form class="form-horizontal cmxform" id="basic-form">
+
+                        <div class="form-group row">
+                          <label for="inputName" class="col-sm-2 col-form-label">Name</label>
+                          <div class="col-sm-10">
+                            <input type="text" name="name" class="form-control" id="name" placeholder="Name">
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <label for="inputName" class="col-sm-2 col-form-label">Phone Number</label>
+                          <div class="col-sm-10">
+                            <input type="text" name="mobile" class="form-control" id="phone" placeholder="Phone Number with Country Code">
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
+                          <div class="col-sm-10">
+                            <input type="email" name="email" class="form-control" id="email" placeholder="Email Id" pattern=".+@globex\.com">
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <label for="inputEmail" class="col-sm-2 col-form-label">Login Id</label>
+                          <div class="col-sm-10">
+                            <input type="text" class="form-control" id="login" placeholder="Login Id">
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <div class="offset-sm-2 col-sm-10">
+                            <button type="submit" id="submit" class="btn btn-primary">Submit</button>
+                          </div>
+
+                        </div>
+                       <script>  
+                      
+                        $("#basic-form").validate({
+                          errorClass: "error fail-alert",
+                          validClass: "valid success-alert",
+                          rules: {
+                            name : {
+                              required: true,
+                              minlength: 3
+                            },
+                            mobile: {
+                              required: true,
+                              // number: true,
+                              // minlength: 15,
+                              maxlength: 15
+                            }
+                            // email: {
+                            //   required: true,
+                            //   email: true
+                            // }
+                          },
+                          messages : {
+                            name: {
+                              required: "Please enter your Name",
+                              minlength: "Name should be at least 3 characters"
+                            },
+                            mobile: {
+                              required: "Please enter your Mobile Number",
+                              number: "Please enter your Mobile Number as a numerical value",
+                              minlength: "Your Mobile Number Must be 10 digit",
+                              maxlength: "Your Mobile Number is Abobe 10 digit"
+                            }
+                            // email: {
+                            //   required:"Please enter your Email",
+                            //   email: "The email should be in the format: abc@domain.tld"
+                            // }
+                          }
+                      })
+                      </script> 
+
+                      </form>
+                    </div>
+                  </div>
+                  <!-- /.tab-content -->
+                </div><!-- /.card-body -->
+              </div>
+              <!-- /.card -->
+            </div>
+            <!-- /.col -->
+          </div>
+          <!-- /.row -->
+        </div><!-- /.container-fluid -->
+      </section>
+      <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+    <footer class="main-footer">
+      <div class="float-right d-none d-sm-block">
+        <b>Version</b> 3.1.0-rc
+      </div>
+      <strong>Copyright &copy; 2014-2020 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+    </footer>
+
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+      <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
+  </div>
+  <!-- ./wrapper -->
+
+  <!-- jQuery -->
+  <script src="plugins/jquery/jquery.min.js"></script>
+  <!-- Bootstrap 4 -->
+  <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- AdminLTE App -->
+  <script src="dist/js/adminlte.min.js"></script>
+  <!-- AdminLTE for demo purposes -->
+  <script src="dist/js/demo.js"></script>
+
+
+
+</body>
+
+</html>

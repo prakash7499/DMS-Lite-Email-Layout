@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Analytics</title>
+
+</head>
+
+<body>
+    <header>
+        <div class="wrap">
+            <div class="search">
+               <input type="text" class="searchTerm" placeholder="What are you looking for?">
+               <button type="submit" class="searchButton">
+                 <img src="search.png"  style="padding-top: 5px;  max-width: 20px;"/>
+              </button>
+            </div>
+         </div>
+    </header>
+    <div class="main">
+        <iframe class="analyticsframe" src="www.google.com" ></iframe>
+    </div>
+    <div class="footerstrip">
+        <ul>
+            <li>
+                <a href="#">DMS Lite</a>
+            </li>
+            <li>
+            <a href="#">Forms</a>
+            </li>
+            <li>
+            <a href="#">Analytics</a>
+            </li>
+            <li>
+            <a href="#">My Tasks</a>
+            </li>
+        </ul>
+    </div>
+  <footer class="main-footer text-center">
+    <strong>Copyright &copy; 2021.</strong> All rights reserved.
+  </footer>
+  <style>
+    body{padding:0; margin:0 0 50px}
+      .footerstrip{
+	width: 100%;
+	position: fixed;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	background: #eee;
+	z-index: 99;
+}
+.footerstrip ul{padding:.25rem 0; margin: 0px;}
+.footerstrip ul li{display: inline-block; border-right: 1px solid #999;}
+.footerstrip ul li:last-child{border-right: none;}
+.footerstrip ul li a{padding: .5rem 1rem; color:#333; font-weight: 600; display: inline-block; text-decoration: none;}
+.footerstrip ul li a.active, .footerstrip ul li a:hover{ color:#6264a7}
+.main-footer {
+    background-color: #fff;
+    border-top: 1px solid #dee2e6;
+    color: #869099;
+    padding: 1rem;
+    text-align: center;
+}
+header{padding:10px; }
+.search {
+  width: 100%;
+  position: relative;
+  display: flex;
+}
+
+.searchTerm {
+  width: 100%;
+  border: 2px solid #ccc;
+  border-right: none;
+  padding: 5px;
+  height: 20px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: #000;
+}
+
+.searchTerm:focus{
+  color: #6264a7;
+}
+
+.searchButton {
+    width: 40px;
+    height: 34px;
+    border: 1px solid #6264a7;
+    background: #6264a7;
+    text-align: center;
+    color: #fff;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+/*Resize the wrap to see the search bar change!*/
+.wrap{
+  width: 50%;
+  margin:0 auto;
+}
+.analyticsframe{
+    width:100%;
+    height:calc(100vh - 160px);
+    border:none;
+}
+
+  </style>
+</body>
+
+</html>

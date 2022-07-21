@@ -1,0 +1,243 @@
+﻿.main-sidebar {
+    background-color: #25233c;
+    overflow: visible !important;
+    position: fixed !important;
+    left: 0;
+    width: 90px;
+    display: block;
+    z-index: 9;
+}
+
+.sidemenu-logo {
+    position: fixed;
+    z-index: 9999;
+    width: 90px !important;
+    background: #25233c;
+    -webkit-transition: all 0.4s;
+    transition: all 0.4s;
+    padding: 8px 6px 6px 6px;
+    border-bottom: 1px solid rgba(240, 240, 255, 0.1);
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    height: 65px;
+}
+
+.main-logo {
+    font-size: 28px;
+    text-transform: lowercase;
+    letter-spacing: -1px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin: auto;
+    justify-content: center;
+}
+
+    .main-logo .brand-image {
+        line-height: 2.5rem;
+        vertical-align: middle;
+        width: auto;
+        max-height: 45px;
+    }
+
+.sidebar.sidebar-body {
+    padding: 0px !important;
+    margin-top: 67px
+}
+.main-sidebar .sidebar.sidebar-body nav{
+	height: calc(100vh - 115px);
+    overflow-y: auto;
+    padding-top: .5rem;
+}
+
+.main-sidebar .sidebar.sidebar-body nav::-webkit-scrollbar {
+      width: 6px; 
+   }
+
+.main-sidebar .sidebar.sidebar-body nav::-webkit-scrollbar-track {
+    background-color: #1e1e1e;
+  }
+
+.main-sidebar .sidebar.sidebar-body nav::-webkit-scrollbar-thumb {
+    background: #999;
+    border-radius: 25px;
+  }
+/*.dashboard-menu .dropdown-menu{display:none}*/
+
+    .sidebar.sidebar-body .nav {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        text-align: inherit;
+        margin: 0;
+        -webkit-box-pack: inherit;
+        -ms-flex-pack: inherit;
+        justify-content: inherit;
+    }
+
+    .sidebar.sidebar-body .nav-item {
+        position: relative;
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+
+    .sidebar.sidebar-body li.nav-item.active .nav-link {
+        width: inherit;
+        -webkit-transition: margin-left 0.3s ease;
+        transition: margin-left 0.3s ease;
+        border-radius: 0px;
+        background: #25233c;
+        margin: 0px !important;
+        position: relative;
+        z-index: 1;
+        border: 0px solid transparent;
+        border-right: 0px;
+    }
+
+    .sidebar.sidebar-body .nav-link i {
+        font-size: 17px;
+    }
+
+    .sidebar.sidebar-body .nav-link .sidemenu-icon {
+        width: 35px;
+        height: 35px;
+        line-height: 35px;
+        text-align: center;
+        border-radius: 50%;
+        z-index: 1;
+        /* -webkit-box-shadow: none;
+	box-shadow: none; */
+        padding: 9px;
+    }
+
+    .sidebar.sidebar-body li.active .sidemenu-icon {
+        width: 35px;
+        height: 35px;
+        line-height: 35px;
+        text-align: center;
+        border-radius: 50%;
+        z-index: 1;
+        padding: 9px;
+        /* -webkit-box-shadow: 0 5px 10px rgb(0 0 0 / 20%);
+	box-shadow: 0 5px 10px rgb(0 0 0 / 20%); */
+        color: #ffffff;
+    }
+
+    .sidebar.sidebar-body li.active .sidemenu-icon {
+        background: #6264a7;
+    }
+
+    .sidebar.sidebar-body .sidemenu-label, .sidebar.sidebar-body li a {
+        display: block;
+        font-size: 11px;
+        position: relative;
+        padding: .5rem 0px;
+        color: #fff;
+        -webkit-transition: margin-left 0.45s ease;
+        transition: margin-left 0.45s ease;
+    }
+
+        .sidebar.sidebar-body li a:hover .sidemenu-label, .sidebar.sidebar-body li a:hover i {
+            color: #ccc
+        }
+
+    .sidebar.sidebar-body li.active .sidemenu-label,
+    .sidebar.sidebar-body li.active i {
+        color: #fff;
+    }
+
+    .sidebar.sidebar-body .nav-link:hover,
+    .sidebar.sidebar-body .nav-link:focus,
+    .sidebar.sidebar-body .nav-item:hover {
+        color: #ffffff;
+        background-color: transparent !important;
+    }
+
+    .sidebar.sidebar-body .nav-link.with-sub {
+        position: relative;
+    }
+
+    .sidebar.sidebar-body .nav-sub {
+        position: absolute;
+        left: 71px;
+        min-width: 180px;
+        opacity: 1;
+        z-index: 9999;
+        /* visibility: hidden; */
+        margin-top: -60px;
+        max-height: 0;
+        overflow: hidden;
+        -webkit-transition: all 0.9s;
+        transition: all 0.9s;
+        list-style: none;
+        padding: 0;
+        margin-left: 1.2rem;
+    }
+
+    .sidebar.sidebar-body .nav-sub-link {
+        -webkit-transition: none !important;
+        transition: none !important;
+    }
+
+        .sidebar.sidebar-body .nav-sub-link:hover,
+        .sidebar.sidebar-body .nav-sub-link:focus {
+            color: #fff;
+        }
+
+    .sidebar.sidebar-body .nav-sub-link {
+        padding: 10px 0px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        color: rgba(255, 255, 255, 0.4);
+        font-size: 13px;
+    }
+
+    .sidebar.sidebar-body .nav-sub .nav-sub-link:before {
+        content: '\e048';
+        font-family: 'typicons';
+        font-style: normal;
+        font-weight: normal;
+        text-decoration: inherit;
+        top: 8px;
+        font-size: 12px;
+        opacity: 0.4;
+        margin-right: 22px;
+        color: rgba(255, 255, 255, 0.8);
+    }
+
+.content-wrapper,
+.main-header {
+    transition: margin-left .3s ease-in-out;
+    margin-left: 90px !important;
+    height:66px
+}
+
+.content-wrapper .content {
+    padding: 0px 0px 100px !important;
+}
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link{
+    color: #6264a7;
+    background-color: #fff !important;
+    border-bottom: 2px solid #6264a7;
+    border-radius: 0px;
+}
+.nav-pills .nav-link:hover{
+    color: #6264a7 !important;	
+}
+.card.card-outline-tabs .card-header a,
+.card.card-outline-tabs .card-header a:hover {
+	border-top: none !important;
+}
+.btn-primary {
+    color: #fff !important;
+    background-color: #6264a7 !important;
+    border-color: #6264a7 !important;
+    box-shadow: none;
+}

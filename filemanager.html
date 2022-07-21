@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>File Manager</title>
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="dist/css/style.css">
+  <link rel="stylesheet" href="dist/css/fluent.css">
+  <link rel="stylesheet" href="https://unpkg.com/devextreme@19.2-next/dist/css/dx.common.css">
+  <link rel="stylesheet" href="https://unpkg.com/devextreme@19.2-next/dist/css/dx.light.css">
+  <style type="text/css">
+ 
+</style>
+</head>
+<body class="hold-transition sidebar-mini sidebar-collapse">
+<div class="wrapper">
+  <!-- Navbar -->
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <form class="form-inline ml-3">
+      <div class="input-group input-group-sm search">
+        <input class="form-control form-control-navbar" style="min-width:450px" type="search" placeholder="Search" aria-label="Search">
+        <div class="input-group-append">
+          <button class="btn btn-navbar" type="submit">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+      </div>
+    </form>
+
+    <!-- Right navbar links -->
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item dropdown">
+            <a class="nav-link repo-update" data-toggle="dropdown" href="#" >
+                LFPROD <i class="fa fa-chevron-down"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+              <a href="#" class="dropdown-item">
+                 DemoRepo
+              </a>
+              <div class="dropdown-divider"></div>
+              <a href="#" class="dropdown-item">
+                  UatRepo
+               </a>
+            </div>
+          </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#">
+            <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image" style="max-width:30px">
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <a href="#" class="dropdown-item">
+             Logout
+          </a>
+          <div class="dropdown-divider"></div>
+         
+        </div>
+      </li>
+    </ul>
+  </nav>
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="#" class="brand-link">
+      <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <span class="brand-text font-weight-light">Dfx Suite</span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+     <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column">
+            <li class="nav-item">
+              <a href="index.html" class="nav-link">
+                <i class="nav-icon fas fa-tachometer-alt"></i>
+                <p>
+                  Dashboard
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="search-detail.html" class="nav-link">
+                <i class="nav-icon fa fa-search"></i>
+                <p>
+                  Search
+                </p>
+              </a>
+            </li>
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">File Manager</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="dx-viewport demo-container">
+            <div id="file-manager"></div>
+        </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  <footer class="main-footer">
+    <div class="float-right d-none d-sm-block">
+      <b>Version</b> 3.1.0-rc
+    </div>
+    <strong>Copyright &copy; 2014-2020 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+  </footer>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<script src="plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="dist/js/demo.js"></script>
+<script src="dist/js/dx.all.js"></script>
+<script>
+  $(function () {
+    $("#file-manager").dxFileManager({
+        name: "fileManager",
+        fileProvider: fileSystem,
+        height: 450,
+        permissions: {
+            create: true,
+            copy: true,
+            move: true,
+            remove: true,
+            rename: true
+        }
+    });
+});
+
+var fileSystem = [
+    {
+        name: "Documents",
+        isDirectory: true,
+        items: [
+            {
+                name: "Projects",
+                isDirectory: true,
+                items: [
+                    {
+                        name: "About.rtf",
+                        isDirectory: false,
+                        size: 1024
+                    },
+                    {
+                        name: "Passwords.rtf",
+                        isDirectory: false,
+                        size: 2048
+                    }
+                ]
+            },
+            {
+                name: "About.xml",
+                isDirectory: false,
+                size: 1024
+            },
+            {
+                name: "Managers.rtf",
+                isDirectory: false,
+                size: 2048
+            },
+            {
+                name: "ToDo.txt",
+                isDirectory: false,
+                size: 3072
+            }
+        ],
+    },
+    {
+        name: "Images",
+        isDirectory: true,
+        items: [
+            {
+                name: "logo.png",
+                isDirectory: false,
+                size: 20480
+            },
+            {
+                name: "banner.gif",
+                isDirectory: false,
+                size: 10240
+            }
+        ]
+    },
+    {
+        name: "System",
+        isDirectory: true,
+        items: [
+            {
+                name: "Employees.txt",
+                isDirectory: false,
+                size: 3072
+            },
+            {
+                name: "PasswordList.txt",
+                isDirectory: false,
+                size: 5120
+            }
+        ]
+    },
+    {
+        name: "Description.rtf",
+        isDirectory: false,
+        size: 1024
+    },
+    {
+        name: "Description.txt",
+        isDirectory: false,
+        size: 2048
+    }
+];
+</script>
+</body>
+</html>

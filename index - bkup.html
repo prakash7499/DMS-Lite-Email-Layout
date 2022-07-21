@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> Dashboard</title>
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Tempusdominus Bootstrap 4 -->
+  <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+  <!-- iCheck -->
+  <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <!-- JQVMap -->
+  <link rel="stylesheet" href="plugins/jqvmap/jqvmap.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="dist/css/adminlte.min.css">
+  <!-- overlayScrollbars -->
+  <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+  <!-- Daterange picker -->
+  <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
+  <!-- summernote -->
+  <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css">
+  <link rel="stylesheet" href="plugins/select2/css/select2.min.css">
+  
+  <link rel="stylesheet" href="dist/css/tree.css">
+  <link rel="stylesheet" href="dist/css/themify-icons.css">
+  <link rel="stylesheet" href="theme/side-bar.css">
+  <link rel="stylesheet" href="theme/dfx.css">
+  <style type="text/css">
+    sidenav{    bottom: 0;
+    float: none;
+    position: fixed;
+    top: 0; left: 90px; z-index: 99; padding: 20px 10px; overflow-y: auto; width: 250px; background-color: #f8f8f8; box-shadow: 0 14px 28px rgba(0,0,0,.25),0 10px 10px rgba(0,0,0,.22)!important;
+}
+sidenav .btn-sidebar{background-color: #ccc; }
+sidenav h3{font-size: 1.25rem; padding-bottom: 10px; font-weight: 600; }
+sidenav .savedsearch ul{padding: 0; margin: 0;}
+sidenav .savedsearch ul li{list-style: none; display: block; }
+sidenav .savedsearch ul li a{display: block; padding: 10px; color:#000; transition: all 0.5s  ease;}
+sidenav .savedsearch ul li a:hover{color: #6264a7; background-color: #eee; font-weight: 600; border-radius: 5px;}
+  </style>
+  <script>
+    function searchQuery(){
+      var input, filter, ul, li, a, i, txtValue;
+      input = document.getElementById("querysearch");
+      filter = input.value.toUpperCase();
+      ul = document.getElementById("querylist");
+      li = ul.getElementsByTagName("li");
+      for (i = 0; i < li.length; i++) {
+          a = li[i].getElementsByTagName("a")[0];
+          txtValue = a.textContent || a.innerText;
+          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+              li[i].style.display = "";
+          } else {
+              li[i].style.display = "none";
+          }
+      }
+    }
+  </script>
+</head>
+<body class="hold-transition">
+<div class="wrapper">
+
+  <!-- Navbar -->
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+   <!-- Right navbar links -->
+    <ul class="navbar-nav ml-auto header-login">
+        <!-- <li class="nav-item dropdown">
+            <a class="nav-link repo-update" data-toggle="dropdown" href="#" >
+                LFPROD <i class="fa fa-chevron-down"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+              <a href="#" class="dropdown-item">
+                 DemoRepo
+              </a>
+              <div class="dropdown-divider"></div>
+              <a href="#" class="dropdown-item">
+                  UatRepo
+               </a>
+            </div>
+          </li> -->
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#">
+            <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image" style="max-width:30px">
+        </a>
+        <div class="dropdown-menu dropdown-menu-md dropdown-menu-right">
+          <a href="#" class="dropdown-item">
+             Logout
+          </a>         
+        </div>
+      </li>
+    </ul>
+  </nav>
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar ">
+    <div class="sidemenu-logo"> <a class="main-logo" href="index.html">
+        <img src="theme/sf-logo.png" alt="" class="brand-image"> </a>
+    </div>
+    <!-- Sidebar -->
+    <div class="sidebar sidebar-body">
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column">
+          <li class="nav-item active">
+            <a class="nav-link" href="index.html">
+              <i class="ti-home sidemenu-icon"></i>
+              <span class="sidemenu-label">Dashboard</span>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="explorer.html">
+              <i class="ti-folder sidemenu-icon"></i>
+              <span class="sidemenu-label">Explorer</span>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="search.html">
+              <i class="ti-search sidemenu-icon"></i>
+              <span class="sidemenu-label">Search DMS</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="upload.html">
+              <i class="ti-upload sidemenu-icon"></i>
+              <span class="sidemenu-label">Upload Files</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="profile.html">
+              <i class="ti-user sidemenu-icon"></i>
+              <span class="sidemenu-label">User Profile</span>
+            </a>
+          </li>
+          <li class="nav-item with-sub">
+            <a class="nav-link" href="#">
+              <i class="ti-settings sidemenu-icon"></i>
+              <span class="sidemenu-label">Admin Tools</span>
+            </a>
+            <ul class="nav-sub">
+              <li class="nav-sub-item"> <a class="nav-sub-link" href="#">Settings</a> </li>
+              <li class="nav-sub-item"> <a class="nav-sub-link" href="#">Users</a> </li>
+              <li class="nav-sub-item"> <a class="nav-sub-link" href="#">Login Logs</a> </li>
+              <li class="nav-sub-item"> <a class="nav-sub-link" href="#">Logs</a> </li>
+            </ul>
+          </li>
+		  <li class="nav-item ">
+            <a class="nav-link" href="explorer.html">
+              <i class="ti-folder sidemenu-icon"></i>
+              <span class="sidemenu-label">Explorer</span>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="search.html">
+              <i class="ti-search sidemenu-icon"></i>
+              <span class="sidemenu-label">Search DMS</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="upload.html">
+              <i class="ti-upload sidemenu-icon"></i>
+              <span class="sidemenu-label">Upload Files</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="profile.html">
+              <i class="ti-user sidemenu-icon"></i>
+              <span class="sidemenu-label">User Profile</span>
+            </a>
+          </li>
+        </ul>
+        
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>
+  <!-- <sidenav>
+    <h3>Saved Search</h3>
+    <div class="form-inline">
+      <div class="input-group" data-widget="sidebar-search">
+        <input class="form-control form-control-sidebar" id="querysearch" type="search" onkeyup="searchQuery()" placeholder="Search" aria-label="Search">
+        <div class="input-group-append">
+          <button class="btn btn-sidebar">
+            <i class="fas fa-search fa-fw"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="savedsearch">
+      <ul id="querylist">
+        <li><a href="#">Search 1</a></li>
+        <li><a href="#">Search 2</a></li>
+        <li><a href="#">Search 3</a></li>
+        <li><a href="#">Search 4</a></li>
+        <li><a href="#">Search 5</a></li>
+        <li><a href="#">Search 6</a></li>
+      </ul>
+    </div>
+  </sidenav> -->
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-6">
+            <!-- <h1 class="m-0">Dashboard</h1> -->
+          </div>
+          <div class="col-sm-6">
+            <!-- <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Dashboard v1</li>
+            </ol> -->
+            <div class="btn-group float-right">
+              <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown" data-offset="-52">
+                 Dashboard 1
+              </button>
+              <div class="dropdown-menu dropdown-menu-right" role="menu">
+                <a href="#modal-lg" class="dropdown-item" data-toggle="modal" data-target="#modal-lg">Add New Widget</a>
+                <a href="#modal-lg" class="dropdown-item" data-toggle="modal" data-target="#modal-lg">Edit Dashboard</a>
+                <a href="#modal-lg" class="dropdown-item" data-toggle="modal" data-target="#modal-lg">Add new Dashboard</a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item">Dashboard 1</a>
+                <a href="#" class="dropdown-item">Dashboard 2</a>
+              </div>
+            </div>
+            <!-- <button data-tooltip="I’m the tooltip text.">I’m a button with a tooltip</button> -->
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <!-- Small boxes (Stat box) -->
+        
+        <div class="row dashboard-infobox">
+          <div class="col-12 col-sm-4">
+            <div class="info-box">
+              <div class="info-box-title">
+                <span class="title">Total Documents</span>
+                <i class="fa fa-search"></i>
+              </div>
+              <div class="info-box-content">
+                <span class="info-box-number">
+                  1200
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-4">
+            <div class="info-box">
+              <div class="info-box-title">
+                <span class="title">MIME Type</span>
+                <i class="fa fa-search"></i>
+              </div>
+              <div class="info-box-content">
+                <span class="info-box-number">
+                  5
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-4">
+            <div class="info-box">
+              <div class="info-box-title">
+                <span class="title">Total Meta</span>
+                <i class="fa fa-search"></i>
+              </div>
+              <div class="info-box-content">
+                <span class="info-box-number">
+                  14
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-4 ">
+            <div class="info-box">
+              <div class="info-box-title">
+                <span class="title">Jersey Data</span>
+                <i class="fa fa-search"></i>
+              </div>
+              <div class="info-box-content">
+                <span class="info-box-number">
+                  1000
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-4">
+            <div class="info-box">
+              <div class="info-box-title">
+                <span class="title">Mydeen Collection</span>
+                <i class="fa fa-search"></i>
+              </div>
+              <div class="info-box-content">
+                <span class="info-box-number">
+                  3/10
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-4">
+            <div class="info-box">
+              <div class="info-box-title">
+                <span class="title">Kumar Collection</span>
+                <i class="fa fa-search"></i>
+              </div>
+              <div class="info-box-content">
+                <span class="info-box-number">
+                  3/10
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-4 ">
+            <div class="info-box">
+              <div class="info-box-title">
+                <span class="title">Documents</span>
+                <i class="fa fa-search"></i>
+              </div>
+              <div class="info-box-content">
+                <span class="info-box-number">
+                  1000
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-4">
+            <div class="info-box">
+              <div class="info-box-title">
+                <span class="title">Documents</span>
+                <i class="fa fa-search"></i>
+              </div>
+              <div class="info-box-content">
+                <span class="info-box-number">
+                  3/10
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-4">
+            <div class="info-box">
+              <div class="info-box-title">
+                <span class="title">Documents</span>
+                <i class="fa fa-search"></i>
+              </div>
+              <div class="info-box-content">
+                <span class="info-box-number">
+                  3/10
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /.row -->
+       
+       
+        <!-- /.row (main row) -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <div class="modal fade" id="modal-lg">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Add New Widget</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group row">
+            <label for="inputName" class="col-sm-4 col-form-label">Widget Name</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" id="inputName" placeholder="Name">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputName" class="col-sm-4 col-form-label">Search Criteria</label>
+            <div class="col-sm-8">
+              <select class="select2" multiple="multiple" data-placeholder="Select a Criteria"
+                style="width: 100%;">
+                <option>Name</option>
+                <option>Pages</option>
+                <option>Tag</option>
+                <option>Text</option>
+                <option>User</option>
+                <option>Version</option>
+                <option>Within Folder</option>
+              </select>
+              <!-- <select class="form-control">
+                <option>LFPROD</option>
+                <option>LFPROD 2</option>
+                <option>LFPROD 3</option>
+              </select> -->
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer justify-content-between">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Create</button>
+        </div>
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+  <div class="footerstrip">
+    <ul>
+      <li>
+        <a href="#">Forms</a>
+      </li>
+      <li>
+        <a href="#">Analytics</a>
+      </li>
+      <li>
+        <a href="#">My Tasks</a>
+      </li>
+    </ul>
+  </div>
+  <!-- /.content-wrapper -->
+  <footer class="main-footer">
+    <strong>Copyright &copy; 2014-2021 <a href="#">Datafabricx.com</a>.</strong>
+    All rights reserved.
+  </footer>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<script src="plugins/jquery/jquery.min.js"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="plugins/jquery-ui/jquery-ui.min.js"></script>
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<script>
+   $.widget.bridge('uibutton', $.ui.button)
+  
+</script>
+<!-- Bootstrap 4 -->
+<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="plugins/select2/js/select2.full.min.js"></script>
+<!-- ChartJS -->
+<script src="plugins/chart.js/Chart.min.js"></script>
+<!-- Sparkline -->
+<script src="plugins/sparklines/sparkline.js"></script>
+<!-- JQVMap -->
+<script src="plugins/jqvmap/jquery.vmap.min.js"></script>
+<script src="plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+<!-- jQuery Knob Chart -->
+<script src="plugins/jquery-knob/jquery.knob.min.js"></script>
+<!-- daterangepicker -->
+<script src="plugins/moment/moment.min.js"></script>
+<script src="plugins/daterangepicker/daterangepicker.js"></script>
+<!-- Tempusdominus Bootstrap 4 -->
+<script src="plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+<!-- Summernote -->
+<script src="plugins/summernote/summernote-bs4.min.js"></script>
+<!-- overlayScrollbars -->
+<script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<!-- AdminLTE App -->
+<script src="dist/js/adminlte.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="dist/js/demo.js"></script>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="dist/js/pages/dashboard.js"></script>
+<script>
+   $(document).ready(function () {
+ 
+ $('.select2').select2()
+  });
+</script>
+</body>
+</html>

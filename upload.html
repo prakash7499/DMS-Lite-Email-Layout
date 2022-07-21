@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Upload Files</title>
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="dist/css/tree.css">
+  <link rel="stylesheet" href="dist/css/themify-icons.css">
+  <link rel="stylesheet" href="dist/css/style.css">
+</head>
+<body class="hold-transition">
+<div class="wrapper">
+  <!-- Navbar -->
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+
+    <!-- Right navbar links -->
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item dropdown">
+            <a class="nav-link repo-update" data-toggle="dropdown" href="#" >
+                LFPROD <i class="fa fa-chevron-down"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+              <a href="#" class="dropdown-item">
+                 DemoRepo
+              </a>
+              <div class="dropdown-divider"></div>
+              <a href="#" class="dropdown-item">
+                  UatRepo
+               </a>
+            </div>
+          </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#">
+            <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image" style="max-width:30px">
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <a href="#" class="dropdown-item">
+             Logout
+          </a>
+          <div class="dropdown-divider"></div>
+         
+        </div>
+      </li>
+    </ul>
+  </nav>
+  <!-- /.navbar -->
+
+  <aside class="main-sidebar ">
+    <div class="sidemenu-logo"> <a class="main-logo" href="index.html">
+        <img src="dist/img/icon.png" alt="" class="brand-image"> </a>
+    </div>
+    <!-- Sidebar -->
+    <div class="sidebar sidebar-body">
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column">
+          <li class="nav-item ">
+            <a class="nav-link" href="index.html">
+              <i class="ti-home sidemenu-icon"></i>
+              <span class="sidemenu-label">Dashboard</span>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="explorer.html">
+              <i class="ti-folder sidemenu-icon"></i>
+              <span class="sidemenu-label">Explorer</span>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="search.html">
+              <i class="ti-search sidemenu-icon"></i>
+              <span class="sidemenu-label">Search DMS</span>
+            </a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="upload.html">
+              <i class="ti-upload sidemenu-icon"></i>
+              <span class="sidemenu-label">Upload Files</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="profile.html">
+              <i class="ti-user sidemenu-icon"></i>
+              <span class="sidemenu-label">User Profile</span>
+            </a>
+          </li>
+          <li class="nav-item with-sub">
+            <a class="nav-link" href="#">
+              <i class="ti-settings sidemenu-icon"></i>
+              <span class="sidemenu-label">Admin Tools</span>
+            </a>
+            <ul class="nav-sub">
+              <li class="nav-sub-item"> <a class="nav-sub-link" href="#">Settings</a> </li>
+              <li class="nav-sub-item"> <a class="nav-sub-link" href="#">Users</a> </li>
+              <li class="nav-sub-item"> <a class="nav-sub-link" href="#">Login Logs</a> </li>
+              <li class="nav-sub-item"> <a class="nav-sub-link" href="#">Logs</a> </li>
+            </ul>
+          </li>
+        </ul>
+        
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-5">
+
+            <!-- Profile Image -->
+            <div class="card card-primary">
+              <div class="card-body">
+                <div class="row">
+                  <form class="col-12">
+                  <div >
+                      <div class="upload-file">
+                          <div class="upload-wrapper" id=>
+                              <label>
+                                  <input type="file" name="files[]" id="files" multiple >
+                                  <p>Drop your files here. <br>or <a>Browse</a></p>
+                              </label>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-12">
+                      <div class="row">
+                          <div class="col-12">
+                              <h5 style="margin-top:20px">Uploaded Files</h5>
+                          </div>
+                      </div>
+                      <output id="image-gallery"></output>
+                  </div>
+                </form>
+              </div>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+          <div class="col-md-7">
+            <div class="card">
+              <div class="card-header">
+                <h5 class="M0">Select Template Mode</h5>
+              </div>
+              <div class="card-body">
+                <div class="form-group row pb-20">
+                  <select multiple class="form-control">
+                    <option>option 1</option>
+                    <option>option 2</option>
+                    <option>option 3</option>
+                    <option>option 4</option>
+                    <option>option 5</option>
+                  </select>
+                </div>
+                <div class="form-group row">
+                  <label for="inputName" class="col-sm-2 col-form-label">Template</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="inputName" placeholder="Name">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-12 text-right">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                  </div>
+                </div>
+              </div><!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  <footer class="main-footer">
+    <div class="float-right d-none d-sm-block">
+      <b>Version</b> 3.1.0-rc
+    </div>
+    <strong>Copyright &copy; 2014-2020 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+  </footer>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<script src="plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="dist/js/demo.js"></script>
+<script src="dist/js/upload.js"></script>
+<script>
+  var imgUpload = document.getElementById('files'), 
+  imgPreview = document.getElementById('img_preview'), 
+  imgUploadForm = document.getElementById('img-upload-form'), 
+  totalFiles, previewTitle, previewTitleText, img;
+imgUpload.addEventListener('change', previewImgs, false);
+imgUploadForm.addEventListener('submit', function (e) {
+  e.preventDefault();
+  alert('Images Uploaded! (not really, but it would if this was on your website)');
+}, false);
+
+function previewImgs(event) {
+  totalFiles = imgUpload.files.length;
+  
+  if(!!totalFiles) {
+    imgPreview.classList.remove('quote-imgs-thumbs--hidden');
+    previewTitle = document.createElement('p');
+    previewTitle.style.fontWeight = 'bold';
+    previewTitleText = document.createTextNode(totalFiles + ' Total Images Selected');
+    previewTitle.appendChild(previewTitleText);
+    imgPreview.appendChild(previewTitle);
+  }
+  
+  for(var i = 0; i < totalFiles; i++) {
+    img = document.createElement('img');
+    img.src = URL.createObjectURL(event.target.files[i]);
+    img.classList.add('img-preview-thumb');
+    imgPreview.appendChild(img);
+  }
+}
+</script>
+</body>
+</html>

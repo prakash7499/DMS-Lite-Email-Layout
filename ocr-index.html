@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OCR Dashboard</title>
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Tempusdominus Bootstrap 4 -->
+  <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+  <!-- iCheck -->
+  <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <!-- JQVMap -->
+  <link rel="stylesheet" href="plugins/jqvmap/jqvmap.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="dist/css/adminlte.min.css">
+  <!-- overlayScrollbars -->
+  <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+  <!-- Daterange picker -->
+  <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
+  <!-- summernote -->
+  <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css">
+  <link rel="stylesheet" href="plugins/select2/css/select2.min.css">
+  
+  <link rel="stylesheet" href="dist/css/tree.css">
+  <link rel="stylesheet" href="dist/css/themify-icons.css">
+  <link rel="stylesheet" href="theme/side-bar.css">
+  <link rel="stylesheet" href="theme/dfx.css">
+  <link href="dist/css/imageuploadify.min.css" rel="stylesheet">
+</head>
+<body class="hold-transition">
+<div class="wrapper">
+
+  <!-- Navbar -->
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+   <!-- Right navbar links -->
+    <ul class="navbar-nav ml-auto header-login">
+        <!-- <li class="nav-item dropdown">
+            <a class="nav-link repo-update" data-toggle="dropdown" href="#" >
+                LFPROD <i class="fa fa-chevron-down"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+              <a href="#" class="dropdown-item">
+                 DemoRepo
+              </a>
+              <div class="dropdown-divider"></div>
+              <a href="#" class="dropdown-item">
+                  UatRepo
+               </a>
+            </div>
+          </li> -->
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#">
+            <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image" style="max-width:30px">
+        </a>
+        <div class="dropdown-menu dropdown-menu-md dropdown-menu-right">
+          <a href="#" class="dropdown-item">
+             Logout
+          </a>         
+        </div>
+      </li>
+    </ul>
+  </nav>
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar ">
+    <div class="sidemenu-logo"> <a class="main-logo" href="index.html">
+        <img src="dist/img/icon.png" alt="" class="brand-image"> </a>
+    </div>
+    <!-- Sidebar -->
+    <div class="sidebar sidebar-body">
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column">
+          <li class="nav-item active">
+            <a class="nav-link" href="index.html">
+              <i class="ti-home sidemenu-icon"></i>
+              <span class="sidemenu-label">Dashboard</span>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="explorer.html">
+              <i class="ti-folder sidemenu-icon"></i>
+              <span class="sidemenu-label">Explorer</span>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="search.html">
+              <i class="ti-search sidemenu-icon"></i>
+              <span class="sidemenu-label">Search DMS</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="upload.html">
+              <i class="ti-upload sidemenu-icon"></i>
+              <span class="sidemenu-label">Upload Files</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="profile.html">
+              <i class="ti-user sidemenu-icon"></i>
+              <span class="sidemenu-label">User Profile</span>
+            </a>
+          </li>
+          <li class="nav-item with-sub">
+            <a class="nav-link" href="#">
+              <i class="ti-settings sidemenu-icon"></i>
+              <span class="sidemenu-label">Admin Tools</span>
+            </a>
+          </li>
+		      <li class="nav-item ">
+            <a class="nav-link" href="#">
+              <img src="dist/img/ocr.png" style="max-width: 35px;">
+              <span class="sidemenu-label">Enhanced OCR</span>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="search.html">
+              <i class="ti-search sidemenu-icon"></i>
+              <span class="sidemenu-label">Search DMS</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="upload.html">
+              <i class="ti-upload sidemenu-icon"></i>
+              <span class="sidemenu-label">Upload Files</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="profile.html">
+              <i class="ti-user sidemenu-icon"></i>
+              <span class="sidemenu-label">User Profile</span>
+            </a>
+          </li>
+        </ul>
+        
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper ocr">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row justify-content-center">
+          <div class="col-sm-10 bg-white p-3">
+            <div class="title-header">
+              <img src="dist/img/ocr-new.png" />
+              <h3>Enhanced OCR</h3>
+            </div>
+            <ul class="nav nav-pills header-nav">
+              <li class="nav-item"><a class="nav-link active" href="#account" data-toggle="tab"><i class="ti-user"></i>Account</a></li>
+              <li class="nav-item"><a class="nav-link " href="#ocr" data-toggle="tab"><i class="ti-camera"></i>OCR Layout</a></li>
+              <!-- <li class="nav-item"><a class="nav-link" href="#extract" data-toggle="tab"><i class="ti-layers"></i>Extract Data</a></li> -->
+            </ul>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+        <div class="row  justify-content-center">
+          <div class="col-md-10 bg-white">
+            <div class="tab-content card-body">
+              <div class="tab-pane active" id="account">
+                <ul class="nav float-right mb-2">
+                  <li class="nav-item">
+                    <a class="nav-link" href="#" onclick="openNav(350)"><i class="ti-plus pr-2"></i>Add New Account</a>
+                  </li>
+                </ul>
+                <table  class="table table-bordered table-hover" >
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Access Details</th>
+                      <th>ID</th>
+                      <th>Created date</th>
+                      <th>Created by</th>
+                      <th width="200" class="text-center">Action Items</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Presto</td>
+                      <td>Justin</td>
+                      <td>123123132</td>
+                      <td>Mydeen</td>
+                      <td>20/10/2021</td>
+                      <td ><a class="pr-3" href="#"><i class="ti-pencil pr-2"></i>Edit</a> <a class="pr-3" href="#"><i class="ti-trash pr-2"></i>Delete</a></td>
+                    </tr>
+                    <tr>
+                      <td>Martin</td>
+                      <td>Justin</td>
+                      <td>123123132</td>
+                      <td>Mydeen</td>
+                      <td>20/10/2021</td>
+                      <td ><a class="pr-3" href="#"><i class="ti-pencil pr-2"></i>Edit</a> <a class="pr-3" href="#"><i class="ti-trash pr-2"></i>Delete</a></td>
+                    </tr>
+                    <tr>
+                      <td>Julio</td>
+                      <td>Justin</td>
+                      <td>123123132</td>
+                      <td>Mydeen</td>
+                      <td>20/10/2021</td>
+                      <td ><a class="pr-3" href="#"><i class="ti-pencil pr-2"></i>Edit</a> <a class="pr-3" href="#"><i class="ti-trash pr-2"></i>Delete</a></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="tab-pane" id="ocr">
+                <ul class="nav float-right mb-2">
+                  <li class="nav-item">
+                    <a class="nav-link"  href="#ocrfiles" data-toggle="tab"><i class="ti-gallery pr-2"></i>OCR Gallery</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link"  href="#fileup1" data-toggle="tab"><i class="ti-plus pr-2"></i>Add New File</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#tag" data-toggle="tab"><i class="ti-tag pr-2"></i>Manage Tag</a>
+                  </li>
+                  <!-- <li class="nav-item">
+                    <a class="nav-link" href="#fields" data-toggle="tab"><i class="ti-layout-media-left-alt pr-2"></i>Add Fields</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#extracttest" data-toggle="tab"><i class="ti-layers pr-2"></i>Extract Test Data</a>
+                  </li> -->
+                </ul>
+                <div class="clearfix"></div>
+                <div class="tab-content">
+                  <div class="tab-pane active" id="ocrfiles">
+                    <div id="main" class="container2">
+                      <div id="gallery" class="row">
+                        <div class="col-sm-4 gallery-item">
+                          <a href="#fields" data-toggle="tab">
+                          <div class="album">
+                            <img src="http://lorempixel.com/400/400/sports/" alt="" />
+                            <img src="http://lorempixel.com/400/400/nature/" alt="" />
+                            <img src="http://lorempixel.com/400/400/animals/" alt="" />
+                          </div>
+                        </a>
+                          <p>Tax Form</p>
+                        </div>
+                        <div class="col-sm-4 gallery-item">
+                          <a href="#fields" data-toggle="tab">
+                          <div class="album">
+                            <img src="http://lorempixel.com/400/400/city/" alt="" />
+                            <img src="http://lorempixel.com/400/400/fashion/" alt="" />
+                            <img src="http://lorempixel.com/400/400/people/" alt="" />
+                          </div>
+                        </a>
+                          <p>Passport</p>
+                        </div>
+                        <div class="col-sm-4 gallery-item">
+                          <a href="#fields" data-toggle="tab">
+                          <div class="album">
+                            <img src="http://lorempixel.com/400/400/business/" alt="" />
+                            <img src="http://lorempixel.com/400/400/food/" alt="" />
+                            <img src="http://lorempixel.com/400/400/transport/" alt="" />
+                          </div>
+                        </a>
+                           <p>KYC</p>
+                        </div>
+                        
+                      </div>
+                    </div>
+                  </div>
+                  <div class="tab-pane" id="fileup1">
+                    <form>
+                      <input type="file" accept=".xlsx,.xls,image/*,.doc,audio/*,.docx,video/*,.ppt,.pptx,.txt,.pdf" multiple>
+                    </form>
+                  </div>
+                  <div class="tab-pane" id="tag">
+                    <div class="row justify-content-center">
+                      <div class="col-sm-7 pt-3">
+                        <form class="form-horizontal">
+                          <div class="form-group row">
+                            <label for="inputName" class="col-sm-5 col-form-label">Document Type</label>
+                            <div class="col-sm-7">
+                              <input type="text" class="form-control" id="inputName" placeholder="Name">
+                            </div>
+                          </div>
+                          <div class="form-group row">
+                            <label for="inputEmail" class="col-sm-5 col-form-label">Document Sub Type</label>
+                            <div class="col-sm-7">
+                              <input type="text" class="form-control" id="filepath" placeholder="File Path">
+                            </div>
+                          </div>
+                          <div class="form-group row">
+                            <div class="offset-sm-2 col-sm-10">
+                              <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="tab-pane" id="fields">
+                    <div class="row">
+                      <div class="col-sm-12">
+                          <ul class="ocrimages">
+                            <li> <img src="http://lorempixel.com/400/400/business/" alt="" />
+                              <span class="action">
+                                <a href="#" class="editbtn" onclick="openNav(350)" data-toggle="tooltip" data-placement="top" title="Add Tag"><i class="ti-tag"></i></a>
+                                <a href="#" class="editbtn" onclick="openNav(600)" data-toggle="tooltip" data-placement="top" title="Add Fields"><i class="ti-pencil"></i></a>
+                              </span>
+                            </li>
+                            <li><img src="http://lorempixel.com/400/400/sports/" alt="" />
+                              <span class="action">
+                                <a href="#" class="editbtn" onclick="openNav(350)" data-toggle="tooltip" data-placement="top" title="Add Tag"><i class="ti-tag"></i></a>
+                                <a href="#" class="editbtn" onclick="openNav(600)" data-toggle="tooltip" data-placement="top" title="Add Fields"><i class="ti-pencil"></i></a>
+                              </span></li>
+                            <li><img src="http://lorempixel.com/400/400/fashion/" alt="" />
+                              <span class="action">
+                                <a href="#" class="editbtn" onclick="openNav(350)" data-toggle="tooltip" data-placement="top" title="Add Tag"><i class="ti-tag"></i></a>
+                                <a href="#" class="editbtn" onclick="openNav(600)" data-toggle="tooltip" data-placement="top" title="Add Fields"><i class="ti-pencil"></i></a>
+                              </span></li>
+                            <li><img src="http://lorempixel.com/400/400/food/" alt="" />
+                              <span class="action">
+                                <a href="#" class="editbtn" onclick="openNav(350)" data-toggle="tooltip" data-placement="top" title="Add Tag"><i class="ti-tag"></i></a>
+                                <a href="#" class="editbtn" onclick="openNav(600)" data-toggle="tooltip" data-placement="top" title="Add Fields"><i class="ti-pencil"></i></a>
+                              </span></li>
+                            <li> <img src="http://lorempixel.com/400/400/transport/" alt="" />
+                              <span class="action">
+                                <a href="#" class="editbtn" onclick="openNav(350)" data-toggle="tooltip" data-placement="top" title="Add Tag"><i class="ti-tag"></i></a>
+                                <a href="#" class="editbtn" onclick="openNav(600)" data-toggle="tooltip" data-placement="top" title="Add Fields"><i class="ti-pencil"></i></a>
+                              </span></li>
+                            <li><img src="http://lorempixel.com/400/400/people/" alt="" />
+                              <span class="action">
+                                <a href="#" class="editbtn" onclick="openNav(350)" data-toggle="tooltip" data-placement="top" title="Add Tag"><i class="ti-tag"></i></a>
+                                <a href="#" class="editbtn" onclick="openNav(600)" data-toggle="tooltip" data-placement="top" title="Add Fields"><i class="ti-pencil"></i></a>
+                              </span></li>
+                            <li> <img src="http://lorempixel.com/400/400/city/" alt="" />
+                              <span class="action">
+                                <a href="#" class="editbtn" onclick="openNav(350)" data-toggle="tooltip" data-placement="top" title="Add Tag"><i class="ti-tag"></i></a>
+                                <a href="#" class="editbtn" onclick="openNav(600)" data-toggle="tooltip" data-placement="top" title="Add Fields"><i class="ti-pencil"></i></a>
+                              </span></li>
+                            <li><img src="http://lorempixel.com/400/400/nature/" alt="" />
+                              <span class="action">
+                                <a href="#" class="editbtn" onclick="openNav(350)" data-toggle="tooltip" data-placement="top" title="Add Tag"><i class="ti-tag"></i></a>
+                                <a href="#" class="editbtn" onclick="openNav(600)" data-toggle="tooltip" data-placement="top" title="Add Fields"><i class="ti-pencil"></i></a>
+                              </span>
+                            </li>
+                            <li><img src="http://lorempixel.com/400/400/animals/" alt="" />
+                              <span class="action">
+                                <a href="#" class="editbtn" onclick="openNav(350)" data-toggle="tooltip" data-placement="top" title="Add Tag"><i class="ti-tag"></i></a>
+                                <a href="#" class="editbtn" onclick="openNav(600)" data-toggle="tooltip" data-placement="top" title="Add Fields"><i class="ti-pencil"></i></a>
+                              </span></li>
+                          </ul>
+                      </div>
+                      
+                    </div>
+                    <!-- <div class="row">
+                      <div class="col-sm-7 pt-3">
+                        <form class="form-horizontal">
+                          <div class="form-group row">
+                            <label for="inputName" class="col-sm-5 col-form-label">Document Type</label>
+                            <div class="col-sm-7">
+                              <input type="text" class="form-control" id="inputName" placeholder="Name">
+                            </div>
+                          </div>
+                          <div class="form-group row">
+                            <label for="inputEmail" class="col-sm-5 col-form-label">Document Sub Type</label>
+                            <div class="col-sm-7">
+                              <input type="text" class="form-control" id="filepath" placeholder="File Path">
+                            </div>
+                          </div>
+                          <div class="form-group row">
+                            <div class="offset-sm-2 col-sm-10">
+                              <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+                    </div> -->
+                  </div>
+                  <div class="tab-pane" id="extracttest">
+
+                  </div>
+                </div>
+                <div class="clearfix"></div>
+                <div >
+                  
+                </div>
+              </div>
+              <div class="tab-pane active" id="extract">
+
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <div class="footerstrip">
+    <ul>
+      <li>
+        <a href="#">Forms</a>
+      </li>
+      <li>
+        <a href="#">Analytics</a>
+      </li>
+      <li>
+        <a href="#">My Tasks</a>
+      </li>
+    </ul>
+  </div>
+  <!-- /.content-wrapper -->
+  <footer class="main-footer">
+    <strong>Copyright &copy; 2014-2021 <a href="#">Datafabricx.com</a>.</strong>
+    All rights reserved.
+  </footer>
+
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn">&times;</a>
+    <div class="card card-primary card-outline card-outline-tabs no-shadow">
+      <div class="card-header p-0 border-bottom-0">
+        <h4 class="side-nav-header">Add Account</h4>
+        <a class="close_controlbar" onclick="closeNav()" data-widget="control-sidebar" data-slide="true" href="#"
+          role="button">
+          <i class="fas fa-times"></i>
+        </a>
+        <ul class="nav nav-tabs pt-4" id="custom-tabs" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" id="base_tab" data-toggle="pill" href="#rbase" role="tab" aria-controls="base"
+              aria-selected="true">Add Tag</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="metadata-tab" data-toggle="pill" href="#rmetadata" role="tab"
+              aria-controls="metadata" aria-selected="false">Add Fields</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="preview-tab" data-toggle="pill" href="#rpreview" role="tab"
+              aria-controls="preview" aria-selected="false">OCR'ed Data</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="links-tab" data-toggle="pill" href="#rlinks" role="tab" aria-controls="links"
+              aria-selected="false">Properties</a>
+          </li>
+        </ul>
+      </div>
+      <div class="card-body">
+        <div class="tab-content" id="result-tabContent">
+          <div class="tab-pane fade show active" id="rbase" role="tabpanel" aria-labelledby="base_tab">
+            <div class="addtag pt-3">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Document Type">
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Document Subtype">
+              </div>
+              <div class="text-center">
+                <button class="btn btn-primary btn-sm" data-tooltip="Add New"><i class="fa fa-save"></i> Save</button>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="rmetadata" role="tabpanel" aria-labelledby="metadata-tab">
+            <div class="addfields pt-3">
+              <table class="table table-bordered">
+                <tr>
+                  <th>Field Name</th>
+                  <th>Field Type</th>
+                  <th>Value Position</th>
+                  <th></th>
+                </tr>
+                <tr>
+                  <td><input type="text" class="form-control" style="width: 150px;" /></td>
+                  <td><input type="text" class="form-control" style="width: 100px;" /></td>
+                  <td><input type="text" class="form-control" style="width: 100px;" /></td>
+                  <td><a href="#" class="btn btn-primary"><i class="fa fa-plus"></i></a><a href="#" class="btn btn-danger"><i class="fa fa-times"></i></a></td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="rpreview" role="tabpanel" aria-labelledby="preview-tab">
+          
+          </div>
+          <div class="tab-pane fade" id="rlinks" role="tabpanel" aria-labelledby="links-tab">
+
+          </div>
+          <!-- <div class="sidefooter"><a class="btn btn-primary control-save">Save</a></div> -->
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="addaccount">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Enter Account Name">
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Select Login Id">
+          </div>
+          <div class="text-center">
+            <button class="btn btn-primary btn-sm" data-tooltip="Add New"> Submit</button>
+          </div>
+        </div>
+
+        
+
+        
+        
+      </div>
+    </div>
+    <!-- /.card -->
+  </div>
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<script src="plugins/jquery/jquery.min.js"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="plugins/jquery-ui/jquery-ui.min.js"></script>
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<script>
+   $.widget.bridge('uibutton', $.ui.button)
+  
+</script>
+<!-- Bootstrap 4 -->
+<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="plugins/select2/js/select2.full.min.js"></script>
+<!-- ChartJS -->
+<script src="plugins/chart.js/Chart.min.js"></script>
+<!-- Sparkline -->
+<script src="plugins/sparklines/sparkline.js"></script>
+<!-- JQVMap -->
+<script src="plugins/jqvmap/jquery.vmap.min.js"></script>
+<script src="plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+<!-- jQuery Knob Chart -->
+<script src="plugins/jquery-knob/jquery.knob.min.js"></script>
+<!-- daterangepicker -->
+<script src="plugins/moment/moment.min.js"></script>
+<script src="plugins/daterangepicker/daterangepicker.js"></script>
+<!-- Tempusdominus Bootstrap 4 -->
+<script src="plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+<!-- Summernote -->
+<script src="plugins/summernote/summernote-bs4.min.js"></script>
+<!-- overlayScrollbars -->
+<script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<!-- AdminLTE App -->
+<script src="dist/js/adminlte.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="dist/js/demo.js"></script>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="dist/js/pages/dashboard.js"></script>
+<script type="text/javascript" src="dist/js/imageuploadify.js"></script>
+<script>
+   $(document).ready(function () {
+ 
+ $('.select2').select2();
+ $('input[type="file"]').imageuploadify();
+ $("ul.nav a").click(function (e) {
+  e.preventDefault();
+  $(this).tab('show');
+});
+  
+  });
+  function openNav(e) {
+    document.getElementById("mySidenav").style.width =  e + "px";
+    document.getElementById("mySidenav").classList.add("opendiv");
+    document.getElementById("mySidenav").classList.remove("closediv");
+    document.body.style.backgroundColor = "white";
+  }
+
+  function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("mySidenav").classList.add("closediv");
+    document.getElementById("mySidenav").classList.remove("opendiv");
+    document.body.style.backgroundColor = "white";
+  }
+</script>
+</body>
+</html>
