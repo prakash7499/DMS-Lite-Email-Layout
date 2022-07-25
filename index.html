@@ -32,6 +32,7 @@
   <link rel="stylesheet" href="theme/side-bar.css">
   <link rel="stylesheet" href="theme/dfx.css">
   <link rel="stylesheet" href="build/CSS/stylesheet.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <style type="text/css">
     sidenav{ display: none;   bottom: 0;
     float: none;
@@ -275,7 +276,7 @@ sidenav .savedsearch ul li a:hover{color: #6264a7; background-color: #eee; font-
 
                     <div class="row">
 
-                      <div class="split col-sm-2" id="one">
+                      <div class="split col-sm-3" id="one">
 
                         <div class="card card-body left-panel_mail_1">
 
@@ -362,14 +363,14 @@ sidenav .savedsearch ul li a:hover{color: #6264a7; background-color: #eee; font-
                         </div>
                       </div>
 
-                      <div class="split col-sm-3" id="two">
+                      <div class="split col-sm-4" id="two">
                         <div class="card  left-panel_mail">
                           <div class="mail_list_topbar">
                             <div class="topbar_left">
                               
                                 <i class="ion-ios-checkmark-outline sidemenu-icon"></i>
                                 <span class="sidemenu-label">Inbox</span>
-                                <i class="ion-ios-star "></i>
+                                <i onclick="myFunction(this)" class="ion-ios-star-outline"></i>
                              
                             </div>
 
@@ -412,7 +413,9 @@ sidenav .savedsearch ul li a:hover{color: #6264a7; background-color: #eee; font-
                                     <div class="message_space">
                                       <div class="message_icon">
                                           <div class="select_icon">
-                                            <i class="ion-ios-checkmark-outline sidemenu-icon"></i>
+                                            <div class="res-circle">
+                                              <div class="circle-txt">PR</div>
+                                            </div>
                                           </div>
                                   </div>
                                   <div class="content_area">
@@ -458,7 +461,9 @@ sidenav .savedsearch ul li a:hover{color: #6264a7; background-color: #eee; font-
                                     <div class="message_space">
                                       <div class="message_icon">
                                           <div class="select_icon">
-                                            <i class="ion-ios-checkmark-outline sidemenu-icon"></i>
+                                            <div class="res-circle">
+                                              <div class="circle-txt">PR</div>
+                                            </div>
                                           </div>
                                   </div>
                                   <div class="content_area">
@@ -512,7 +517,9 @@ sidenav .savedsearch ul li a:hover{color: #6264a7; background-color: #eee; font-
                                   <div class="message_space">
                                     <div class="message_icon">
                                         <div class="select_icon">
-                                          <i class="ion-ios-checkmark-outline sidemenu-icon"></i>
+                                          <div class="res-circle">
+                                            <div class="circle-txt">PR</div>
+                                          </div>
                                         </div>
                                 </div>
                                 <div class="content_area">
@@ -562,7 +569,7 @@ sidenav .savedsearch ul li a:hover{color: #6264a7; background-color: #eee; font-
                  
                       </div> 
 
-      <div class="split col-sm-7" id="three">
+      <div class="split col-sm-5" id="three">
 
         <!-- New Mail Layout  -->
                       
@@ -610,12 +617,10 @@ sidenav .savedsearch ul li a:hover{color: #6264a7; background-color: #eee; font-
                             <div class="msg_footer">
                               <button type="button" class="btn btn-primary btn-sm" style="margin-left: 10px;" data-toggle="dropdown" data-offset="-52">
                                 <span class="">Send </span>
-                                <span title="#">|</span>
-                                <i class="ion-ios-arrow-down sidemenu-icon"></i>
                               </button>
 
                               <button type="button" class="btn repo-update btn-sm" data-toggle="dropdown" data-offset="-52">
-                                <span class="">Discard</span>
+                                <span class="Discard_btn">Discard</span>
 
                               </button>
 
@@ -646,7 +651,9 @@ sidenav .savedsearch ul li a:hover{color: #6264a7; background-color: #eee; font-
                       <div class="message_space">
                         <div class="message_icon">
                           <div class="select_icon_msg">
-                            <i class="ion-ios-checkmark-outline sidemenu-icon"></i>
+                            <div class="res-circle">
+                              <div class="circle-txt">PR</div>
+                            </div>
                           </div>
                   </div>
                   <div class="content_area">
@@ -663,26 +670,16 @@ sidenav .savedsearch ul li a:hover{color: #6264a7; background-color: #eee; font-
                             </div>
                           </div> 
                           <div class="sender_right">
-                            <button type="button" class="btn repo-update btn-sm" data-toggle="dropdown" data-offset="-52">
-                              <i class="ion-reply sidemenu-icon"></i>
-                              <span class="sidemenu-label">Replay</span>
-                            </button>
 
-                            <button type="button" class="btn repo-update btn-sm" data-toggle="dropdown" data-offset="-52">
-                              <i class="ion-reply-all sidemenu-icon"></i>
-                              <span class="sidemenu-label">Replay All</span>
+                            <!-- <i class="ion-thumbsup sidemenu-icon"></i> -->
 
-                            </button>
+                            <i class="ion-reply sidemenu-icon"></i>
+                            
+                            <i class="ion-reply-all sidemenu-icon"></i>
+                            
+                            <i class="ion-forward sidemenu-icon"></i>
 
-                            <button type="button" class="btn repo-update btn-sm" data-toggle="dropdown" data-offset="-52">
-                              <i class="ion-forward sidemenu-icon"></i>
-                              <span class="sidemenu-label">Forword</span>
-
-                            </button>
-
-                            <button type="button" class="btn repo-update btn-sm" data-toggle="dropdown" data-offset="-52">
-                              <i class="ion-more sidemenu-icon"></i>
-                            </button>
+                            <i class="ion-more sidemenu-icon"></i>
 
                             <div class="msg_time">
                               <span title="#">Wed 3/23/2022 1:30 PM</span><br>
@@ -711,9 +708,21 @@ sidenav .savedsearch ul li a:hover{color: #6264a7; background-color: #eee; font-
                         <hr>
 
                         <div class="msg_footer">
-                          <span title="#" style="color: #0078d4;">Replay</span>
-                          <span title="#">|</span>
-                          <span title="#" style="color: #0078d4;">Forword</span>
+
+                          <button type="button" class="btn repo-update btn-sm" data-toggle="dropdown" data-offset="-52">
+                            <i class="ion-reply sidemenu-icon"></i>
+                            <span class="">Replay</span>
+                          </button>
+
+                          <button type="button" class="btn repo-update btn-sm" data-toggle="dropdown" data-offset="-52">
+                            <i class="ion-reply-all sidemenu-icon"></i>
+                            <span class="">Replay All</span>
+                          </button>
+
+                          <button type="button" class="btn repo-update btn-sm" data-toggle="dropdown" data-offset="-52">
+                            <i class="ion-forward sidemenu-icon"></i>
+                            <span>Forward</span>
+                          </button>
                         </div>
                        
                         
@@ -1053,6 +1062,12 @@ sidenav .savedsearch ul li a:hover{color: #6264a7; background-color: #eee; font-
 		// $("#tab_open_mail").addClass('active')
 	}
 </script>
+
+<!-- <script>
+  function myFunction(x) {
+    x.classList.toggle("ion-ios-star");
+  }
+  </script> -->
 
 <!-- <script>
   function No_mail(){
